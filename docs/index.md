@@ -5,7 +5,7 @@ tags:
 - tag2
 ---
 <center>
-<font size= "6">Isaiah LaCombe Datasheet</font><br>
+<font size= "6">Isaiah LaCombe's Datasheet</font><br>
 as part of<br>
 <font size= "8"> (To Be Determined)</font><br>
 for<br>
