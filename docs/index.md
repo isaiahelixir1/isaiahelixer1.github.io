@@ -7,7 +7,7 @@ tags:
 <center>
 <font size= "6">Isaiah LaCombe Datasheet</font><br>
 as part of<br>
-<font size= "8"> To be determined</font><br>
+<font size= "8"> (To Be Determined)</font><br>
 for<br>
 <font size= "5"> Team 305 </font><br>
 
