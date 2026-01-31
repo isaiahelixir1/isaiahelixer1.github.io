@@ -440,6 +440,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -468,6 +470,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -476,9 +480,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#module-requirements" class="md-nav__link">
+  <a href="#environmental-sensor-board-requirements-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Module Requirements
+      Environmental Sensor Board – Requirements Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-design-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes on Design Constraints
     </span>
   </a>
   
@@ -757,6 +770,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -765,9 +780,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#module-requirements" class="md-nav__link">
+  <a href="#environmental-sensor-board-requirements-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Module Requirements
+      Environmental Sensor Board – Requirements Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-on-design-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes on Design Constraints
     </span>
   </a>
   
@@ -788,46 +812,116 @@
                   
 
 
-  <h1>Module's Requirements</h1>
-
-<h2 id="module-requirements">Module Requirements</h2>
-<p>The following sections document the requirements that the this module need to fulfills to .....</p>
+<h1 id="module-requirements">Module Requirements</h1>
+<p>This table defines the functional and design requirements for the Environmental Sensor Board. The purpose of this module is to collect atmospheric pressure, temperature, and humidity data as part of the rover’s scientific exploration objective. These requirements ensure the module can reliably gather sensor data, communicate with other rover subsystems over the UART network, and operate within the overall power and environmental constraints of the rover. Defining these requirements early helps guide component selection, schematic design, and firmware development before full system integration.</p>
+<hr>
+<h2 id="environmental-sensor-board-requirements-table">Environmental Sensor Board – Requirements Table</h2>
 <table>
 <thead>
 <tr>
-<th><strong>Requirement Description</strong></th>
-<th><strong>Measure of<br> Threshold</strong></th>
-<th><strong>Target<br>Measure</strong></th>
-<th style="text-align: center;"><strong>Stretch<br>Requirement<br>(Y-N)</strong></th>
+<th>Requirement Description</th>
+<th>Measure of Threshold (Minimum – Not Complete Failure)</th>
+<th>Target Measure</th>
+<th>Stretch Requirement (Y–N)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Surface mounted, 3.3V switching power regulatore</td>
-<td>3.2 Volts</td>
-<td>3.3 Volts</td>
-<td style="text-align: center;">No</td>
+<td>Module shall operate from rover power system</td>
+<td>Accepts regulated input voltage (3.0–3.6 V)</td>
+<td>Stable 3.3 V operation with onboard regulation</td>
+<td>No</td>
 </tr>
 <tr>
-<td>Surface mounted microcontroller</td>
-<td>1 PIC or ESP</td>
-<td>8-bit PIC</td>
-<td style="text-align: center;">No</td>
+<td>Surface-mounted 3.3 V voltage regulator</td>
+<td>Output ≥3.2 V under load</td>
+<td>Regulated 3.3 V output</td>
+<td>No</td>
 </tr>
 <tr>
-<td>Wireless Communication</td>
-<td>Able to send or receive a Wi-Fi data</td>
-<td>Send and receive Wi-Fi Data to MQTT</td>
-<td style="text-align: center;">Yes</td>
+<td>Surface-mounted microcontroller</td>
+<td>One MCU capable of UART and I2C</td>
+<td>ESP32 or similar MCU with multiple serial interfaces</td>
+<td>No</td>
 </tr>
 <tr>
-<td><em>Rest are items your modules needs to support the task you are covering for the team's device.</em></td>
-<td>---</td>
-<td>---</td>
-<td style="text-align: center;"><strong>NO</strong></td>
+<td>Microcontroller power consumption</td>
+<td>Operates within system limits</td>
+<td>Optimized low-power operation (&lt;150 mA typical)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall interface with pressure sensor</td>
+<td>Sensor provides readable pressure data</td>
+<td>Calibrated pressure readings (0–1100 hPa)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall interface with temperature sensor</td>
+<td>Temperature readings available</td>
+<td>±1 °C accuracy</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall interface with humidity sensor</td>
+<td>Humidity readings available</td>
+<td>±5% RH accuracy</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Sensors shall communicate digitally</td>
+<td>At least one serial sensor (I2C or SPI)</td>
+<td>All sensors on shared I2C bus</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall transmit sensor data over UART</td>
+<td>Responds to data request commands</td>
+<td>Periodic telemetry at ≥1 Hz</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall support UART daisy-chain networking</td>
+<td>Passes messages not addressed to it</td>
+<td>Fully compliant daisy-chain behavior</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall operate without motors</td>
+<td>No motor control required</td>
+<td>N/A</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall remain within current limits</td>
+<td>Total draw ≤2 A</td>
+<td>≤1.5 A during normal operation</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall function in lab conditions</td>
+<td>Operates indoors</td>
+<td>Operates at 0–40 °C, 20–80% RH</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Sensor calibration support</td>
+<td>Raw sensor data available</td>
+<td>Software calibration offsets applied</td>
+<td>Yes</td>
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="notes-on-design-constraints">Notes on Design Constraints</h2>
+<ul>
+<li><strong>Power:</strong> The module is powered from the rover’s regulated supply and includes an onboard 3.3 V regulator for the microcontroller and sensors.  </li>
+<li><strong>Microcontroller:</strong> A microcontroller with UART and I2C support is required to communicate with the rover network and onboard sensors.  </li>
+<li><strong>Sensors:</strong> Environmental sensors are digital and use a shared serial interface to minimize wiring and complexity.  </li>
+<li><strong>Motors:</strong> This module does not control motors and does not require motor drivers or high-current power stages.  </li>
+<li><strong>Networking:</strong> The module must safely forward UART messages while responding only to messages addressed to it.</li>
+</ul>
+<hr>
 
 
 
