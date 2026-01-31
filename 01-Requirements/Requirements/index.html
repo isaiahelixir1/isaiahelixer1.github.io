@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-requirements" class="md-skip">
+        <a href="#project-requirements-description" class="md-skip">
           Skip to content
         </a>
       
@@ -440,8 +440,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -470,14 +468,21 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-requirements-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Requirements Description
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#environmental-sensor-board-requirements-table" class="md-nav__link">
@@ -770,14 +775,21 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-requirements-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Requirements Description
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#environmental-sensor-board-requirements-table" class="md-nav__link">
@@ -812,9 +824,10 @@
                   
 
 
-<h1 id="module-requirements">Module Requirements</h1>
-<p>This table defines the functional and design requirements for the Environmental Sensor Board. The purpose of this module is to collect atmospheric pressure, temperature, and humidity data as part of the rover’s scientific exploration objective. These requirements ensure the module can reliably gather sensor data, communicate with other rover subsystems over the UART network, and operate within the overall power and environmental constraints of the rover. Defining these requirements early helps guide component selection, schematic design, and firmware development before full system integration.</p>
-<hr>
+  <h1>Module's Requirements</h1>
+
+<h2 id="project-requirements-description">Project Requirements Description</h2>
+<p>This table defines the functional and design requirements for the Environmental Sensor Board. The purpose of this module is to collect environmental and atmospheric data, including CO₂ concentration, temperature, humidity, pressure, and ambient light levels, to support the rover’s scientific exploration objective. These requirements ensure the module can reliably gather sensor data, communicate with other rover subsystems over the UART network, and operate within the rover’s power and environmental constraints. Defining these requirements early helps guide component selection, schematic design, and firmware development before system integration.</p>
 <h2 id="environmental-sensor-board-requirements-table">Environmental Sensor Board – Requirements Table</h2>
 <table>
 <thead>
@@ -851,27 +864,39 @@
 <td>No</td>
 </tr>
 <tr>
-<td>Module shall interface with pressure sensor</td>
-<td>Sensor provides readable pressure data</td>
+<td>Module shall measure atmospheric pressure</td>
+<td>Functional pressure readings available</td>
 <td>Calibrated pressure readings (0–1100 hPa)</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Module shall interface with temperature sensor</td>
+<td>Module shall measure ambient temperature</td>
 <td>Temperature readings available</td>
 <td>±1 °C accuracy</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Module shall interface with humidity sensor</td>
+<td>Module shall measure relative humidity</td>
 <td>Humidity readings available</td>
 <td>±5% RH accuracy</td>
 <td>No</td>
 </tr>
 <tr>
+<td>Module shall measure CO₂ concentration</td>
+<td>CO₂ sensor provides readable values</td>
+<td>Stable CO₂ readings within sensor operating range</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Module shall measure ambient light level</td>
+<td>Light sensor provides relative brightness data</td>
+<td>Calibrated lux or relative light measurements</td>
+<td>No</td>
+</tr>
+<tr>
 <td>Sensors shall communicate digitally</td>
-<td>At least one serial sensor (I2C or SPI)</td>
-<td>All sensors on shared I2C bus</td>
+<td>At least one serial sensor (I2C, SPI, or UART)</td>
+<td>All sensors on shared serial buses where possible</td>
 <td>No</td>
 </tr>
 <tr>
@@ -912,16 +937,14 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="notes-on-design-constraints">Notes on Design Constraints</h2>
 <ul>
-<li><strong>Power:</strong> The module is powered from the rover’s regulated supply and includes an onboard 3.3 V regulator for the microcontroller and sensors.  </li>
+<li><strong>Power:</strong> The module is powered from the rover’s regulated supply and includes an onboard 3.3 V regulator to support the microcontroller and sensors.  </li>
 <li><strong>Microcontroller:</strong> A microcontroller with UART and I2C support is required to communicate with the rover network and onboard sensors.  </li>
-<li><strong>Sensors:</strong> Environmental sensors are digital and use a shared serial interface to minimize wiring and complexity.  </li>
+<li><strong>Sensors:</strong> The board integrates CO₂, temperature, humidity, pressure, and light sensors using digital interfaces (I2C, SPI, or UART).  </li>
 <li><strong>Motors:</strong> This module does not control motors and does not require motor drivers or high-current power stages.  </li>
 <li><strong>Networking:</strong> The module must safely forward UART messages while responding only to messages addressed to it.</li>
 </ul>
-<hr>
 
 
 
