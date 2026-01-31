@@ -4,33 +4,39 @@ title: Module's Requirements
 
 ## Project Requirements Description
 
-This table defines the functional and design requirements for the Environmental Sensor Board. The purpose of this module is to collect environmental and atmospheric data, including CO₂ concentration, temperature, humidity, pressure, and ambient light levels, to support the rover’s scientific exploration objective. These requirements ensure the module can reliably gather sensor data, communicate with other rover subsystems over the UART network, and operate within the rover’s power and environmental constraints. Defining these requirements early helps guide component selection, schematic design, and firmware development before system integration.
+This requirements table defines the functional, electrical, and interface constraints for the Environmental Sensor Subsystem. This board is designed as a standalone, modular PCB responsible for collecting environmental data—including CO₂ concentration, temperature, humidity, atmospheric pressure, and ambient light—and transmitting that data to the rover’s daisy-chained UART communication network.
 
-## Environmental Sensor Board – Requirements Table
+The table captures minimum and target performance levels to ensure the subsystem meets both team-level design goals and course-mandated hardware constraints. These requirements guide component selection, schematic design, firmware development, and system verification prior to integration with other rover subsystems.
+
+## Environmental Sensor Subsystem – Requirements Table
 
 | Requirement Description | Measure of Threshold (Minimum – Not Complete Failure) | Target Measure | Stretch Requirement (Y–N) |
 |------------------------|-------------------------------------------------------|----------------|----------------------------|
-| Module shall operate from rover power system | Accepts regulated input voltage (3.0–3.6 V) | Stable 3.3 V operation with onboard regulation | No |
-| Surface-mounted 3.3 V voltage regulator | Output ≥3.2 V under load | Regulated 3.3 V output | No |
-| Surface-mounted microcontroller | One MCU capable of UART and I2C | ESP32 or similar MCU with multiple serial interfaces | No |
-| Microcontroller power consumption | Operates within system limits | Optimized low-power operation (<150 mA typical) | No |
-| Module shall measure atmospheric pressure | Functional pressure readings available | Calibrated pressure readings (0–1100 hPa) | No |
-| Module shall measure ambient temperature | Temperature readings available | ±1 °C accuracy | No |
-| Module shall measure relative humidity | Humidity readings available | ±5% RH accuracy | No |
-| Module shall measure CO₂ concentration | CO₂ sensor provides readable values | Stable CO₂ readings within sensor operating range | No |
-| Module shall measure ambient light level | Light sensor provides relative brightness data | Calibrated lux or relative light measurements | No |
-| Sensors shall communicate digitally | At least one serial sensor (I2C, SPI, or UART) | All sensors on shared serial buses where possible | No |
-| Module shall transmit sensor data over UART | Responds to data request commands | Periodic telemetry at ≥1 Hz | No |
-| Module shall support UART daisy-chain networking | Passes messages not addressed to it | Fully compliant daisy-chain behavior | No |
-| Module shall operate without motors | No motor control required | N/A | No |
-| Module shall remain within current limits | Total draw ≤2 A | ≤1.5 A during normal operation | No |
-| Module shall function in lab conditions | Operates indoors | Operates at 0–40 °C, 20–80% RH | No |
-| Sensor calibration support | Raw sensor data available | Software calibration offsets applied | Yes |
+| Subsystem shall be implemented as a standalone PCB | Single custom PCB with all required components | Modular PCB suitable for daisy-chain integration | No |
+| Board shall accept external 9 V power input | Barrel jack adapter accepts 9 V input | Reverse-polarity protected 9 V input | No |
+| Board shall include 3.3 V switching regulator | Regulated output ≥3.2 V | Stable 3.3 V output under full load | No |
+| Bus power jumper shall be provided | Jumper enables/disables bus power input | Clearly labeled jumper with safe isolation | No |
+| Barrel jack to bus power jumper shall be provided | Jumper connects/disconnects barrel jack to bus | Independent power source selection | No |
+| Board shall include a surface-mounted microcontroller | One MCU with UART and I2C support | ESP32 running MicroPython | No |
+| In-circuit programming support shall be provided | USB or ICSP programming interface present | USB connector for firmware upload and debugging | No |
+| Subsystem shall implement UART communication | Can send or receive basic UART messages | Fully compliant daisy-chain UART messaging | No |
+| Subsystem shall forward non-addressed UART messages | Messages pass through without corruption | Reliable message forwarding under load | No |
+| Subsystem shall measure atmospheric pressure | Pressure sensor provides readable values | Calibrated pressure readings (0–1100 hPa) | No |
+| Subsystem shall measure temperature | Temperature readings available | ±1 °C accuracy | No |
+| Subsystem shall measure relative humidity | Humidity readings available | ±5% RH accuracy | No |
+| Subsystem shall measure CO₂ concentration | CO₂ sensor outputs readable data | Stable CO₂ readings across operating range | No |
+| Subsystem shall measure ambient light level | Light sensor provides relative intensity data | Calibrated or normalized light measurements | No |
+| At least one sensor shall use serial communication | ≥1 sensor communicates via I2C or SPI | All sensors use digital serial interfaces | No |
+| Subsystem shall transmit sensor telemetry | Data available upon request | Periodic telemetry ≥1 Hz | No |
+| Subsystem shall not include actuation hardware | No motors or motor drivers present | N/A | No |
+| Subsystem current draw shall remain within limits | Total current ≤2 A | ≤1.5 A during normal operation | No |
+| Subsystem shall operate in indoor lab conditions | Functional at room temperature | Functional at 0–40 °C, 20–80% RH | No |
+| Sensor calibration support | Raw sensor data accessible | Software-based calibration offsets applied | Yes |
 
-## Notes on Design Constraints
+## Design Notes and Constraints
 
-- **Power:** The module is powered from the rover’s regulated supply and includes an onboard 3.3 V regulator to support the microcontroller and sensors.  
-- **Microcontroller:** A microcontroller with UART and I2C support is required to communicate with the rover network and onboard sensors.  
-- **Sensors:** The board integrates CO₂, temperature, humidity, pressure, and light sensors using digital interfaces (I2C, SPI, or UART).  
-- **Motors:** This module does not control motors and does not require motor drivers or high-current power stages.  
-- **Networking:** The module must safely forward UART messages while responding only to messages addressed to it.
+- **Power Architecture:** The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.
+- **Microcontroller:** An ESP32 running MicroPython is used to satisfy sensing, UART communication, and firmware flexibility requirements.
+- **Sensors:** The subsystem integrates CO₂, temperature, humidity, pressure, and light sensors using digital serial interfaces (I2C/SPI/UART).
+- **Communication:** UART daisy-chain compatibility ensures seamless integration with other team subsystems.
+- **Function Scope:** This board performs sensing only and does not replicate actuation, HMI, or wireless communication functionality.
