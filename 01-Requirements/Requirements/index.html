@@ -494,9 +494,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-design-notes-and-constraints" class="md-nav__link">
+  <a href="#other-useful-design-notes-and-constraints" class="md-nav__link">
     <span class="md-ellipsis">
-      Useful Design Notes and Constraints
+      Other Useful Design Notes and Constraints
     </span>
   </a>
   
@@ -801,9 +801,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#useful-design-notes-and-constraints" class="md-nav__link">
+  <a href="#other-useful-design-notes-and-constraints" class="md-nav__link">
     <span class="md-ellipsis">
-      Useful Design Notes and Constraints
+      Other Useful Design Notes and Constraints
     </span>
   </a>
   
@@ -827,8 +827,8 @@
   <h1>Module's Requirements</h1>
 
 <h2 id="project-requirements-description">Project Requirements Description</h2>
-<p>This requirements table defines the functional, electrical, and interface constraints for the Environmental Sensor Subsystem. This board is designed as a SMD, modular PCB responsible for collecting environmental data—including CO₂ concentration, temperature, humidity, atmospheric pressure, and ambient light—and transmitting that data to the rover’s daisy-chained UART communication network.</p>
-<p>The table below shows minimum and target performance levels to ensure the subsystem meets team-level design goals and course-mandated hardware constraints. These requirements help with component selection, schematic design, firmware development, and system verification prior to integrating this subsystem with other rover boards.</p>
+<p>The requirements table lists the functional, electrical, and interface constraints for the Environmental Sensor Subsystem of the interplanetary rover. This board is designed as a single, modular PCB responsible for collecting environmental data including gas concentration, temperature, humidity, atmospheric pressure, ambient light, and transmitting that data to the rover’s daisy-chained UART communication network.</p>
+<p>The table below shows minimum and target performance levels to ensure the subsystem meets the team level design goals and course hardware constraints. These requirements will help with component selection, schematic design, firmware development, and system verification before integrating this subsystem with other rover boards.</p>
 <h2 id="environmental-sensor-subsystem-requirements-table">Environmental Sensor Subsystem Requirements Table</h2>
 <table>
 <thead>
@@ -956,12 +956,12 @@
 </tr>
 </tbody>
 </table>
-<h2 id="useful-design-notes-and-constraints">Useful Design Notes and Constraints</h2>
+<h2 id="other-useful-design-notes-and-constraints">Other Useful Design Notes and Constraints</h2>
 <ul>
-<li><strong>Power Architecture:</strong> The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.</li>
-<li><strong>Power Budget:</strong> The environmental sensor subsystem is low-power by design, with total current draw expected to remain below 500 mA even during sensor warm-up and microcontroller peak usage.</li>
-<li><strong>Microcontroller:</strong> The subsystem supports either an ESP32 running MicroPython or a surface-mount PIC microcontroller, provided UART and I2C requirements are met.</li>
-<li><strong>Sensors:</strong> The subsystem integrates gas detection, temperature, humidity, pressure, and Light intensity. </li>
+<li>Power Build: The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.</li>
+<li>Power Budget: The environmental sensor subsystem is low-power by design, with total current draw expected to remain below 500 mA even during sensor warm-up and microcontroller peak usage.</li>
+<li>Microcontroller: The subsystem supports either an ESP32 running MicroPython or a surface-mount PIC microcontroller, provided UART and I2C requirements are met.</li>
+<li>Sensors: The subsystem integrates gas detection, temperature, humidity, pressure, and Light intensity. </li>
 </ul>
 
 
