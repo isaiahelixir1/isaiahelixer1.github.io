@@ -4,9 +4,9 @@ title: Module's Requirements
 
 ## Project Requirements Description
 
-This requirements table defines the functional, electrical, and interface constraints for the Environmental Sensor Subsystem. This board is designed as a SMD, modular PCB responsible for collecting environmental data—including CO₂ concentration, temperature, humidity, atmospheric pressure, and ambient light—and transmitting that data to the rover’s daisy-chained UART communication network.
+The requirements table lists the functional, electrical, and interface constraints for the Environmental Sensor Subsystem of the interplanetary rover. This board is designed as a single, modular PCB responsible for collecting environmental data including gas concentration, temperature, humidity, atmospheric pressure, ambient light, and transmitting that data to the rover’s daisy-chained UART communication network.
 
-The table below shows minimum and target performance levels to ensure the subsystem meets team-level design goals and course-mandated hardware constraints. These requirements help with component selection, schematic design, firmware development, and system verification prior to integrating this subsystem with other rover boards.
+The table below shows minimum and target performance levels to ensure the subsystem meets the team level design goals and course hardware constraints. These requirements will help with component selection, schematic design, firmware development, and system verification before integrating this subsystem with other rover boards.
 
 ## Environmental Sensor Subsystem Requirements Table
 
@@ -32,9 +32,9 @@ The table below shows minimum and target performance levels to ensure the subsys
 | Subsystem shall operate in indoor lab conditions | Functional at room temperature | Functional at 0–40 °C, 20–80% RH | No |
 | Sensor calibration support | Raw sensor data accessible | Software-based calibration offsets applied | Yes |
 
-## Useful Design Notes and Constraints
+## Other Useful Design Notes and Constraints
 
-- **Power Architecture:** The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.
-- **Power Budget:** The environmental sensor subsystem is low-power by design, with total current draw expected to remain below 500 mA even during sensor warm-up and microcontroller peak usage.
-- **Microcontroller:** The subsystem supports either an ESP32 running MicroPython or a surface-mount PIC microcontroller, provided UART and I2C requirements are met.
-- **Sensors:** The subsystem integrates gas detection, temperature, humidity, pressure, and Light intensity. 
+- Power Build: The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.
+- Power Budget: The environmental sensor subsystem is low-power by design, with total current draw expected to remain below 500 mA even during sensor warm-up and microcontroller peak usage.
+- Microcontroller: The subsystem supports either an ESP32 running MicroPython or a surface-mount PIC microcontroller, provided UART and I2C requirements are met.
+- Sensors: The subsystem integrates gas detection, temperature, humidity, pressure, and Light intensity. 
