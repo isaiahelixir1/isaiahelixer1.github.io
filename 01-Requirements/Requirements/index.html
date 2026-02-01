@@ -487,16 +487,16 @@
         <li class="md-nav__item">
   <a href="#environmental-sensor-subsystem-requirements-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Environmental Sensor Subsystem – Requirements Table
+      Environmental Sensor Subsystem Requirements Table
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-notes-and-constraints" class="md-nav__link">
+  <a href="#useful-design-notes-and-constraints" class="md-nav__link">
     <span class="md-ellipsis">
-      Design Notes and Constraints
+      Useful Design Notes and Constraints
     </span>
   </a>
   
@@ -794,16 +794,16 @@
         <li class="md-nav__item">
   <a href="#environmental-sensor-subsystem-requirements-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Environmental Sensor Subsystem – Requirements Table
+      Environmental Sensor Subsystem Requirements Table
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-notes-and-constraints" class="md-nav__link">
+  <a href="#useful-design-notes-and-constraints" class="md-nav__link">
     <span class="md-ellipsis">
-      Design Notes and Constraints
+      Useful Design Notes and Constraints
     </span>
   </a>
   
@@ -827,9 +827,9 @@
   <h1>Module's Requirements</h1>
 
 <h2 id="project-requirements-description">Project Requirements Description</h2>
-<p>This requirements table defines the functional, electrical, and interface constraints for the Environmental Sensor Subsystem. This board is designed as a standalone, modular PCB responsible for collecting environmental data—including CO₂ concentration, temperature, humidity, atmospheric pressure, and ambient light—and transmitting that data to the rover’s daisy-chained UART communication network.</p>
-<p>The table captures minimum and target performance levels to ensure the subsystem meets both team-level design goals and course-mandated hardware constraints. These requirements guide component selection, schematic design, firmware development, and system verification prior to integration with other rover subsystems.</p>
-<h2 id="environmental-sensor-subsystem-requirements-table">Environmental Sensor Subsystem – Requirements Table</h2>
+<p>This requirements table defines the functional, electrical, and interface constraints for the Environmental Sensor Subsystem. This board is designed as a SMD, modular PCB responsible for collecting environmental data—including CO₂ concentration, temperature, humidity, atmospheric pressure, and ambient light—and transmitting that data to the rover’s daisy-chained UART communication network.</p>
+<p>The table below shows minimum and target performance levels to ensure the subsystem meets team-level design goals and course-mandated hardware constraints. These requirements help with component selection, schematic design, firmware development, and system verification prior to integrating this subsystem with other rover boards.</p>
+<h2 id="environmental-sensor-subsystem-requirements-table">Environmental Sensor Subsystem Requirements Table</h2>
 <table>
 <thead>
 <tr>
@@ -854,8 +854,8 @@
 </tr>
 <tr>
 <td>Board shall include 3.3 V switching regulator</td>
-<td>Regulated output ≥3.2 V</td>
-<td>Stable 3.3 V output under full load</td>
+<td>Regulated output ≥3.2 V at ≥300 mA</td>
+<td>Stable 3.3 V output at ≥500 mA under full load</td>
 <td>No</td>
 </tr>
 <tr>
@@ -873,18 +873,18 @@
 <tr>
 <td>Board shall include a surface-mounted microcontroller</td>
 <td>One MCU with UART and I2C support</td>
-<td>ESP32 running MicroPython</td>
+<td>ESP32 (MicroPython) or SMD PIC with UART and I2C</td>
 <td>No</td>
 </tr>
 <tr>
 <td>In-circuit programming support shall be provided</td>
 <td>USB or ICSP programming interface present</td>
-<td>USB connector for firmware upload and debugging</td>
+<td>USB connector or ICSP header for debugging</td>
 <td>No</td>
 </tr>
 <tr>
 <td>Subsystem shall implement UART communication</td>
-<td>Can send or receive basic UART messages</td>
+<td>Can send or receive UART messages</td>
 <td>Fully compliant daisy-chain UART messaging</td>
 <td>No</td>
 </tr>
@@ -903,7 +903,7 @@
 <tr>
 <td>Subsystem shall measure temperature</td>
 <td>Temperature readings available</td>
-<td>±1 °C accuracy</td>
+<td>±2 °C accuracy</td>
 <td>No</td>
 </tr>
 <tr>
@@ -913,9 +913,9 @@
 <td>No</td>
 </tr>
 <tr>
-<td>Subsystem shall measure CO₂ concentration</td>
-<td>CO₂ sensor outputs readable data</td>
-<td>Stable CO₂ readings across operating range</td>
+<td>Subsystem shall measure gas concentration</td>
+<td>Gas sensor outputs readable data</td>
+<td>Stable gas readings across operating range</td>
 <td>No</td>
 </tr>
 <tr>
@@ -934,18 +934,12 @@
 <td>Subsystem shall transmit sensor telemetry</td>
 <td>Data available upon request</td>
 <td>Periodic telemetry ≥1 Hz</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Subsystem shall not include actuation hardware</td>
-<td>No motors or motor drivers present</td>
-<td>N/A</td>
-<td>No</td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>Subsystem current draw shall remain within limits</td>
-<td>Total current ≤2 A</td>
-<td>≤1.5 A during normal operation</td>
+<td>≤300 mA during normal operation</td>
+<td>≤500 mA including sensor warm-up and MCU peaks</td>
 <td>No</td>
 </tr>
 <tr>
@@ -962,13 +956,12 @@
 </tr>
 </tbody>
 </table>
-<h2 id="design-notes-and-constraints">Design Notes and Constraints</h2>
+<h2 id="useful-design-notes-and-constraints">Useful Design Notes and Constraints</h2>
 <ul>
 <li><strong>Power Architecture:</strong> The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.</li>
-<li><strong>Microcontroller:</strong> An ESP32 running MicroPython is used to satisfy sensing, UART communication, and firmware flexibility requirements.</li>
-<li><strong>Sensors:</strong> The subsystem integrates CO₂, temperature, humidity, pressure, and light sensors using digital serial interfaces (I2C/SPI/UART).</li>
-<li><strong>Communication:</strong> UART daisy-chain compatibility ensures seamless integration with other team subsystems.</li>
-<li><strong>Function Scope:</strong> This board performs sensing only and does not replicate actuation, HMI, or wireless communication functionality.</li>
+<li><strong>Power Budget:</strong> The environmental sensor subsystem is low-power by design, with total current draw expected to remain below 500 mA even during sensor warm-up and microcontroller peak usage.</li>
+<li><strong>Microcontroller:</strong> The subsystem supports either an ESP32 running MicroPython or a surface-mount PIC microcontroller, provided UART and I2C requirements are met.</li>
+<li><strong>Sensors:</strong> The subsystem integrates gas detection, temperature, humidity, pressure, and Light intensity. </li>
 </ul>
 
 
