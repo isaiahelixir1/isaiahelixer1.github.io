@@ -10,7 +10,7 @@ The table below shows minimum and target performance levels to ensure the subsys
 
 ## Environmental Sensor Subsystem Requirements Table
 
-| Requirement Description | Measure of Threshold (Minimum – Not Complete Failure) | Target Measure | Stretch Requirement (Y–N) |
+| Requirement Description | Measure of Threshold (Minimum) | Target Measure | Stretch Requirement (Y or N) |
 |------------------------|-------------------------------------------------------|----------------|----------------------------|
 | Subsystem shall be implemented as a standalone PCB | Single custom PCB with all required components | Modular PCB suitable for daisy-chain integration | No |
 | Board shall accept external 9 V power input | Barrel jack adapter accepts 9 V input | Reverse-polarity protected 9 V input | No |
