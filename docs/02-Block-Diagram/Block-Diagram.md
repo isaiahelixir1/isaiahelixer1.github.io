@@ -4,12 +4,14 @@ tags:
 - tag1
 - tag2
 ---
-## Individual Block Diagram — Environmental Sensor Subsystem
 
 ## Overview
 
 This block diagram documents the layout and connections of my individual environmental monitoring subsystem.  
 Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
+
+## Individual Block Diagram — Environmental Sensor Subsystem
+<img width="891" height="732" alt="Individual Sensor Subsystem Block Diagram drawio" src="https://github.com/user-attachments/assets/77a112df-3891-4215-adca-3da66b4130b2" />
 
 ## 1. Microcontroller Block
 
