@@ -53,7 +53,7 @@ Its purpose is to clearly show how power, sensors, actuators, and communication 
 ## 4. Power Supplies
 
 - **3.3 V DC (regulated)** → All sensors, PIC, LEDs, buttons  
-- **Max current**: [Insert your supply rating]  
+- **Max current**: 500mA
 
 **Dashed-line box in diagram:** Place around all 3.3 V devices.
 
