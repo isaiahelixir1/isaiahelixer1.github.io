@@ -1,14 +1,10 @@
 ---
-title: Module's Block Diagram
+title: Individual Block Diagram
 tags:
 - tag1
 - tag2
 ---
-# 314 Individual Block Diagram — Environmental Sensor Subsystem
-
-**Team Number:** 305
-**Team Members:** Christo Jomon Joseph, Ragul Raj RG, Damian Novgorodov, Liam Mabbutt, Myles White, Arianna Lazaritt, Isaiah Lacombe
-**Project Name:** Interplanetary Exploration Rover
+## Individual Block Diagram — Environmental Sensor Subsystem
 
 ## Overview
 
