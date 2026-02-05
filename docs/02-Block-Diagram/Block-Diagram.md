@@ -7,17 +7,17 @@ tags:
 
 ## Overview
 
-This block diagram documents the layout and connections of my individual environmental monitoring subsystem.  
-Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
+This block diagram documents the layout and connections of my individual environmental monitoring subsystem. Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
 
 ## Individual Block Diagram — Environmental Sensor Subsystem
-<img width="891" height="732" alt="Individual Sensor Subsystem Block Diagram drawio" src="https://github.com/user-attachments/assets/77a112df-3891-4215-adca-3da66b4130b2" />
+<img width="881" height="732" alt="Individual Sensor Subsystem Block Diagram drawio" src="https://github.com/user-attachments/assets/a2a798fb-fb8e-425b-aa31-ee043a23d639" />
+
 
 ## 1. Microcontroller Block
 
-**PIC18F57Q43 — 40-pin Nano**
+PIC18F57Q43 — 40-pin Nano
 
-### Sub-blocks / Peripherals
+## Sub-blocks / Peripherals
 
 | Peripheral | PIC Pin(s) | Function | Notes |
 |-----------|------------|---------|------|
@@ -39,7 +39,7 @@ Its purpose is to clearly show how power, sensors, actuators, and communication 
 | Light Intensity | Digital – Serial (I²C) | I²C | RC3, RC4 | Shared bus |
 | Barometric Pressure | Digital – Serial (I²C) | I²C | RC3, RC4 | Shared bus |
 
-## 3. 2×4 Connector (To Other Boards)
+## 3. 2×4 Connector Connections
 
 | Connector Pin | Signal | PIC Pin | Type |
 |--------------|--------|--------|------|
@@ -54,7 +54,7 @@ Its purpose is to clearly show how power, sensors, actuators, and communication 
 
 ## 4. Power Supplies
 
-- **3.3 V DC (regulated)** → All sensors, PIC, LEDs, buttons  
+- **3.3 V DC Switching Regulator → All sensors, PIC, LEDs, buttons  
 - **Max current**: 500mA
 
 **Dashed-line box in diagram:** Place around all 3.3 V devices.
