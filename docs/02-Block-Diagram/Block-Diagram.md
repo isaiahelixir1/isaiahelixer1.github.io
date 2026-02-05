@@ -15,7 +15,7 @@ This block diagram documents the layout and connections of my individual environ
 
 ## 1. Microcontroller Block
 
-PIC18F57Q43 — 40-pin Nano
+PIC18F57Q43 — 40-pin SMD
 
 ## Sub-blocks / Peripherals
 
@@ -56,8 +56,6 @@ PIC18F57Q43 — 40-pin Nano
 
 - **3.3 V DC Switching Regulator → All sensors, PIC, LEDs, buttons  
 - **Max current**: 500mA
-
-**Dashed-line box in diagram:** Place around all 3.3 V devices.
 
 ## 5. Connections / Arrow Labels (Diagram-Ready)
 
