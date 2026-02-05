@@ -54,8 +54,8 @@ PIC18F57Q43 — 40-pin SMD
 
 ## 4. Power Supplies
 
-- **3.3 V DC Switching Regulator → All sensors, PIC, LEDs, buttons  
-- **Max current**: 500mA
+- 3.3 V DC Switching Regulator → All sensors, PIC, LEDs, buttons  
+- Max current: 500mA
 
 ## 5. Connections / Arrow Labels (Diagram-Ready)
 
