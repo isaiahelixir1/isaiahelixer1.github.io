@@ -599,15 +599,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#6-notes-observations" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Notes / Observations
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -920,15 +911,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#6-notes-observations" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. Notes / Observations
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1074,33 +1056,33 @@ Its purpose is to clearly show how power, sensors, actuators, and communication 
 </tr>
 <tr>
 <td>2</td>
-<td>GND</td>
-<td>VSS</td>
-<td>Ground</td>
-</tr>
-<tr>
-<td>3</td>
 <td>SDA</td>
 <td>RC4</td>
 <td>Digital – Serial (I²C, 2 pins)</td>
 </tr>
 <tr>
-<td>4</td>
+<td>3</td>
 <td>SCL</td>
 <td>RC3</td>
 <td>Digital – Serial (I²C, 2 pins)</td>
 </tr>
 <tr>
+<td>4</td>
+<td>UART TX</td>
+<td>RC6</td>
+<td>Digital (1 pin)</td>
+</tr>
+<tr>
 <td>5</td>
-<td>Gas Digital Out</td>
-<td>RD1</td>
-<td>Digital – Parallel (1 pin)</td>
+<td>UART RX</td>
+<td>RC7</td>
+<td>Digital (1 pin)</td>
 </tr>
 <tr>
 <td>6</td>
-<td>Reserved / Optional</td>
-<td>—</td>
-<td>—</td>
+<td>Gas Digital Out</td>
+<td>RD1</td>
+<td>Digital – Parallel (1 pin)</td>
 </tr>
 <tr>
 <td>7</td>
@@ -1124,25 +1106,15 @@ Its purpose is to clearly show how power, sensors, actuators, and communication 
 <p><strong>Dashed-line box in diagram:</strong> Place around all 3.3 V devices.</p>
 <h2 id="5-connections-arrow-labels-diagram-ready">5. Connections / Arrow Labels (Diagram-Ready)</h2>
 <ul>
-<li><strong>Gas Sensor → RA0:</strong> <code>Analog (0–3.3 V, 1 pin)</code>  </li>
-<li><strong>RD1 → 2×4 Connector:</strong> <code>Digital – Parallel (1 pin)</code>  </li>
-<li><strong>Temp/Humidity → PIC ↔ 2×4 Connector:</strong> <code>Digital – Serial (I²C, 2 pins)</code>  </li>
-<li><strong>Light → PIC ↔ 2×4 Connector:</strong> <code>Digital – Serial (I²C, 2 pins)</code>  </li>
-<li><strong>Pressure → PIC ↔ 2×4 Connector:</strong> <code>Digital – Serial (I²C, 2 pins)</code>  </li>
-<li><strong>Debug Button → PIC:</strong> <code>Digital – Parallel (1 pin)</code>  </li>
-<li><strong>LEDs → PIC:</strong> <code>Digital – Parallel (1 pin each)</code>  </li>
-<li><strong>UART Debug Header → PIC:</strong> <code>Digital – Serial (UART, 2 pins)</code>  </li>
-<li><strong>ICSP → PIC:</strong> <code>Digital – Serial (ICSP, 2 pins)</code>  </li>
-</ul>
-<h2 id="6-notes-observations">6. Notes / Observations</h2>
-<ul>
-<li>All sensors are in separate blocks.  </li>
-<li>Gas sensor uses analog input; digital value sent to connector.  </li>
-<li>I²C bus is bidirectional; multiple sensors share RC3/RC4.  </li>
-<li>Power supply box includes all components at 3.3 V regulated.  </li>
-<li>Connector carries only <strong>digital sensor data and power</strong>, not analog lines.  </li>
-<li>All pins on PIC are accounted for and labeled in the diagram.  </li>
-<li>System ready for ICSP programming, UART debug, and future expansion.  </li>
+<li>Gas Sensor → RA0: <code>Analog (0–3.3 V, 1 pin)</code>  </li>
+<li>RD1 → 2×4 Connector: <code>Digital – Parallel (1 pin)</code>  </li>
+<li>Temp/Humidity → PIC ↔ 2×4 Connector: <code>Digital – Serial (I²C, 2 pins)</code>  </li>
+<li>Light → PIC ↔ 2×4 Connector: <code>Digital – Serial (I²C, 2 pins)</code>  </li>
+<li>Pressure → PIC ↔ 2×4 Connector: <code>Digital – Serial (I²C, 2 pins)</code>  </li>
+<li>Debug Button → PIC: <code>Digital – Parallel (1 pin)</code>  </li>
+<li>LEDs → PIC: <code>Digital – Parallel (1 pin each)</code>  </li>
+<li>UART Debug Header → PIC: <code>Digital – Serial (UART, 2 pins)</code>  </li>
+<li>ICSP → PIC: <code>Digital – Serial (ICSP, 2 pins)</code>   </li>
 </ul>
 <p><strong>Design Summary Sentence:</strong>  </p>
 <blockquote>
