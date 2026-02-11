@@ -12,7 +12,7 @@ This subsystem:
 - Sends processed data to teammate boards via a 2×4 ribbon connector
 - all sensors are surface mount components
 
-## Power Regualtor Selection
+# Power Regualtor Selection
 
 ## Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
 ![download](https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7)
@@ -45,7 +45,7 @@ Less heat generation | Higher cost
 Rationale:  
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.
 
-## Gas Sensor Selection
+# Gas Sensor Selection
 
 ## Candidate 1 – MQ-135 (Analog Output)
 <img width="400" height="400" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" />
@@ -79,7 +79,7 @@ Small footprint | —
 Rationale:  
 The CCS811 provides digital air quality readings over I2C, reducing analog noise concerns and simplifying calibration compared to MQ-135.
 
-## Temperature & Humidity Sensor Selection
+# Temperature & Humidity Sensor Selection
 
 ## Candidate 1 – DHT22
 <img width="300" height="300" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" />
@@ -113,7 +113,7 @@ Digital interface | —
 Rationale:  
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.
 
-## Light Sensor Selection
+# Light Sensor Selection
 
 ## Candidate 1 – Photoresistor (Analog LDR)
 <img width="400" height="400" alt="photoresistor_LDR" src="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5" />
@@ -146,7 +146,7 @@ Digital I2C | More configuration needed
 Rationale:  
 The BH1750 provides high-resolution digital light measurement with minimal configuration and simple I2C integration.
 
-## Barometric Pressure Sensor Selection
+# Barometric Pressure Sensor Selection
 
 ## Candidate 1 – BMP280
 ![2651-08](https://github.com/user-attachments/assets/9b6e29c7-acae-4145-bb5d-58ef8f4c57b5)
@@ -177,7 +177,7 @@ Digital I2C | —
 Rationale:  
 The BMP280 provides accurate pressure readings with low power consumption and simple I2C integration while avoiding redundancy with separate temperature and humidity sensors.
 
-## Final Component Summary
+# Final Component Summary
 
 Subsystem | Selected Component
 ---|---
