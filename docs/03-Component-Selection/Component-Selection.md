@@ -48,7 +48,7 @@ The system current requirements are within safe limits for a linear regulator. T
 # Gas Sensor Selection
 
 ## Candidate 1 – MQ-135 (Analog Output)
-<img width="400" height="400" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" />
+<img width="200" height="200" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" />
 
 Pros | Cons
 ---|---
@@ -82,7 +82,7 @@ The CCS811 provides digital air quality readings over I2C, reducing analog noise
 # Temperature & Humidity Sensor Selection
 
 ## Candidate 1 – DHT22
-<img width="300" height="300" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" />
+<img width="200" height="200" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" />
 
 Pros | Cons
 ---|---
@@ -100,7 +100,7 @@ Fully digital I2C | —
 Surface mount package | —
 
 ## Candidate 3 – HDC1080 (I2C)
-![548486709-a27b517d-85aa-46bb-8ada-8c3a912835a9](https://github.com/user-attachments/assets/75f6cfa1-e556-4663-bc7d-96a23112c5e0)
+![548487120-94a84b46-b59e-4205-80e0-a3e862f127a6 (1)](https://github.com/user-attachments/assets/9a7fe5a5-11b9-47f1-ad20-83e4287ed701)
 
 Pros | Cons
 ---|---
@@ -117,7 +117,6 @@ The SHT31 offers high accuracy, reliable I2C communication, and strong industry 
 
 ## Candidate 1 – Photoresistor (Analog LDR)
 <img width="400" height="400" alt="photoresistor_LDR" src="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5" />
-
 Pros | Cons
 ---|---
 Very inexpensive | Requires ADC channel
@@ -126,7 +125,6 @@ Easy to source | Affected by temperature
 
 ### Candidate 2 – BH1750 (I2C)
 ![2_186e8cbf-1dec-4006-a82f-b088a4377ca6](https://github.com/user-attachments/assets/94a84b46-b59e-4205-80e0-a3e862f127a6)
-
 Pros | Cons
 ---|---
 Digital output | Requires I2C bus
