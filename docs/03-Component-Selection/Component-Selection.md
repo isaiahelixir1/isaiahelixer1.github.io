@@ -12,7 +12,7 @@ This subsystem:
 - Sends processed data to teammate boards via a 2×4 ribbon connector
 - all sensors are surface mount components
 
-# Power Management
+## Power Regualtor Selection
 
 ## Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
 
@@ -42,7 +42,7 @@ Less heat generation | Higher cost
 Rationale:  
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.
 
-# Gas Sensor Selection
+## Gas Sensor Selection
 
 ## Candidate 1 – MQ-135 (Analog Output)
 
@@ -73,7 +73,7 @@ Small footprint | —
 Rationale:  
 The CCS811 provides digital air quality readings over I2C, reducing analog noise concerns and simplifying calibration compared to MQ-135.
 
-# Temperature & Humidity Sensor Selection
+## Temperature & Humidity Sensor Selection
 
 ## Candidate 1 – DHT22
 
@@ -114,7 +114,7 @@ Very inexpensive | Requires ADC channel
 Simple design | Lower accuracy
 Easy to source | Affected by temperature
 
-## Candidate 2 – BH1750 (I2C)
+### Candidate 2 – BH1750 (I2C)
 
 Pros | Cons
 ---|---
@@ -134,7 +134,7 @@ Digital I2C | More configuration needed
 Rationale:  
 The BH1750 provides high-resolution digital light measurement with minimal configuration and simple I2C integration.
 
-# Barometric Pressure Sensor Selection
+## Barometric Pressure Sensor Selection
 
 ## Candidate 1 – BMP280
 
@@ -163,7 +163,7 @@ Digital I2C | —
 Rationale:  
 The BMP280 provides accurate pressure readings with low power consumption and simple I2C integration while avoiding redundancy with separate temperature and humidity sensors.
 
-# Final Component Summary
+## Final Component Summary
 
 Subsystem | Selected Component
 ---|---
