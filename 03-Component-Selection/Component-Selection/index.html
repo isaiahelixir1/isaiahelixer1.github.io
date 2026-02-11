@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#power-management" class="md-skip">
+        <a href="#modules-selected-major-components" class="md-skip">
           Skip to content
         </a>
       
@@ -535,17 +535,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Module's Selected Major Components
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -555,49 +544,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#33v-linear-voltage-regulator" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3V Linear Voltage Regulator
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3V Linear Voltage Regulator">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rationale
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -779,38 +725,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#33v-linear-voltage-regulator" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3V Linear Voltage Regulator
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3V Linear Voltage Regulator">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rationale" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rationale
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -824,22 +738,19 @@
                   
 
 
-<p>The following sections describe the selected major components necessary for the Environmental Monitoring Subsystem.  </p>
+<h1 id="modules-selected-major-components">Module's Selected Major Components</h1>
+<p>Environmental Monitoring Subsystem  </p>
+<p>The following sections describe the selected major components necessary for the Environmental Monitoring Subsystem.</p>
 <p>This subsystem:</p>
 <ul>
 <li>Operates entirely at <strong>3.3V</strong></li>
-<li>Reads environmental sensors (gas, temperature, humidity, light, pressure)</li>
-<li>Processes data using a <strong>PIC18F57Q43</strong></li>
-<li>Transmits processed data to teammate boards via a <strong>2×4 ribbon connector</strong></li>
-<li>Includes debugging (UART), LEDs, and button input</li>
+<li>Measures gas concentration, temperature, humidity, light intensity, and barometric pressure</li>
+<li>Communicates sensor data digitally and/or analog to a microcontroller</li>
+<li>Sends processed data to teammate boards via a 2×4 ribbon connector</li>
+<li>Uses surface mount components per EGR 314 requirements</li>
 </ul>
-<p>All ICs are surface mount per EGR 314 requirements.</p>
 <h1 id="power-management">Power Management</h1>
-<h2 id="33v-linear-voltage-regulator">3.3V Linear Voltage Regulator</h2>
-<p><strong>MCP1700T-3302E/TT</strong><br>
-Manufacturer: Microchip<br>
-Approx. Cost: ~$0.75<br>
-<a href="https://www.digikey.com/">View on DigiKey</a></p>
+<h2 id="candidate-1-mcp1700t-3302ett-linear-regulator">Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)</h2>
 <table>
 <thead>
 <tr>
@@ -848,35 +759,21 @@ Approx. Cost: ~$0.75<br>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>Low cost</td>
+<td>Less efficient than switching</td>
+</tr>
 <tr>
 <td>Low dropout voltage</td>
-<td>Linear (less efficient than switching)</td>
+<td>Heat dissipation at higher input voltages</td>
 </tr>
 <tr>
-<td>250 mA output current</td>
-<td>Limited maximum current</td>
-</tr>
-<tr>
-<td>Very low quiescent current</td>
-<td>Heat dissipation if input voltage high</td>
-</tr>
-<tr>
-<td>Simple external components required</td>
-<td>—</td>
-</tr>
-<tr>
-<td>SOT-23 surface mount package</td>
-<td>—</td>
+<td>Simple design</td>
+<td>Limited current output (250 mA)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rationale">Rationale</h3>
-<p>The entire subsystem operates at 3.3V and requires approximately 200–230 mA worst case (including gas sensor heater and safety margin). The MCP1700 provides sufficient regulated current with low dropout voltage and minimal design complexity. A switching regulator is unnecessary for this current level.</p>
-<h1 id="microcontroller">Microcontroller</h1>
-<h2 id="pic18f57q43-tqfp-40">PIC18F57Q43 (TQFP-40)</h2>
-<p>Manufacturer: Microchip<br>
-Approx. Cost: ~$6–8<br>
-<a href="https://www.digikey.com/">View on DigiKey</a></p>
+<h2 id="candidate-2-tlv70033-linear-regulator">Candidate 2 – TLV70033 (Linear Regulator)</h2>
 <table>
 <thead>
 <tr>
@@ -886,49 +783,16 @@ Approx. Cost: ~$6–8<br>
 </thead>
 <tbody>
 <tr>
-<td>40 pins (ample GPIO)</td>
-<td>8-bit architecture</td>
+<td>Ultra-low quiescent current</td>
+<td>Slightly higher cost</td>
 </tr>
 <tr>
-<td>12-bit ADC (ideal for gas sensor)</td>
-<td>No built-in wireless</td>
-</tr>
-<tr>
-<td>Multiple I2C peripherals</td>
-<td>Less RAM than ESP32</td>
-</tr>
-<tr>
-<td>Multiple UART peripherals</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Fully supported in MPLabX Melody</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Surface mount TQFP package</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Compatible with course ecosystem</td>
-<td>—</td>
+<td>Stable 3.3V output</td>
+<td>Limited current (200 mA)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rationale_1">Rationale</h3>
-<p>The PIC18F57Q43 provides sufficient:</p>
-<ul>
-<li>ADC channels (gas sensor)</li>
-<li>I2C bus (environmental sensors)</li>
-<li>UART (debug header)</li>
-<li>GPIO (LEDs + button)</li>
-<li>ICSP programming interface</li>
-</ul>
-<p>It avoids the soldering difficulty and complexity of QFN-based ESP32 devices while fully meeting subsystem requirements.</p>
-<h1 id="sensor-gas-sensor">Sensor – Gas Sensor</h1>
-<h2 id="mq-135-analog-gas-sensor-smd-variant">MQ-135 (Analog Gas Sensor, SMD Variant)</h2>
-<p>Manufacturer: Hanwei<br>
-Approx. Cost: ~$5–10  </p>
+<h2 id="candidate-3-tps62162-switching-regulator">Candidate 3 – TPS62162 (Switching Regulator)</h2>
 <table>
 <thead>
 <tr>
@@ -938,29 +802,120 @@ Approx. Cost: ~$5–10  </p>
 </thead>
 <tbody>
 <tr>
-<td>Analog output (direct ADC interface)</td>
+<td>High efficiency</td>
+<td>More complex design</td>
+</tr>
+<tr>
+<td>Handles higher current</td>
+<td>Requires inductor + more components</td>
+</tr>
+<tr>
+<td>Less heat generation</td>
+<td>Higher cost</td>
+</tr>
+</tbody>
+</table>
+<h3 id="final-selection-mcp1700t-3302ett">Final Selection: MCP1700T-3302E/TT</h3>
+<p>Rationale:<br>
+The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.</p>
+<h1 id="gas-sensor-selection">Gas Sensor Selection</h1>
+<h2 id="candidate-1-mq-135-analog-output">Candidate 1 – MQ-135 (Analog Output)</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple analog interface</td>
 <td>Requires calibration</td>
 </tr>
 <tr>
-<td>Simple hardware interface</td>
+<td>Widely documented</td>
 <td>Heater consumes significant current</td>
 </tr>
 <tr>
-<td>Well-documented behavior</td>
-<td>Large footprint</td>
+<td>Low cost</td>
+<td>Lower precision</td>
+</tr>
+</tbody>
+</table>
+<h2 id="candidate-2-ccs811-digital-i2c-gas-sensor">Candidate 2 – CCS811 (Digital I2C Gas Sensor)</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digital I2C interface</td>
+<td>More expensive</td>
 </tr>
 <tr>
-<td>No complex initialization</td>
+<td>Lower power consumption</td>
+<td>Requires initialization</td>
+</tr>
+<tr>
+<td>Integrated air quality algorithm</td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rationale_2">Rationale</h3>
-<p>The MQ-135 provides an analog voltage proportional to gas concentration. This connects directly to the PIC's 12-bit ADC (RA0/AN0). This simplifies firmware compared to digital gas sensors requiring I2C configuration and calibration routines.</p>
-<h1 id="sensor-temperature-humidity">Sensor – Temperature &amp; Humidity</h1>
-<h2 id="sht31-i2c-digital-sensor">SHT31 (I2C Digital Sensor)</h2>
-<p>Manufacturer: Sensirion<br>
-Approx. Cost: ~$6  </p>
+<h2 id="candidate-3-bme680-gas-temp-humidity-pressure">Candidate 3 – BME680 (Gas + Temp + Humidity + Pressure)</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-sensor in one chip</td>
+<td>More complex firmware</td>
+</tr>
+<tr>
+<td>Digital I2C</td>
+<td>Higher cost</td>
+</tr>
+<tr>
+<td>Small footprint</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="final-selection-ccs811">Final Selection: CCS811</h3>
+<p>Rationale:<br>
+The CCS811 provides digital air quality readings over I2C, reducing analog noise concerns and simplifying calibration compared to MQ-135.</p>
+<h1 id="temperature-humidity-sensor-selection">Temperature &amp; Humidity Sensor Selection</h1>
+<h2 id="candidate-1-dht22">Candidate 1 – DHT22</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low cost</td>
+<td>Slower response</td>
+</tr>
+<tr>
+<td>Simple protocol</td>
+<td>Not fully surface mount friendly</td>
+</tr>
+<tr>
+<td>Moderate accuracy</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="candidate-2-sht31-i2c">Candidate 2 – SHT31 (I2C)</h2>
 <table>
 <thead>
 <tr>
@@ -971,28 +926,19 @@ Approx. Cost: ~$6  </p>
 <tbody>
 <tr>
 <td>High accuracy</td>
-<td>Higher cost than basic sensors</td>
+<td>Higher cost</td>
 </tr>
 <tr>
-<td>I2C interface (shared bus)</td>
-<td>Requires I2C library</td>
-</tr>
-<tr>
-<td>Fully surface mount</td>
+<td>Fully digital I2C</td>
 <td>—</td>
 </tr>
 <tr>
-<td>Industry standard</td>
+<td>Surface mount package</td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rationale_3">Rationale</h3>
-<p>The SHT31 communicates over I2C (RC3/RC4) and shares the bus with other digital sensors. It provides reliable environmental measurements with minimal GPIO usage (2 signal pins).</p>
-<h1 id="sensor-light-intensity">Sensor – Light Intensity</h1>
-<h2 id="bh1750-i2c-light-sensor">BH1750 (I2C Light Sensor)</h2>
-<p>Manufacturer: ROHM<br>
-Approx. Cost: ~$3  </p>
+<h2 id="candidate-3-hdc1080-i2c">Candidate 3 – HDC1080 (I2C)</h2>
 <table>
 <thead>
 <tr>
@@ -1002,29 +948,70 @@ Approx. Cost: ~$3  </p>
 </thead>
 <tbody>
 <tr>
-<td>Digital I2C output</td>
-<td>Requires library support</td>
+<td>Low power</td>
+<td>Slightly lower accuracy than SHT31</td>
+</tr>
+<tr>
+<td>Small footprint</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Digital interface</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="final-selection-sht31">Final Selection: SHT31</h3>
+<p>Rationale:<br>
+The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.</p>
+<h1 id="light-sensor-selection">Light Sensor Selection</h1>
+<h2 id="candidate-1-photoresistor-analog-ldr">Candidate 1 – Photoresistor (Analog LDR)</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Very inexpensive</td>
+<td>Requires ADC channel</td>
+</tr>
+<tr>
+<td>Simple design</td>
+<td>Lower accuracy</td>
+</tr>
+<tr>
+<td>Easy to source</td>
+<td>Affected by temperature</td>
+</tr>
+</tbody>
+</table>
+<h2 id="candidate-2-bh1750-i2c">Candidate 2 – BH1750 (I2C)</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digital output</td>
+<td>Requires I2C bus</td>
 </tr>
 <tr>
 <td>High resolution</td>
 <td>—</td>
 </tr>
 <tr>
-<td>Low current consumption</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Simple interface</td>
+<td>Low power</td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rationale_4">Rationale</h3>
-<p>The BH1750 eliminates the need for additional ADC channels and provides accurate digital light intensity readings via the shared I2C bus.</p>
-<h1 id="sensor-barometric-pressure">Sensor – Barometric Pressure</h1>
-<h2 id="bmp280-i2c-pressure-sensor">BMP280 (I2C Pressure Sensor)</h2>
-<p>Manufacturer: Bosch<br>
-Approx. Cost: ~$4  </p>
+<h2 id="candidate-3-tsl2561-i2c">Candidate 3 – TSL2561 (I2C)</h2>
 <table>
 <thead>
 <tr>
@@ -1034,26 +1021,84 @@ Approx. Cost: ~$4  </p>
 </thead>
 <tbody>
 <tr>
-<td>I2C digital interface</td>
-<td>Requires initialization sequence</td>
+<td>Wide dynamic range</td>
+<td>Slightly higher cost</td>
 </tr>
 <tr>
-<td>Small SMD package</td>
+<td>Digital I2C</td>
+<td>More configuration needed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="final-selection-bh1750">Final Selection: BH1750</h3>
+<p>Rationale:<br>
+The BH1750 provides high-resolution digital light measurement with minimal configuration and simple I2C integration.</p>
+<h1 id="barometric-pressure-sensor-selection">Barometric Pressure Sensor Selection</h1>
+<h2 id="candidate-1-bmp280">Candidate 1 – BMP280</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accurate readings</td>
+<td>Requires calibration constants</td>
+</tr>
+<tr>
+<td>Digital I2C</td>
 <td>—</td>
 </tr>
 <tr>
-<td>Low power consumption</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Widely supported</td>
+<td>Low power</td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
-<h3 id="rationale_5">Rationale</h3>
-<p>The BMP280 integrates easily into the shared I2C bus and provides stable barometric pressure measurements while minimizing required MCU pins.</p>
-<h1 id="summary-of-final-selected-components">Summary of Final Selected Components</h1>
+<h2 id="candidate-2-bme280-pressure-temp-humidity">Candidate 2 – BME280 (Pressure + Temp + Humidity)</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multi-function sensor</td>
+<td>Redundant if separate sensors used</td>
+</tr>
+<tr>
+<td>Compact</td>
+<td>Higher cost</td>
+</tr>
+</tbody>
+</table>
+<h2 id="candidate-3-mpl3115a2">Candidate 3 – MPL3115A2</h2>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integrated altitude calculation</td>
+<td>Slightly higher cost</td>
+</tr>
+<tr>
+<td>Digital I2C</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="final-selection-bmp280">Final Selection: BMP280</h3>
+<p>Rationale:<br>
+The BMP280 provides accurate pressure readings with low power consumption and simple I2C integration while avoiding redundancy with separate temperature and humidity sensors.</p>
+<h1 id="final-component-summary">Final Component Summary</h1>
 <table>
 <thead>
 <tr>
@@ -1067,34 +1112,30 @@ Approx. Cost: ~$4  </p>
 <td>MCP1700T-3302E/TT</td>
 </tr>
 <tr>
-<td>Microcontroller</td>
-<td>PIC18F57Q43 (TQFP-40)</td>
-</tr>
-<tr>
 <td>Gas Sensor</td>
-<td>MQ-135 (Analog)</td>
+<td>CCS811</td>
 </tr>
 <tr>
-<td>Temperature/Humidity</td>
-<td>SHT31 (I2C)</td>
+<td>Temperature &amp; Humidity</td>
+<td>SHT31</td>
 </tr>
 <tr>
 <td>Light Sensor</td>
-<td>BH1750 (I2C)</td>
+<td>BH1750</td>
 </tr>
 <tr>
 <td>Pressure Sensor</td>
-<td>BMP280 (I2C)</td>
+<td>BMP280</td>
 </tr>
 </tbody>
 </table>
 <p>All selected components:</p>
 <ul>
-<li>Operate at 3.3V</li>
-<li>Are surface mount compatible</li>
-<li>Have complete datasheets</li>
-<li>Are compatible with PIC18F57Q43 peripherals</li>
-<li>Meet EGR 314 subsystem requirements</li>
+<li>Operate at 3.3V  </li>
+<li>Support digital I2C or analog interfacing  </li>
+<li>Are surface mount compatible  </li>
+<li>Have complete datasheets  </li>
+<li>Meet EGR 314 subsystem design constraints  </li>
 </ul>
 
 
