@@ -106,7 +106,7 @@ Simple design | Lower accuracy
 Easy to source | Affected by temperature
 
 ### Candidate 2 – BH1750 (I2C)
-![548487120-94a84b46-b59e-4205-80e0-a3e862f127a6 (1)](https://github.com/user-attachments/assets/e6664568-a1e6-422a-99b8-1f41851bd723)
+![548495948-e6664568-a1e6-422a-99b8-1f41851bd723 (1)](https://github.com/user-attachments/assets/94923df4-6061-4d3f-a6aa-65b81bb968ec)
 Pros | Cons
 ---|---
 Digital output | Requires I2C bus
