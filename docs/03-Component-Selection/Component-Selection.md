@@ -100,7 +100,7 @@ Fully digital I2C | —
 Surface mount package | —
 
 ## Candidate 3 – HDC1080 (I2C)
-![61AqjlxBR7L](https://github.com/user-attachments/assets/a27b517d-85aa-46bb-8ada-8c3a912835a9)
+![548486709-a27b517d-85aa-46bb-8ada-8c3a912835a9](https://github.com/user-attachments/assets/75f6cfa1-e556-4663-bc7d-96a23112c5e0)
 
 Pros | Cons
 ---|---
