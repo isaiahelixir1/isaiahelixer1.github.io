@@ -20,8 +20,8 @@ The following major components require power.
 
 | Component | Operating Voltage | Absolute Max Current (mA) | Notes |
 |------------|------------------|----------------------------|-------|
-| PIC18F57Q43 | 3.3V | 50 mA | Worst-case active operation |
-| MQ-135 Gas Sensor (heater + analog circuit) | 3.3V | 200 mA | Heater is dominant load |
+| PIC18F57Q43 | 3.3V | 48 mA | Worst-case active operation |
+| MQ-135 Gas Sensor (heater + analog circuit) | 3.3V | 150 mA | Heater is dominant load |
 | SHT31 Temp/Humidity Sensor | 3.3V | 2 mA | During measurement |
 | BMP280 Pressure Sensor | 3.3V | 1 mA | Peak measurement |
 | BH1750 Light Sensor | 3.3V | 1 mA | Peak measurement |
@@ -31,28 +31,28 @@ The following major components require power.
 
 ### Total Maximum Current (No Margin)
 
-50 + 200 + 2 + 1 + 1 + 10 + 10 + 5 = **279 mA**
+48 + 150 + 2 + 1 + 1 + 10 + 10 + 5 = **227 mA**
 
-**Total Base Load = 279 mA**
+**Total Base Load = 227 mA**
 
 # Section B – Power Rail Assignment
 
 All components operate on a single **3.3V power rail**.
 
 ### Base Load  
-279 mA  
+227 mA  
 
 ### 25% Safety Margin  
 
-279 mA × 1.25 = **349 mA**
+227 mA × 1.25 = **284 mA**
 
 ### Required 3.3V Rail Capacity  
 
-**≥ 350 mA**
+**≥ 300 mA**
 
 # Section C – Voltage Regulator Selection
 
-Because the system requires approximately **350 mA worst-case**, a switching regulator is preferred over a linear regulator to minimize thermal dissipation when stepping down from 9V to 3.3V.
+Because the system requires approximately **284 mA worst-case**, a switching regulator is preferred over a linear regulator to minimize thermal dissipation when stepping down from 9V to 3.3V.
 
 ## Candidate 1 – LM2575-3.3G (Switching Regulator)
 
@@ -73,15 +73,15 @@ Because the system requires approximately **350 mA worst-case**, a switching reg
 
 | Pros | Cons |
 |------|------|
-| Simple implementation | Insufficient current capability |
+| Simple implementation | Insufficient current capability (after margin) |
 | Low cost | Significant heat dissipation at 9V input |
-| Small SOT-23 package | No safety margin for gas heater load |
+| Small SOT-23 package | No margin for heater load |
 
 ## Final Regulator Choice: **LM2575-3.3G**
 
 ### Rationale
 
-The MCP1700 cannot supply the required 350 mA with a 25% safety margin.  
+The MCP1700 cannot reliably supply the required 284 mA including safety margin.  
 
 The LM2575 provides up to 1A output current and significantly improved efficiency when stepping down from 9V to 3.3V. This minimizes thermal stress and ensures stable operation when the gas sensor heater and microcontroller are active simultaneously.
 
@@ -99,27 +99,27 @@ Rated Current: 3A
 
 Using required current including safety margin:
 
-P_out = 3.3V × 0.349A  
-P_out ≈ **1.15 W**
+P_out = 3.3V × 0.284A  
+P_out ≈ **0.94 W**
 
 Assuming 80% regulator efficiency:
 
-P_in = 1.15W / 0.80  
-P_in ≈ **1.44 W**
+P_in = 0.94W / 0.80  
+P_in ≈ **1.18 W**
 
 ### Input Current from 9V Supply
 
-I_in = 1.44W / 9V  
-I_in ≈ **0.16 A**
+I_in = 1.18W / 9V  
+I_in ≈ **0.13 A**
 
-Approximately **160 mA drawn from the 9V adapter (worst case)**
+Approximately **130 mA drawn from the 9V adapter (worst case)**
 
 ## External Supply Margin Check
 
 Adapter Rating: 3.0 A  
-Required Current: 0.16 A  
+Required Current: 0.13 A  
 
-Remaining Current = 3.0A − 0.16A = **2.84 A**
+Remaining Current = 3.0A − 0.13A = **2.87 A**
 
 ✔ External supply easily supports subsystem  
 ✔ No negative current margin  
@@ -137,7 +137,7 @@ Battery Life (hours) = Battery Capacity (mAh) / Total Current (mA)
 
 Example using a 500 mAh battery:
 
-500 mAh / 349 mA ≈ **1.43 hours**
+500 mAh / 284 mA ≈ **1.76 hours**
 
 This runtime would be insufficient for long-term deployment, further justifying the selection of a wall-powered supply.
 
@@ -145,6 +145,6 @@ This runtime would be insufficient for long-term deployment, further justifying 
 
 | Power Rail | Voltage | Required Current (with Margin) | Regulator |
 |------------|----------|--------------------------------|------------|
-| Rail 1 | 3.3V | 350 mA | LM2575-3.3G |
+| Rail 1 | 3.3V | 300 mA | LM2575-3.3G |
 
 The selected regulator and 9V power adapter provide sufficient current capacity, appropriate safety margin, and improved thermal performance for continuous operation of the Environmental Monitoring Subsystem.
