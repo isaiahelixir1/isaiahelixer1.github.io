@@ -895,13 +895,13 @@
 <tr>
 <td>PIC18F57Q43</td>
 <td>3.3V</td>
-<td>50 mA</td>
+<td>48 mA</td>
 <td>Worst-case active operation</td>
 </tr>
 <tr>
 <td>MQ-135 Gas Sensor (heater + analog circuit)</td>
 <td>3.3V</td>
-<td>200 mA</td>
+<td>150 mA</td>
 <td>Heater is dominant load</td>
 </tr>
 <tr>
@@ -943,18 +943,18 @@
 </tbody>
 </table>
 <h3 id="total-maximum-current-no-margin">Total Maximum Current (No Margin)</h3>
-<p>50 + 200 + 2 + 1 + 1 + 10 + 10 + 5 = <strong>279 mA</strong></p>
-<p><strong>Total Base Load = 279 mA</strong></p>
+<p>48 + 150 + 2 + 1 + 1 + 10 + 10 + 5 = <strong>227 mA</strong></p>
+<p><strong>Total Base Load = 227 mA</strong></p>
 <h1 id="section-b-power-rail-assignment">Section B – Power Rail Assignment</h1>
 <p>All components operate on a single <strong>3.3V power rail</strong>.</p>
 <h3 id="base-load">Base Load</h3>
-<p>279 mA  </p>
+<p>227 mA  </p>
 <h3 id="25-safety-margin">25% Safety Margin</h3>
-<p>279 mA × 1.25 = <strong>349 mA</strong></p>
+<p>227 mA × 1.25 = <strong>284 mA</strong></p>
 <h3 id="required-33v-rail-capacity">Required 3.3V Rail Capacity</h3>
-<p><strong>≥ 350 mA</strong></p>
+<p><strong>≥ 300 mA</strong></p>
 <h1 id="section-c-voltage-regulator-selection">Section C – Voltage Regulator Selection</h1>
-<p>Because the system requires approximately <strong>350 mA worst-case</strong>, a switching regulator is preferred over a linear regulator to minimize thermal dissipation when stepping down from 9V to 3.3V.</p>
+<p>Because the system requires approximately <strong>284 mA worst-case</strong>, a switching regulator is preferred over a linear regulator to minimize thermal dissipation when stepping down from 9V to 3.3V.</p>
 <h2 id="candidate-1-lm2575-33g-switching-regulator">Candidate 1 – LM2575-3.3G (Switching Regulator)</h2>
 <ul>
 <li>Output Voltage: 3.3V  </li>
@@ -1001,7 +1001,7 @@
 <tbody>
 <tr>
 <td>Simple implementation</td>
-<td>Insufficient current capability</td>
+<td>Insufficient current capability (after margin)</td>
 </tr>
 <tr>
 <td>Low cost</td>
@@ -1009,13 +1009,13 @@
 </tr>
 <tr>
 <td>Small SOT-23 package</td>
-<td>No safety margin for gas heater load</td>
+<td>No margin for heater load</td>
 </tr>
 </tbody>
 </table>
 <h2 id="final-regulator-choice-lm2575-33g">Final Regulator Choice: <strong>LM2575-3.3G</strong></h2>
 <h3 id="rationale">Rationale</h3>
-<p>The MCP1700 cannot supply the required 350 mA with a 25% safety margin.  </p>
+<p>The MCP1700 cannot reliably supply the required 284 mA including safety margin.  </p>
 <p>The LM2575 provides up to 1A output current and significantly improved efficiency when stepping down from 9V to 3.3V. This minimizes thermal stress and ensures stable operation when the gas sensor heater and microcontroller are active simultaneously.</p>
 <p><strong>Regulator Selected for 3.3V Rail:</strong><br>
 LM2575-3.3G Switching Regulator  </p>
@@ -1025,19 +1025,19 @@ LM2575-3.3G Switching Regulator  </p>
 Rated Current: 3A  </p>
 <h2 id="worst-case-output-power-33v-rail">Worst-Case Output Power (3.3V Rail)</h2>
 <p>Using required current including safety margin:</p>
-<p>P_out = 3.3V × 0.349A<br>
-P_out ≈ <strong>1.15 W</strong></p>
+<p>P_out = 3.3V × 0.284A<br>
+P_out ≈ <strong>0.94 W</strong></p>
 <p>Assuming 80% regulator efficiency:</p>
-<p>P_in = 1.15W / 0.80<br>
-P_in ≈ <strong>1.44 W</strong></p>
+<p>P_in = 0.94W / 0.80<br>
+P_in ≈ <strong>1.18 W</strong></p>
 <h3 id="input-current-from-9v-supply">Input Current from 9V Supply</h3>
-<p>I_in = 1.44W / 9V<br>
-I_in ≈ <strong>0.16 A</strong></p>
-<p>Approximately <strong>160 mA drawn from the 9V adapter (worst case)</strong></p>
+<p>I_in = 1.18W / 9V<br>
+I_in ≈ <strong>0.13 A</strong></p>
+<p>Approximately <strong>130 mA drawn from the 9V adapter (worst case)</strong></p>
 <h2 id="external-supply-margin-check">External Supply Margin Check</h2>
 <p>Adapter Rating: 3.0 A<br>
-Required Current: 0.16 A  </p>
-<p>Remaining Current = 3.0A − 0.16A = <strong>2.84 A</strong></p>
+Required Current: 0.13 A  </p>
+<p>Remaining Current = 3.0A − 0.13A = <strong>2.87 A</strong></p>
 <p>✔ External supply easily supports subsystem<br>
 ✔ No negative current margin<br>
 ✔ Substantial available headroom  </p>
@@ -1047,7 +1047,7 @@ Required Current: 0.16 A  </p>
 <p>If converted to battery operation in the future:</p>
 <p>Battery Life (hours) = Battery Capacity (mAh) / Total Current (mA)</p>
 <p>Example using a 500 mAh battery:</p>
-<p>500 mAh / 349 mA ≈ <strong>1.43 hours</strong></p>
+<p>500 mAh / 284 mA ≈ <strong>1.76 hours</strong></p>
 <p>This runtime would be insufficient for long-term deployment, further justifying the selection of a wall-powered supply.</p>
 <h1 id="final-power-system-summary">Final Power System Summary</h1>
 <table>
@@ -1063,7 +1063,7 @@ Required Current: 0.16 A  </p>
 <tr>
 <td>Rail 1</td>
 <td>3.3V</td>
-<td>350 mA</td>
+<td>300 mA</td>
 <td>LM2575-3.3G</td>
 </tr>
 </tbody>
