@@ -82,7 +82,7 @@ The CCS811 provides digital air quality readings over I2C, reducing analog noise
 ## Temperature & Humidity Sensor Selection
 
 ## Candidate 1 – DHT22
-<img width="400" height="400" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" />
+<img width="300" height="300" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" />
 
 Pros | Cons
 ---|---
@@ -91,7 +91,7 @@ Simple protocol | Not fully surface mount friendly
 Moderate accuracy | —
 
 ## Candidate 2 – SHT31 (I2C)
-![71Ds+czShEL _AC_UF894,1000_QL80_](https://github.com/user-attachments/assets/2597f4d5-8404-418e-aded-760a9662ff9a)
+![Adobe Express - file](https://github.com/user-attachments/assets/bf8cc1a2-3039-4998-a6d6-2fb6b2eacad9)
 
 Pros | Cons
 ---|---
