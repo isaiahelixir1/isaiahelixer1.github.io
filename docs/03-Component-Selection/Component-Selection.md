@@ -49,7 +49,7 @@ Widely documented | Heater consumes significant current
 Low cost | Lower precision
 
 ### Candidate 2 – CCS811 (Digital I2C Gas Sensor)
-<img width="400" height="400" alt="F5XGEDTKZMPKIDT" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" />
+<img width="250" height="250" alt="F5XGEDTKZMPKIDT" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" />
 Pros | Cons
 ---|---
 Digital I2C interface | More expensive
