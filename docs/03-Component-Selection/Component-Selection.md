@@ -144,7 +144,8 @@ The BH1750 provides high-resolution digital light measurement with minimal confi
 
 ## Barometric Pressure Sensor Selection
 ### Candidate 1 – BMP280
-![548487492-9b6e29c7-acae-4145-bb5d-58ef8f4c57b5 (1)](https://github.com/user-attachments/assets/29767e5d-8bb1-4197-b3e1-86f202d03071)
+![548496325-29767e5d-8bb1-4197-b3e1-86f202d03071 (1)](https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7)
+
 
 Pros | Cons
 ---|---
@@ -153,7 +154,8 @@ Digital I2C | —
 Low power | —
 
 ### Candidate 2 – BME280 (Pressure + Temp + Humidity)
-![548487643-a6932ac0-656c-4a9c-b295-7415b0acf7d7 (1)](https://github.com/user-attachments/assets/0c4cdcb8-7e6e-4400-a57e-ff8b6ffa987b)
+![548496521-0c4cdcb8-7e6e-4400-a57e-ff8b6ffa987b (1)](https://github.com/user-attachments/assets/e9ed2578-b234-4399-85b2-7d49d1ad8315)
+
 
 Pros | Cons
 ---|---
@@ -161,7 +163,7 @@ Multi-function sensor | Redundant if separate sensors used
 Compact | Higher cost
 
 ### Candidate 3 – MPL3115A2
-![548487643-a6932ac0-656c-4a9c-b295-7415b0acf7d7](https://github.com/user-attachments/assets/9d8ed861-8663-4720-923e-d3a464860362)
+![548496680-9d8ed861-8663-4720-923e-d3a464860362 (1)](https://github.com/user-attachments/assets/dfaf4959-44bd-422b-b299-6751e32c1af4)
 
 Pros | Cons
 ---|---
