@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#modules-selected-major-components" class="md-skip">
+        <a href="#power-management" class="md-skip">
           Skip to content
         </a>
       
@@ -535,6 +535,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Module's Selected Major Components
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -544,6 +555,67 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-1-mcp1700t-3302ett-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-2-tlv70033-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 2 – TLV70033 (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-3-lm2575t-33g-switching-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 3 – LM2575T-3.3G (Switching Regulator)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Candidate 3 – LM2575T-3.3G (Switching Regulator)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#final-selection-lm2575t-33g" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Selection: LM2575T-3.3G
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -725,6 +797,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-1-mcp1700t-3302ett-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-2-tlv70033-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 2 – TLV70033 (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-3-lm2575t-33g-switching-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 3 – LM2575T-3.3G (Switching Regulator)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Candidate 3 – LM2575T-3.3G (Switching Regulator)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#final-selection-lm2575t-33g" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Selection: LM2575T-3.3G
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -738,16 +860,14 @@
                   
 
 
-<h1 id="modules-selected-major-components">Module's Selected Major Components</h1>
-<p>Environmental Monitoring Subsystem  </p>
-<p>The following sections describe the selected major components necessary for the Environmental Monitoring Subsystem.</p>
+<p>The following sections describe the selected major components needed for the Environmental Monitoring Subsystem.</p>
 <p>This subsystem:</p>
 <ul>
-<li>Operates entirely at <strong>3.3V</strong></li>
+<li>Operates entirely at 3.3V with a 9V source</li>
 <li>Measures gas concentration, temperature, humidity, light intensity, and barometric pressure</li>
-<li>Communicates sensor data digitally and/or analog to a microcontroller</li>
+<li>Communicates sensor data digitally and analog to a microcontroller</li>
 <li>Sends processed data to teammate boards via a 2×4 ribbon connector</li>
-<li>Uses surface mount components per EGR 314 requirements</li>
+<li>all sensors are surface mount components</li>
 </ul>
 <h1 id="power-management">Power Management</h1>
 <h2 id="candidate-1-mcp1700t-3302ett-linear-regulator">Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)</h2>
@@ -792,7 +912,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="candidate-3-tps62162-switching-regulator">Candidate 3 – TPS62162 (Switching Regulator)</h2>
+<h2 id="candidate-3-lm2575t-33g-switching-regulator">Candidate 3 – LM2575T-3.3G (Switching Regulator)</h2>
 <table>
 <thead>
 <tr>
@@ -815,7 +935,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="final-selection-mcp1700t-3302ett">Final Selection: MCP1700T-3302E/TT</h3>
+<h3 id="final-selection-lm2575t-33g">Final Selection: LM2575T-3.3G</h3>
 <p>Rationale:<br>
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.</p>
 <h1 id="gas-sensor-selection">Gas Sensor Selection</h1>
@@ -1135,7 +1255,7 @@ The BMP280 provides accurate pressure readings with low power consumption and si
 <li>Support digital I2C or analog interfacing  </li>
 <li>Are surface mount compatible  </li>
 <li>Have complete datasheets  </li>
-<li>Meet EGR 314 subsystem design constraints  </li>
+<li>Meets subsystem design constraints  </li>
 </ul>
 
 
