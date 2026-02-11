@@ -121,9 +121,9 @@ Required Current: 0.13 A
 
 Remaining Current = 3.0A − 0.13A = 2.87 A
 
-✔ External supply easily supports subsystem  
-✔ No negative current margin  
-✔ Substantial available headroom  
+- External supply easily supports subsystem  
+- No negative current margin  
+- Substantial available headroom  
 
 # Section E – Battery Life Calculation
 
