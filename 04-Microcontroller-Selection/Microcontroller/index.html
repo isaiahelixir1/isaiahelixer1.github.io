@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#candidate-1-pic18f57q43-tqfp-40" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -660,6 +665,17 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Microcontroller
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -669,6 +685,65 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-1-pic18f57q43-tqfp-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 1 – PIC18F57Q43 (TQFP-40)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-2-pic18f47q10-tqfp-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 2 – PIC18F47Q10 (TQFP-40)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-3-esp32-qfn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 3 – ESP32 (QFN)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Candidate 3 – ESP32 (QFN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#final-selection-pic18f57q43" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Selection: PIC18F57Q43
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -848,6 +923,56 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-1-pic18f57q43-tqfp-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 1 – PIC18F57Q43 (TQFP-40)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-2-pic18f47q10-tqfp-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 2 – PIC18F47Q10 (TQFP-40)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-3-esp32-qfn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 3 – ESP32 (QFN)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Candidate 3 – ESP32 (QFN)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#final-selection-pic18f57q43" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Selection: PIC18F57Q43
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -863,7 +988,125 @@
 
   <h1>Microcontroller</h1>
 
-
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e922ac1f-d988-47cc-b132-0afd6797e388" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/e922ac1f-d988-47cc-b132-0afd6797e388"></a>---
+title: Microcontroller Selection</p>
+<hr>
+<p>The microcontroller is responsible for:</p>
+<ul>
+<li>Reading analog gas sensor data (ADC)</li>
+<li>Communicating with digital sensors via I2C</li>
+<li>Providing UART debugging interface</li>
+<li>Driving LEDs and reading button input</li>
+<li>Communicating with teammate boards via ribbon connector</li>
+<li>Supporting ICSP programming</li>
+</ul>
+<h2 id="candidate-1-pic18f57q43-tqfp-40">Candidate 1 – PIC18F57Q43 (TQFP-40)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/ff216aa2-51d3-48a9-b728-ff7e14b96ebc" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/ff216aa2-51d3-48a9-b728-ff7e14b96ebc"></a></p>
+<p>Manufacturer: Microchip  </p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12-bit ADC (ideal for analog gas sensor)</td>
+<td>8-bit architecture</td>
+</tr>
+<tr>
+<td>Multiple I2C peripherals</td>
+<td>Less RAM than 32-bit MCUs</td>
+</tr>
+<tr>
+<td>Multiple UART modules</td>
+<td>No built-in wireless</td>
+</tr>
+<tr>
+<td>Large pin count (40 pins)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Supported in MPLAB X / Melody</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Surface mount TQFP (easier than QFN)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="candidate-2-pic18f47q10-tqfp-40">Candidate 2 – PIC18F47Q10 (TQFP-40)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/eed4b9db-ea31-4c3f-baa7-20b90c00e366" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/eed4b9db-ea31-4c3f-baa7-20b90c00e366"></a></p>
+<p>Manufacturer: Microchip  </p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lower cost than Q43 series</td>
+<td>Slightly fewer advanced peripherals</td>
+</tr>
+<tr>
+<td>Multiple ADC channels</td>
+<td>Lower ADC resolution (10-bit)</td>
+</tr>
+<tr>
+<td>Familiar architecture</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Surface mount package</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h2 id="candidate-3-esp32-qfn">Candidate 3 – ESP32 (QFN)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/04d342bf-6bf9-438c-9624-765d890087fb" data-desc-position="bottom"><img alt="ESP32-S2_t" src="https://github.com/user-attachments/assets/04d342bf-6bf9-438c-9624-765d890087fb"></a></p>
+<p>Manufacturer: Espressif  </p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>32-bit processor</td>
+<td>QFN package difficult to solder</td>
+</tr>
+<tr>
+<td>Built-in WiFi/BLE</td>
+<td>Overkill for subsystem</td>
+</tr>
+<tr>
+<td>High RAM</td>
+<td>Higher power consumption</td>
+</tr>
+<tr>
+<td>Multiple peripherals</td>
+<td>More complex firmware</td>
+</tr>
+</tbody>
+</table>
+<h3 id="final-selection-pic18f57q43">Final Selection: PIC18F57Q43</h3>
+<p>Rationale:</p>
+<p>The PIC18F57Q43 provides:</p>
+<ul>
+<li>12-bit ADC resolution for accurate gas sensing</li>
+<li>Multiple I2C modules for digital sensors</li>
+<li>UART for debugging</li>
+<li>Sufficient GPIO for LEDs and button</li>
+<li>ICSP support for in-circuit programming</li>
+<li>Surface-mount TQFP package that is practical for PCB assembly</li>
+</ul>
+<p>It meets all subsystem requirements without adding unnecessary complexity or wireless overhead.</p>
 
 
 
