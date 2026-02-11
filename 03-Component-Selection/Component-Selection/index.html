@@ -1323,30 +1323,79 @@
 </ul>
 <h2 id="power-regualtor-selection">Power Regualtor Selection</h2>
 <h2 id="candidate-1-mcp1700t-3302ett-linear-regulator">Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7"></a>
-Pros | Cons
----|---
-Low cost | Less efficient than switching
-Low dropout voltage | Heat dissipation at higher input voltages
-Simple design | Limited current output (250 mA)</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7"></a></p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low cost</td>
+<td>Less efficient than switching</td>
+</tr>
+<tr>
+<td>Low dropout voltage</td>
+<td>Heat dissipation at higher input voltages</td>
+</tr>
+<tr>
+<td>Simple design</td>
+<td>Limited current output (250 mA)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="candidate-2-tlv70033-linear-regulator">Candidate 2 – TLV70033 (Linear Regulator)</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84"></a>
-Pros | Cons
----|---
-Ultra-low quiescent current | Slightly higher cost
-Stable 3.3V output | Limited current (200 mA)</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84"></a></p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ultra-low quiescent current</td>
+<td>Slightly higher cost</td>
+</tr>
+<tr>
+<td>Stable 3.3V output</td>
+<td>Limited current (200 mA)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="candidate-3-lm2575t-33g-switching-regulator">Candidate 3 – LM2575T-3.3G (Switching Regulator)</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/c16e079b-053e-4988-869c-be641a4b35a7" data-desc-position="bottom"><img alt="download (1)" src="https://github.com/user-attachments/assets/c16e079b-053e-4988-869c-be641a4b35a7"></a>
-Pros | Cons
----|---
-High efficiency | More complex design
-Handles higher current | Requires inductor + more components
-Less heat generation | Higher cost</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/c16e079b-053e-4988-869c-be641a4b35a7" data-desc-position="bottom"><img alt="download (1)" src="https://github.com/user-attachments/assets/c16e079b-053e-4988-869c-be641a4b35a7"></a></p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High efficiency</td>
+<td>More complex design</td>
+</tr>
+<tr>
+<td>Handles higher current</td>
+<td>Requires inductor + more components</td>
+</tr>
+<tr>
+<td>Less heat generation</td>
+<td>Higher cost</td>
+</tr>
+</tbody>
+</table>
 <h3 id="final-selection-lm2575t-33g">Final Selection: LM2575T-3.3G</h3>
 <p>Rationale:<br>
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.</p>
 <h2 id="gas-sensor-selection">Gas Sensor Selection</h2>
 <h2 id="candidate-1-mq-135-analog-output">Candidate 1 – MQ-135 (Analog Output)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" data-desc-position="bottom"><img width="1000" height="1000" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41"></a></p>
 <table>
 <thead>
 <tr>
@@ -1370,6 +1419,7 @@ The system current requirements are within safe limits for a linear regulator. T
 </tbody>
 </table>
 <h2 id="candidate-2-ccs811-digital-i2c-gas-sensor">Candidate 2 – CCS811 (Digital I2C Gas Sensor)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" data-desc-position="bottom"><img width="600" height="436" alt="F5XGEDTKZMPKIDT" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd"></a></p>
 <table>
 <thead>
 <tr>
@@ -1393,6 +1443,7 @@ The system current requirements are within safe limits for a linear regulator. T
 </tbody>
 </table>
 <h2 id="candidate-3-bme680-gas-temp-humidity-pressure">Candidate 3 – BME680 (Gas + Temp + Humidity + Pressure)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1"></a></p>
 <table>
 <thead>
 <tr>
@@ -1420,6 +1471,7 @@ The system current requirements are within safe limits for a linear regulator. T
 The CCS811 provides digital air quality readings over I2C, reducing analog noise concerns and simplifying calibration compared to MQ-135.</p>
 <h2 id="temperature-humidity-sensor-selection">Temperature &amp; Humidity Sensor Selection</h2>
 <h2 id="candidate-1-dht22">Candidate 1 – DHT22</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" data-desc-position="bottom"><img width="801" height="801" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf"></a></p>
 <table>
 <thead>
 <tr>
@@ -1443,6 +1495,7 @@ The CCS811 provides digital air quality readings over I2C, reducing analog noise
 </tbody>
 </table>
 <h2 id="candidate-2-sht31-i2c">Candidate 2 – SHT31 (I2C)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2597f4d5-8404-418e-aded-760a9662ff9a" data-desc-position="bottom"><img alt="71Ds+czShEL _AC_UF894,1000_QL80_" src="https://github.com/user-attachments/assets/2597f4d5-8404-418e-aded-760a9662ff9a"></a></p>
 <table>
 <thead>
 <tr>
@@ -1466,6 +1519,7 @@ The CCS811 provides digital air quality readings over I2C, reducing analog noise
 </tbody>
 </table>
 <h2 id="candidate-3-hdc1080-i2c">Candidate 3 – HDC1080 (I2C)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/a27b517d-85aa-46bb-8ada-8c3a912835a9" data-desc-position="bottom"><img alt="61AqjlxBR7L" src="https://github.com/user-attachments/assets/a27b517d-85aa-46bb-8ada-8c3a912835a9"></a></p>
 <table>
 <thead>
 <tr>
@@ -1493,6 +1547,7 @@ The CCS811 provides digital air quality readings over I2C, reducing analog noise
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.</p>
 <h2 id="light-sensor-selection">Light Sensor Selection</h2>
 <h2 id="candidate-1-photoresistor-analog-ldr">Candidate 1 – Photoresistor (Analog LDR)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5" data-desc-position="bottom"><img width="472" height="380" alt="photoresistor_LDR" src="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5"></a></p>
 <table>
 <thead>
 <tr>
@@ -1516,6 +1571,7 @@ The SHT31 offers high accuracy, reliable I2C communication, and strong industry 
 </tbody>
 </table>
 <h3 id="candidate-2-bh1750-i2c">Candidate 2 – BH1750 (I2C)</h3>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/94a84b46-b59e-4205-80e0-a3e862f127a6" data-desc-position="bottom"><img alt="2_186e8cbf-1dec-4006-a82f-b088a4377ca6" src="https://github.com/user-attachments/assets/94a84b46-b59e-4205-80e0-a3e862f127a6"></a></p>
 <table>
 <thead>
 <tr>
@@ -1539,6 +1595,7 @@ The SHT31 offers high accuracy, reliable I2C communication, and strong industry 
 </tbody>
 </table>
 <h2 id="candidate-3-tsl2561-i2c">Candidate 3 – TSL2561 (I2C)</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e4fae6bd-95fb-4df2-b154-a9a4543407df" data-desc-position="bottom"><img alt="52d81a7fce395f4e488b456a" src="https://github.com/user-attachments/assets/e4fae6bd-95fb-4df2-b154-a9a4543407df"></a></p>
 <table>
 <thead>
 <tr>
@@ -1562,6 +1619,7 @@ The SHT31 offers high accuracy, reliable I2C communication, and strong industry 
 The BH1750 provides high-resolution digital light measurement with minimal configuration and simple I2C integration.</p>
 <h2 id="barometric-pressure-sensor-selection">Barometric Pressure Sensor Selection</h2>
 <h2 id="candidate-1-bmp280">Candidate 1 – BMP280</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/9b6e29c7-acae-4145-bb5d-58ef8f4c57b5" data-desc-position="bottom"><img alt="2651-08" src="https://github.com/user-attachments/assets/9b6e29c7-acae-4145-bb5d-58ef8f4c57b5"></a></p>
 <table>
 <thead>
 <tr>
@@ -1585,25 +1643,13 @@ The BH1750 provides high-resolution digital light measurement with minimal confi
 </tbody>
 </table>
 <h2 id="candidate-2-bme280-pressure-temp-humidity">Candidate 2 – BME280 (Pressure + Temp + Humidity)</h2>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Multi-function sensor</td>
-<td>Redundant if separate sensors used</td>
-</tr>
-<tr>
-<td>Compact</td>
-<td>Higher cost</td>
-</tr>
-</tbody>
-</table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/a6932ac0-656c-4a9c-b295-7415b0acf7d7" data-desc-position="bottom"><img alt="2652-12" src="https://github.com/user-attachments/assets/a6932ac0-656c-4a9c-b295-7415b0acf7d7"></a>
+Pros | Cons
+---|---
+Multi-function sensor | Redundant if separate sensors used
+Compact | Higher cost</p>
 <h2 id="candidate-3-mpl3115a2">Candidate 3 – MPL3115A2</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2f61feb6-d9e2-4a0f-ab7c-d27973f606ee" data-desc-position="bottom"><img alt="1893-02" src="https://github.com/user-attachments/assets/2f61feb6-d9e2-4a0f-ab7c-d27973f606ee"></a></p>
 <table>
 <thead>
 <tr>
