@@ -38,7 +38,8 @@ Familiar architecture | —
 Surface mount package | —
 
 ## Candidate 3 – ESP32 (QFN)
-![ESP32-S2_t](https://github.com/user-attachments/assets/04d342bf-6bf9-438c-9624-765d890087fb)
+![548508059-04d342bf-6bf9-438c-9624-765d890087fb (1)](https://github.com/user-attachments/assets/e3da2262-6c78-4662-a664-31aafd7af7b5)
+
 
 Manufacturer: Espressif  
 
