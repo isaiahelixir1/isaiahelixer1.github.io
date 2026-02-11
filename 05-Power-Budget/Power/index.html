@@ -24,7 +24,7 @@
 
     
       
-        <title>Power - Isaiah LaCombe Data Sheet</title>
+        <title>Power Budget - Isaiah LaCombe Data Sheet</title>
       
     
     
@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#candidate-1-mcp1700t-3302ett-linear-regulator" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Power
+              Power Budget
             
           </span>
         </div>
@@ -706,15 +711,94 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Power Budget
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Power
+    Power Budget
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-1-mcp1700t-3302ett-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-2-mcp1825s-3302edb-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 2 – MCP1825S-3302E/DB (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-3-tlv75533pdbvr-texas-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 3 – TLV75533PDBVR (Texas Instruments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-selection-mcp1825s-3302edb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Selection: MCP1825S-3302E/DB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Selection: MCP1825S-3302E/DB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rationale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -848,6 +932,65 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-1-mcp1700t-3302ett-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-2-mcp1825s-3302edb-linear-regulator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 2 – MCP1825S-3302E/DB (Linear Regulator)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#candidate-3-tlv75533pdbvr-texas-instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Candidate 3 – TLV75533PDBVR (Texas Instruments)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-selection-mcp1825s-3302edb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Selection: MCP1825S-3302E/DB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Selection: MCP1825S-3302E/DB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rationale
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -861,7 +1004,130 @@
                   
 
 
-  <h1>Power</h1>
+  <h1>Power Budget</h1>
+
+<p>The Environmental Monitoring Subsystem operates entirely at 3.3V.<br>
+All sensors, the PIC microcontroller, LEDs, and communication interfaces require regulated 3.3V.</p>
+<p>Estimated worst-case current consumption (including 25% safety margin):</p>
+<ul>
+<li>PIC18F57Q43: ~40 mA</li>
+<li>Gas Sensor (heater + signal): ~150 mA</li>
+<li>I2C Sensors (combined): ~15 mA</li>
+<li>LEDs + Button + Debug: ~10 mA</li>
+<li>Safety Margin (25%): ~50 mA</li>
+</ul>
+<p>Estimated Total Required Current: ~265 mA</p>
+<p>A 3.3V voltage regulator must therefore supply <strong>at least 300 mA continuously</strong>.</p>
+<hr>
+<h2 id="candidate-1-mcp1700t-3302ett-linear-regulator">Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)</h2>
+<p>Manufacturer: Microchip<br>
+Output Current: 250 mA max<br>
+Approx. Cost: ~$0.75  </p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Very low quiescent current</td>
+<td>250 mA limit (near requirement)</td>
+</tr>
+<tr>
+<td>Low dropout voltage</td>
+<td>Linear (less efficient)</td>
+</tr>
+<tr>
+<td>Simple external circuitry</td>
+<td>Limited thermal capability</td>
+</tr>
+<tr>
+<td>SOT-23 surface mount</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="candidate-2-mcp1825s-3302edb-linear-regulator">Candidate 2 – MCP1825S-3302E/DB (Linear Regulator)</h2>
+<p>Manufacturer: Microchip<br>
+Output Current: 500 mA max<br>
+Approx. Cost: ~$1.25  </p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500 mA output (ample headroom)</td>
+<td>Slightly higher cost</td>
+</tr>
+<tr>
+<td>Low dropout voltage</td>
+<td>Linear (heat dissipation if high Vin)</td>
+</tr>
+<tr>
+<td>Thermal protection built in</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Simple capacitor requirements</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Surface mount package</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="candidate-3-tlv75533pdbvr-texas-instruments">Candidate 3 – TLV75533PDBVR (Texas Instruments)</h2>
+<p>Output Current: 500 mA<br>
+Approx. Cost: ~$1.00  </p>
+<table>
+<thead>
+<tr>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500 mA output</td>
+<td>Requires careful capacitor selection</td>
+</tr>
+<tr>
+<td>Very low dropout</td>
+<td>Linear (less efficient than switching)</td>
+</tr>
+<tr>
+<td>Low noise output</td>
+<td>Not same vendor as MCU</td>
+</tr>
+<tr>
+<td>Small SOT-23-5 package</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="final-selection-mcp1825s-3302edb">Final Selection: MCP1825S-3302E/DB</h2>
+<h3 id="rationale">Rationale</h3>
+<p>The MCP1825S-3302E provides:</p>
+<ul>
+<li>500 mA output capacity (well above 300 mA requirement)</li>
+<li>Built-in thermal and short-circuit protection</li>
+<li>Low dropout voltage for efficient operation</li>
+<li>Simple capacitor requirements</li>
+<li>Surface mount compatibility (EGR 314 compliant)</li>
+<li>Same manufacturer ecosystem as microcontroller</li>
+</ul>
+<p>Although the MCP1700 is cheaper, it operates too close to its 250 mA limit and does not provide sufficient safety margin for the gas sensor heater.</p>
+<p>The MCP1825S offers strong current headroom, ensuring stable 3.3V regulation under worst-case operating conditions.</p>
 
 
 
@@ -869,7 +1135,8 @@
 
 
 
-
+  
+  
 
 
 
