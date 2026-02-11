@@ -15,7 +15,7 @@ This subsystem:
 ## Power Regualtor Selection
 
 ## Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
-
+![download](https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7)
 Pros | Cons
 ---|---
 Low cost | Less efficient than switching
@@ -23,14 +23,14 @@ Low dropout voltage | Heat dissipation at higher input voltages
 Simple design | Limited current output (250 mA)
 
 ## Candidate 2 – TLV70033 (Linear Regulator)
-
+![download](https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84)
 Pros | Cons
 ---|---
 Ultra-low quiescent current | Slightly higher cost
 Stable 3.3V output | Limited current (200 mA)
 
 ## Candidate 3 – LM2575T-3.3G (Switching Regulator)
-
+![download (1)](https://github.com/user-attachments/assets/c16e079b-053e-4988-869c-be641a4b35a7)
 Pros | Cons
 ---|---
 High efficiency | More complex design
@@ -104,7 +104,7 @@ Digital interface | —
 Rationale:  
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.
 
-# Light Sensor Selection
+## Light Sensor Selection
 
 ## Candidate 1 – Photoresistor (Analog LDR)
 
