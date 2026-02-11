@@ -113,6 +113,7 @@ The SHT31 offers high accuracy, reliable I2C communication, and strong industry 
 # Light Sensor Selection
 ## Candidate 1 – Photoresistor (Analog LDR)
 <img width="200" height="200" alt="photoresistor_LDR" src="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5" />
+
 Pros | Cons
 ---|---
 Very inexpensive | Requires ADC channel
