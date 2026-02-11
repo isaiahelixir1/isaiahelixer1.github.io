@@ -2,18 +2,15 @@
 title: Module's Selected Major Components
 ---
 
-# Module's Selected Major Components  
-Environmental Monitoring Subsystem  
-
-The following sections describe the selected major components necessary for the Environmental Monitoring Subsystem.
+The following sections describe the selected major components needed for the Environmental Monitoring Subsystem.
 
 This subsystem:
 
-- Operates entirely at **3.3V**
+- Operates entirely at 3.3V with a 9V source
 - Measures gas concentration, temperature, humidity, light intensity, and barometric pressure
-- Communicates sensor data digitally and/or analog to a microcontroller
+- Communicates sensor data digitally and analog to a microcontroller
 - Sends processed data to teammate boards via a 2×4 ribbon connector
-- Uses surface mount components per EGR 314 requirements
+- all sensors are surface mount components
 
 # Power Management
 
@@ -32,7 +29,7 @@ Pros | Cons
 Ultra-low quiescent current | Slightly higher cost
 Stable 3.3V output | Limited current (200 mA)
 
-## Candidate 3 – TPS62162 (Switching Regulator)
+## Candidate 3 – LM2575T-3.3G (Switching Regulator)
 
 Pros | Cons
 ---|---
@@ -40,7 +37,7 @@ High efficiency | More complex design
 Handles higher current | Requires inductor + more components
 Less heat generation | Higher cost
 
-### Final Selection: MCP1700T-3302E/TT
+### Final Selection: LM2575T-3.3G
 
 Rationale:  
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.
@@ -182,4 +179,4 @@ All selected components:
 - Support digital I2C or analog interfacing  
 - Are surface mount compatible  
 - Have complete datasheets  
-- Meet EGR 314 subsystem design constraints  
+- Meets subsystem design constraints  
