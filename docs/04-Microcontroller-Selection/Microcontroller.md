@@ -1,4 +1,4 @@
-![download](https://github.com/user-attachments/assets/e922ac1f-d988-47cc-b132-0afd6797e388)---
+---
 title: Microcontroller Selection
 --- 
 
