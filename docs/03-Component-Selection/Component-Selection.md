@@ -22,8 +22,8 @@ Low dropout voltage | Heat dissipation at higher input voltages
 Simple design | Limited current output (250 mA)
 
 ### Candidate 2 – TLV70033 (Linear Regulator)
-
 ![download](https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84)
+
 Pros | Cons
 ---|---
 Ultra-low quiescent current | Slightly higher cost
