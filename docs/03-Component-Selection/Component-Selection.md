@@ -7,7 +7,7 @@ The following sections describe the selected major components needed for the Env
 This subsystem:
 
 - Operates entirely at 3.3V with a 9V source
-- Measures gas concentration, temperature, humidity, light intensity, and barometric pressure
+- Measures gas concentration, temperature, humidity, and barometric pressure
 - Communicates sensor data digitally and analog to a microcontroller
 - Sends processed data to teammate boards via a 2×4 ribbon connector
 - all sensors are surface mount components
@@ -45,36 +45,47 @@ The system current requirements are within safe limits for a linear regulator. T
 ### Candidate 1 – MQ-135 (Analog Output)
 <img width="250" height="250" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" />
 
+## Environmental Sensor Selection
+
+### Candidate 1 – MQ-135 (Analog Gas Sensor)
+
+<img width="250" height="250" alt="MQ135 Gas Sensor" src="https://github.com/user-attachments/assets/placeholder1.png" />
+
 Pros | Cons
 ---|---
 Simple analog interface | Requires calibration
 Widely documented | Heater consumes significant current
 Low cost | Lower precision
+Easy to prototype | Analog noise possible
 
 ### Candidate 2 – CCS811 (Digital I2C Gas Sensor)
-<img width="250" height="250" alt="F5XGEDTKZMPKIDT" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" />
+
+<img width="250" height="250" alt="CCS811 Gas Sensor" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" />
 
 Pros | Cons
 ---|---
 Digital I2C interface | More expensive
 Lower power consumption | Requires initialization
-Integrated air quality algorithm | —
+Integrated air quality algorithm | Limited to air quality estimation
+Small footprint | —
 
-### Candidate 3 – BME680 (Gas + Temp + Humidity + Pressure)
-![download](https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1)
+### Candidate 3 – BME680 (Gas + Temperature + Humidity + Pressure)
+
+<img width="250" height="250" alt="BME680 Sensor" src="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1" />
 
 Pros | Cons
 ---|---
-Multi-sensor in one chip | More complex firmware
-Digital I2C | Higher cost
-Small footprint | —
+Measures gas, temperature, humidity, and pressure | More complex firmware
+Digital I2C interface | Slightly higher cost
+Single integrated environmental sensor | Requires sensor library
+Small footprint | Gas output is resistance-based (requires interpretation)
 
-### Final Selection: CCS811
-Rationale:  
-The CCS811 provides digital air quality readings over I2C, reducing analog noise concerns and simplifying calibration compared to MQ-135.
-## Temperature & Humidity Sensor Selection
-### Candidate 1 – DHT22
-<img width="250" height="250" alt="DHT22-Humidity-sensor" src="https://github.com/user-attachments/assets/3736539a-ea7d-4cfb-8c1e-68e2cfa9d0cf" />
+## Final Selection – BME680
+
+**Rationale:**
+
+The BME680 was selected because it integrates four environmental sensors into a single device, allowing the system to measure gas resistance (air quality indicator), temperature, humidity, and barometric pressure using a single I²C interface.
+Using the BME680 significantly simplifies hardware design by eliminating the need for multiple discrete sensors and reducing the number of required microcontroller pins. Although the firmware implementation is slightly more complex, the integrated design results in a smaller PCB footprint, lower overall component count, and easier system integration.
 
 Pros | Cons
 ---|---
