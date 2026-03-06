@@ -767,57 +767,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#light-sensor-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Light Sensor Selection
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Light Sensor Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#candidate-1-photoresistor-analog-ldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 1 – Photoresistor (Analog LDR)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-2-bh1750-i2c" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 2 – BH1750 (I2C)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-3-tsl2561-i2c" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 3 – TSL2561 (I2C)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#final-selection-bh1750" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Selection: BH1750
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#barometric-pressure-sensor-selection" class="md-nav__link">
     <span class="md-ellipsis">
       Barometric Pressure Sensor Selection
@@ -1317,57 +1266,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#light-sensor-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Light Sensor Selection
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Light Sensor Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#candidate-1-photoresistor-analog-ldr" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 1 – Photoresistor (Analog LDR)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-2-bh1750-i2c" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 2 – BH1750 (I2C)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-3-tsl2561-i2c" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 3 – TSL2561 (I2C)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#final-selection-bh1750" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Selection: BH1750
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#barometric-pressure-sensor-selection" class="md-nav__link">
     <span class="md-ellipsis">
       Barometric Pressure Sensor Selection
@@ -1690,78 +1588,6 @@ Using the BME680 significantly simplifies hardware design by eliminating the nee
 <h3 id="final-selection-sht31">Final Selection: SHT31</h3>
 <p>Rationale:<br>
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.</p>
-<h2 id="light-sensor-selection">Light Sensor Selection</h2>
-<h3 id="candidate-1-photoresistor-analog-ldr">Candidate 1 – Photoresistor (Analog LDR)</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5" data-desc-position="bottom"><img width="200" height="200" alt="photoresistor_LDR" src="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Very inexpensive</td>
-<td>Requires ADC channel</td>
-</tr>
-<tr>
-<td>Simple design</td>
-<td>Lower accuracy</td>
-</tr>
-<tr>
-<td>Easy to source</td>
-<td>Affected by temperature</td>
-</tr>
-</tbody>
-</table>
-<h3 id="candidate-2-bh1750-i2c">Candidate 2 – BH1750 (I2C)</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/94923df4-6061-4d3f-a6aa-65b81bb968ec" data-desc-position="bottom"><img alt="548495948-e6664568-a1e6-422a-99b8-1f41851bd723 (1)" src="https://github.com/user-attachments/assets/94923df4-6061-4d3f-a6aa-65b81bb968ec"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Digital output</td>
-<td>Requires I2C bus</td>
-</tr>
-<tr>
-<td>High resolution</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Low power</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<h3 id="candidate-3-tsl2561-i2c">Candidate 3 – TSL2561 (I2C)</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/1077b8dc-d33e-4810-ab2f-31f5ffec677b" data-desc-position="bottom"><img alt="548487237-e4fae6bd-95fb-4df2-b154-a9a4543407df (1)" src="https://github.com/user-attachments/assets/1077b8dc-d33e-4810-ab2f-31f5ffec677b"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Wide dynamic range</td>
-<td>Slightly higher cost</td>
-</tr>
-<tr>
-<td>Digital I2C</td>
-<td>More configuration needed</td>
-</tr>
-</tbody>
-</table>
-<h3 id="final-selection-bh1750">Final Selection: BH1750</h3>
-<p>Rationale:<br>
-The BH1750 provides high-resolution digital light measurement with minimal configuration and simple I2C integration.</p>
 <h2 id="barometric-pressure-sensor-selection">Barometric Pressure Sensor Selection</h2>
 <h3 id="candidate-1-bmp280">Candidate 1 – BMP280</h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7" data-desc-position="bottom"><img alt="548496325-29767e5d-8bb1-4197-b3e1-86f202d03071 (1)" src="https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7"></a></p>
@@ -1844,20 +1670,8 @@ The BMP280 provides accurate pressure readings with low power consumption and si
 <td>MCP1700T-3302E/TT</td>
 </tr>
 <tr>
-<td>Gas Sensor</td>
-<td>CCS811</td>
-</tr>
-<tr>
-<td>Temperature &amp; Humidity</td>
-<td>SHT31</td>
-</tr>
-<tr>
-<td>Light Sensor</td>
-<td>BH1750</td>
-</tr>
-<tr>
-<td>Pressure Sensor</td>
-<td>BMP280</td>
+<td>Environmental Sensor (Gas, Temperature, Humidity, Pressure)</td>
+<td>BME680</td>
 </tr>
 </tbody>
 </table>
