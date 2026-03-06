@@ -44,23 +44,23 @@ This block diagram documents the layout and connections of my individual environ
 | Signal | PIC Pin | Type |
 |------|--------|------|
 | UART TX | RF0 | Digital – Serial |
-| PWM | RC6 | Digital – PWM |
-| Digital Out | RB0 | Digital – Parallel |
+| PWM | RC6 | Digital – PWM Output |
+| Digital Out | RB0 | Digital Output |
 
 ### Connector IN
 
 | Signal | PIC Pin | Type |
 |------|--------|------|
 | UART RX | RC7 | Digital – Serial |
-| Digital Input 1 | RC1 | Digital – Parallel |
-| Digital Input 2 | RC0 | Digital – Parallel |
+| Digital Input 1 | RC1 | Digital Input |
+| Digital Input 2 | RC0 | Digital Input |
 
 ## 4. Debug Interface
 
 | Component | PIC Pin | Type |
 |----------|--------|------|
 | Debug Button | RB2 | Digital Input |
-| Blue Debug LED | RF1 | Digital Output |
+| Blue Debug LED | RF1 | PWM Digital Output |
 
 ## 5. Programming Interface
 
@@ -77,7 +77,7 @@ This block diagram documents the layout and connections of my individual environ
 | Voltage Regulator | 3.3 V Switching Power Supply (LM2575T-3.3G) |
 | Output | 3.3 V for MCU, sensor, LEDs |
 
-**Maximum current:** 1.5 A regulator capacity
+Maximum current: 1.5 A regulator capacity
 
 ## 7. Connections / Arrow Labels (Diagram-Ready)
 
