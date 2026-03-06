@@ -12,63 +12,69 @@ This block diagram documents the layout and connections of my individual environ
 ## Individual Block Diagram — Environmental Sensor Subsystem
 ![314 Sensor Subsystem (1)](https://github.com/user-attachments/assets/bb1c92bf-5110-4fe3-a8f7-fa1ab782dae9)
 
-
 ## 1. Microcontroller Block
 
-PIC18F57Q43 — 40-pin SMD
+**PIC18F57Q43 — 48-pin SMD**
 
-## Sub-blocks / Peripherals
+### Sub-blocks / Peripherals
 
 | Peripheral | PIC Pin(s) | Function | Notes |
 |-----------|------------|---------|------|
-| ADC | RA0 (AN0) | Gas sensor analog input | Converts gas sensor voltage to digital internally |
-| GPIO / Digital Output | RD1 | Gas sensor digital output to connector | Sends processed gas value to 2×4 connector |
-| I²C (MSSP1) | RC3 (SCL), RC4 (SDA) | Temp/Humidity, Light, Pressure sensors | Shared bidirectional bus; also connects to 2×4 connector |
+| I²C (MSSP1) | RC3 (SCL), RC4 (SDA) | BME680 environmental sensor | Bidirectional communication |
 | GPIO / Digital Input | RB0 | Debug Button | User input |
 | GPIO / Digital Output | RA1 | Blue LED | Status indicator |
 | GPIO / Digital Output | RA2 | Red LED | Status indicator |
-| UART | RC6 (TX), RC7 (RX) | Debug Serial Header (1×3) | Local debug only |
+| UART | RC6 (TX), RC7 (RX) | Debug Serial Header (1×3) | Local debugging |
 | ICSP | RB6 (PGC), RB7 (PGD), MCLR | Microchip SNAP Programmer | In-circuit programming |
 
-## 2. Sensors
+## 2. Sensor
 
-| Sensor | Signal Type | PIC Peripheral | PIC Pin | Notes |
-|--------|------------|----------------|--------|------|
-| Gas Sensor | Analog | ADC | RA0 | Converted digitally inside PIC; digital output sent via RD1 |
-| Temperature & Humidity | Digital – Serial (I²C) | I²C | RC3, RC4 | Shared bus |
-| Light Intensity | Digital – Serial (I²C) | I²C | RC3, RC4 | Shared bus |
-| Barometric Pressure | Digital – Serial (I²C) | I²C | RC3, RC4 | Shared bus |
+| Sensor | Measurements | Signal Type | PIC Peripheral | PIC Pin | Notes |
+|------|-------------|-------------|---------------|--------|------|
+| BME680 | Temperature, Humidity, Pressure, Gas (VOC) | Digital – Serial (I²C) | I²C | RC3, RC4 | Single integrated environmental sensor |
 
 ## 3. 2×4 Connector Connections
 
 | Connector Pin | Signal | PIC Pin | Type |
 |--------------|--------|--------|------|
 | 1 | 3.3 V | VDD | Power |
-| 2 | SDA | RC4 | Digital – Serial (I²C, 2 pins) |
-| 3 | SCL | RC3 | Digital – Serial (I²C, 2 pins) |
-| 4 | UART TX | RC6 | Digital (1 pin) |
-| 5 | UART RX | RC7 | Digital (1 pin) |
-| 6 | Gas Digital Out | RD1 | Digital – Parallel (1 pin) |
-| 7 | Reserved / Optional | — | — |
+| 2 | SDA | RC4 | Digital – Serial (I²C) |
+| 3 | SCL | RC3 | Digital – Serial (I²C) |
+| 4 | UART TX | RC6 | Digital |
+| 5 | UART RX | RC7 | Digital |
+| 6 | Reserved | — | Optional |
+| 7 | Reserved | — | Optional |
 | 8 | GND | VSS | Ground |
 
 ## 4. Power Supplies
 
-- 3.3 V DC Switching Regulator → All sensors, PIC, LEDs, buttons  
-- Max current: 500mA
+- **3.3 V DC Switching Regulator**
+- Supplies power to:
+  - PIC18F57Q43
+  - BME680 Sensor
+  - LEDs
+  - External connector
+
+**Maximum current:** 500 mA
 
 ## 5. Connections / Arrow Labels (Diagram-Ready)
 
-- Gas Sensor → RA0: `Analog (0–3.3 V, 1 pin)`  
-- RD1 → 2×4 Connector: `Digital – Parallel (1 pin)`  
-- Temp/Humidity → PIC ↔ 2×4 Connector: `Digital – Serial (I²C, 2 pins)`  
-- Light → PIC ↔ 2×4 Connector: `Digital – Serial (I²C, 2 pins)`  
-- Pressure → PIC ↔ 2×4 Connector: `Digital – Serial (I²C, 2 pins)`  
-- Debug Button → PIC: `Digital – Parallel (1 pin)`  
-- LEDs → PIC: `Digital – Parallel (1 pin each)`  
-- UART Debug Header → PIC: `Digital – Serial (UART, 2 pins)`  
-- ICSP → PIC: `Digital – Serial (ICSP, 2 pins)`   
+- BME680 ↔ PIC  
+  `Digital – Serial (I²C, 2 pins)`
 
-**Design Summary Sentence:**  
-> *The gas sensor provides an analog voltage to RA0 on the PIC18F57Q43, which is converted to a digital value and transmitted via RD1 to the 2×4 connector, while other environmental sensors communicate digitally over I²C to the connector.*
+- PIC ↔ 2×4 Connector  
+  `Digital – Serial (I²C pass-through, 2 pins)`
+
+- Debug Button → PIC  
+  `Digital – Parallel (1 pin)`
+
+- LEDs → PIC  
+  `Digital – Parallel (1 pin each)`
+
+- UART Debug Header ↔ PIC  
+  `Digital – Serial (UART, 2 pins)`
+
+- ICSP Programmer ↔ PIC  
+  `Digital – Serial (ICSP, 2 pins)`
+
 
