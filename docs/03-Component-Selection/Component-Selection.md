@@ -114,36 +114,7 @@ Digital interface | —
 ### Final Selection: SHT31
 Rationale:  
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.
-## Light Sensor Selection
-### Candidate 1 – Photoresistor (Analog LDR)
-<img width="200" height="200" alt="photoresistor_LDR" src="https://github.com/user-attachments/assets/2fb888eb-ecda-42c4-ab6e-c73884d67cb5" />
 
-Pros | Cons
----|---
-Very inexpensive | Requires ADC channel
-Simple design | Lower accuracy
-Easy to source | Affected by temperature
-
-### Candidate 2 – BH1750 (I2C)
-![548495948-e6664568-a1e6-422a-99b8-1f41851bd723 (1)](https://github.com/user-attachments/assets/94923df4-6061-4d3f-a6aa-65b81bb968ec)
-
-Pros | Cons
----|---
-Digital output | Requires I2C bus
-High resolution | —
-Low power | —
-
-### Candidate 3 – TSL2561 (I2C)
-![548487237-e4fae6bd-95fb-4df2-b154-a9a4543407df (1)](https://github.com/user-attachments/assets/1077b8dc-d33e-4810-ab2f-31f5ffec677b)
-
-Pros | Cons
----|---
-Wide dynamic range | Slightly higher cost
-Digital I2C | More configuration needed
-
-### Final Selection: BH1750
-Rationale:  
-The BH1750 provides high-resolution digital light measurement with minimal configuration and simple I2C integration.
 ## Barometric Pressure Sensor Selection
 ### Candidate 1 – BMP280
 ![548496325-29767e5d-8bb1-4197-b3e1-86f202d03071 (1)](https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7)
@@ -178,10 +149,7 @@ The BMP280 provides accurate pressure readings with low power consumption and si
 Subsystem | Selected Component
 ---|---
 Voltage Regulation | MCP1700T-3302E/TT
-Gas Sensor | CCS811
-Temperature & Humidity | SHT31
-Light Sensor | BH1750
-Pressure Sensor | BMP280
+Environmental Sensor (Gas, Temperature, Humidity, Pressure) | BME680
 
 All selected components:
 - Operate at 3.3V  
