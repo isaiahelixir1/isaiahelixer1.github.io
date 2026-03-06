@@ -12,6 +12,8 @@ This block diagram documents the layout and connections of my individual environ
 ## Individual Block Diagram — Environmental Sensor Subsystem
 ![314 Sensor Subsystem (1)](https://github.com/user-attachments/assets/bb1c92bf-5110-4fe3-a8f7-fa1ab782dae9)
 
+# Environmental Sensor Subsystem
+
 ## 1. Microcontroller Block
 
 **PIC18F57Q43 — 48-pin SMD**
@@ -21,60 +23,82 @@ This block diagram documents the layout and connections of my individual environ
 | Peripheral | PIC Pin(s) | Function | Notes |
 |-----------|------------|---------|------|
 | I²C (MSSP1) | RC3 (SCL), RC4 (SDA) | BME680 environmental sensor | Bidirectional communication |
-| GPIO / Digital Input | RB0 | Debug Button | User input |
-| GPIO / Digital Output | RA1 | Blue LED | Status indicator |
-| GPIO / Digital Output | RA2 | Red LED | Status indicator |
-| UART | RC6 (TX), RC7 (RX) | Debug Serial Header (1×3) | Local debugging |
-| ICSP | RB6 (PGC), RB7 (PGD), MCLR | Microchip SNAP Programmer | In-circuit programming |
+| UART | RF0 (TX), RC7 (RX) | External connector communication | Serial communication to external system |
+| PWM | RC6 | PWM output signal | Sent to connector |
+| GPIO / Digital Input | RC1, RC0 | External digital inputs | From connector |
+| GPIO / Digital Output | RB0 | External digital output | To connector |
+| GPIO / Digital Input | RB2 | Debug Button | User input |
+| GPIO / Digital Output | RF1 | Blue Debug LED | Status indicator |
+| ICSP | RB6 (PGEC), RB7 (PGED), MCLR | Microchip SNAP programmer | In-circuit programming |
 
 ## 2. Sensor
 
 | Sensor | Measurements | Signal Type | PIC Peripheral | PIC Pin | Notes |
 |------|-------------|-------------|---------------|--------|------|
-| BME680 | Temperature, Humidity, Pressure, Gas (VOC) | Digital – Serial (I²C) | I²C | RC3, RC4 | Single integrated environmental sensor |
+| BME680 | Temperature, Humidity, Pressure, Gas (VOC) | Digital – Serial (I²C) | I²C | RC3, RC4 | Single environmental sensor |
 
-## 3. 2×4 Connector Connections
+## 3. External Connectors
 
-| Connector Pin | Signal | PIC Pin | Type |
-|--------------|--------|--------|------|
-| 1 | 3.3 V | VDD | Power |
-| 2 | SDA | RC4 | Digital – Serial (I²C) |
-| 3 | SCL | RC3 | Digital – Serial (I²C) |
-| 4 | UART TX | RC6 | Digital |
-| 5 | UART RX | RC7 | Digital |
-| 6 | Reserved | — | Optional |
-| 7 | Reserved | — | Optional |
-| 8 | GND | VSS | Ground |
+### Connector OUT
 
-## 4. Power Supplies
+| Signal | PIC Pin | Type |
+|------|--------|------|
+| UART TX | RF0 | Digital – Serial |
+| PWM | RC6 | Digital – PWM |
+| Digital Out | RB0 | Digital – Parallel |
 
-- **3.3 V DC Switching Regulator**
-- Supplies power to:
-  - PIC18F57Q43
-  - BME680 Sensor
-  - LEDs
-  - External connector
+### Connector IN
 
-**Maximum current:** 500 mA
+| Signal | PIC Pin | Type |
+|------|--------|------|
+| UART RX | RC7 | Digital – Serial |
+| Digital Input 1 | RC1 | Digital – Parallel |
+| Digital Input 2 | RC0 | Digital – Parallel |
 
-## 5. Connections / Arrow Labels (Diagram-Ready)
+## 4. Debug Interface
+
+| Component | PIC Pin | Type |
+|----------|--------|------|
+| Debug Button | RB2 | Digital Input |
+| Blue Debug LED | RF1 | Digital Output |
+
+## 5. Programming Interface
+
+| Interface | PIC Pins | Notes |
+|----------|---------|------|
+| ICSP Programmer | RB6 (PGEC), RB7 (PGED), MCLR | Microchip SNAP programming interface |
+
+## 6. Power System
+
+| Component | Description |
+|----------|-------------|
+| Input Power | 9V unregulated wall adapter |
+| Connector | 9V Barrel Jack |
+| Voltage Regulator | 3.3 V Switching Power Supply (LM2575T-3.3G) |
+| Output | 3.3 V for MCU, sensor, LEDs |
+
+**Maximum current:** 1.5 A regulator capacity
+
+## 7. Connections / Arrow Labels (Diagram-Ready)
 
 - BME680 ↔ PIC  
   `Digital – Serial (I²C, 2 pins)`
 
-- PIC ↔ 2×4 Connector  
-  `Digital – Serial (I²C pass-through, 2 pins)`
+- Connector OUT ← PIC  
+  `UART TX (1 pin)`  
+  `PWM Output (1 pin)`  
+  `Digital Output (1 pin)`
+
+- Connector IN → PIC  
+  `UART RX (1 pin)`  
+  `Digital Input (2 pins)`
 
 - Debug Button → PIC  
   `Digital – Parallel (1 pin)`
 
-- LEDs → PIC  
-  `Digital – Parallel (1 pin each)`
-
-- UART Debug Header ↔ PIC  
-  `Digital – Serial (UART, 2 pins)`
+- Debug LED ← PIC  
+  `Digital – Parallel (1 pin)`
 
 - ICSP Programmer ↔ PIC  
   `Digital – Serial (ICSP, 2 pins)`
-
 
