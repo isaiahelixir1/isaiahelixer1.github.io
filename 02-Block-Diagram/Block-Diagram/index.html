@@ -586,9 +586,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="1. Microcontroller Block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#sub-blocks-peripherals" class="md-nav__link">
     <span class="md-ellipsis">
       Sub-blocks / Peripherals
@@ -596,11 +597,16 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#2-sensors" class="md-nav__link">
+  <a href="#2-sensor" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Sensors
+      2. Sensor
     </span>
   </a>
   
@@ -984,9 +990,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="1. Microcontroller Block">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#sub-blocks-peripherals" class="md-nav__link">
     <span class="md-ellipsis">
       Sub-blocks / Peripherals
@@ -994,11 +1001,16 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#2-sensors" class="md-nav__link">
+  <a href="#2-sensor" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Sensors
+      2. Sensor
     </span>
   </a>
   
@@ -1053,8 +1065,8 @@
 <h2 id="individual-block-diagram-environmental-sensor-subsystem">Individual Block Diagram — Environmental Sensor Subsystem</h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/bb1c92bf-5110-4fe3-a8f7-fa1ab782dae9" data-desc-position="bottom"><img alt="314 Sensor Subsystem (1)" src="https://github.com/user-attachments/assets/bb1c92bf-5110-4fe3-a8f7-fa1ab782dae9"></a></p>
 <h2 id="1-microcontroller-block">1. Microcontroller Block</h2>
-<p>PIC18F57Q43 — 40-pin SMD</p>
-<h2 id="sub-blocks-peripherals">Sub-blocks / Peripherals</h2>
+<p><strong>PIC18F57Q43 — 48-pin SMD</strong></p>
+<h3 id="sub-blocks-peripherals">Sub-blocks / Peripherals</h3>
 <table>
 <thead>
 <tr>
@@ -1066,22 +1078,10 @@
 </thead>
 <tbody>
 <tr>
-<td>ADC</td>
-<td>RA0 (AN0)</td>
-<td>Gas sensor analog input</td>
-<td>Converts gas sensor voltage to digital internally</td>
-</tr>
-<tr>
-<td>GPIO / Digital Output</td>
-<td>RD1</td>
-<td>Gas sensor digital output to connector</td>
-<td>Sends processed gas value to 2×4 connector</td>
-</tr>
-<tr>
 <td>I²C (MSSP1)</td>
 <td>RC3 (SCL), RC4 (SDA)</td>
-<td>Temp/Humidity, Light, Pressure sensors</td>
-<td>Shared bidirectional bus; also connects to 2×4 connector</td>
+<td>BME680 environmental sensor</td>
+<td>Bidirectional communication</td>
 </tr>
 <tr>
 <td>GPIO / Digital Input</td>
@@ -1105,7 +1105,7 @@
 <td>UART</td>
 <td>RC6 (TX), RC7 (RX)</td>
 <td>Debug Serial Header (1×3)</td>
-<td>Local debug only</td>
+<td>Local debugging</td>
 </tr>
 <tr>
 <td>ICSP</td>
@@ -1115,11 +1115,12 @@
 </tr>
 </tbody>
 </table>
-<h2 id="2-sensors">2. Sensors</h2>
+<h2 id="2-sensor">2. Sensor</h2>
 <table>
 <thead>
 <tr>
 <th>Sensor</th>
+<th>Measurements</th>
 <th>Signal Type</th>
 <th>PIC Peripheral</th>
 <th>PIC Pin</th>
@@ -1128,32 +1129,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Gas Sensor</td>
-<td>Analog</td>
-<td>ADC</td>
-<td>RA0</td>
-<td>Converted digitally inside PIC; digital output sent via RD1</td>
-</tr>
-<tr>
-<td>Temperature &amp; Humidity</td>
+<td>BME680</td>
+<td>Temperature, Humidity, Pressure, Gas (VOC)</td>
 <td>Digital – Serial (I²C)</td>
 <td>I²C</td>
 <td>RC3, RC4</td>
-<td>Shared bus</td>
-</tr>
-<tr>
-<td>Light Intensity</td>
-<td>Digital – Serial (I²C)</td>
-<td>I²C</td>
-<td>RC3, RC4</td>
-<td>Shared bus</td>
-</tr>
-<tr>
-<td>Barometric Pressure</td>
-<td>Digital – Serial (I²C)</td>
-<td>I²C</td>
-<td>RC3, RC4</td>
-<td>Shared bus</td>
+<td>Single integrated environmental sensor</td>
 </tr>
 </tbody>
 </table>
@@ -1178,37 +1159,37 @@
 <td>2</td>
 <td>SDA</td>
 <td>RC4</td>
-<td>Digital – Serial (I²C, 2 pins)</td>
+<td>Digital – Serial (I²C)</td>
 </tr>
 <tr>
 <td>3</td>
 <td>SCL</td>
 <td>RC3</td>
-<td>Digital – Serial (I²C, 2 pins)</td>
+<td>Digital – Serial (I²C)</td>
 </tr>
 <tr>
 <td>4</td>
 <td>UART TX</td>
 <td>RC6</td>
-<td>Digital (1 pin)</td>
+<td>Digital</td>
 </tr>
 <tr>
 <td>5</td>
 <td>UART RX</td>
 <td>RC7</td>
-<td>Digital (1 pin)</td>
+<td>Digital</td>
 </tr>
 <tr>
 <td>6</td>
-<td>Gas Digital Out</td>
-<td>RD1</td>
-<td>Digital – Parallel (1 pin)</td>
+<td>Reserved</td>
+<td>—</td>
+<td>Optional</td>
 </tr>
 <tr>
 <td>7</td>
-<td>Reserved / Optional</td>
+<td>Reserved</td>
 <td>—</td>
-<td>—</td>
+<td>Optional</td>
 </tr>
 <tr>
 <td>8</td>
@@ -1220,25 +1201,41 @@
 </table>
 <h2 id="4-power-supplies">4. Power Supplies</h2>
 <ul>
-<li>3.3 V DC Switching Regulator → All sensors, PIC, LEDs, buttons  </li>
-<li>Max current: 500mA</li>
+<li><strong>3.3 V DC Switching Regulator</strong></li>
+<li>Supplies power to:</li>
+<li>PIC18F57Q43</li>
+<li>BME680 Sensor</li>
+<li>LEDs</li>
+<li>External connector</li>
 </ul>
+<p><strong>Maximum current:</strong> 500 mA</p>
 <h2 id="5-connections-arrow-labels-diagram-ready">5. Connections / Arrow Labels (Diagram-Ready)</h2>
 <ul>
-<li>Gas Sensor → RA0: <code>Analog (0–3.3 V, 1 pin)</code>  </li>
-<li>RD1 → 2×4 Connector: <code>Digital – Parallel (1 pin)</code>  </li>
-<li>Temp/Humidity → PIC ↔ 2×4 Connector: <code>Digital – Serial (I²C, 2 pins)</code>  </li>
-<li>Light → PIC ↔ 2×4 Connector: <code>Digital – Serial (I²C, 2 pins)</code>  </li>
-<li>Pressure → PIC ↔ 2×4 Connector: <code>Digital – Serial (I²C, 2 pins)</code>  </li>
-<li>Debug Button → PIC: <code>Digital – Parallel (1 pin)</code>  </li>
-<li>LEDs → PIC: <code>Digital – Parallel (1 pin each)</code>  </li>
-<li>UART Debug Header → PIC: <code>Digital – Serial (UART, 2 pins)</code>  </li>
-<li>ICSP → PIC: <code>Digital – Serial (ICSP, 2 pins)</code>   </li>
+<li>
+<p>BME680 ↔ PIC<br>
+<code>Digital – Serial (I²C, 2 pins)</code></p>
+</li>
+<li>
+<p>PIC ↔ 2×4 Connector<br>
+<code>Digital – Serial (I²C pass-through, 2 pins)</code></p>
+</li>
+<li>
+<p>Debug Button → PIC<br>
+<code>Digital – Parallel (1 pin)</code></p>
+</li>
+<li>
+<p>LEDs → PIC<br>
+<code>Digital – Parallel (1 pin each)</code></p>
+</li>
+<li>
+<p>UART Debug Header ↔ PIC<br>
+<code>Digital – Serial (UART, 2 pins)</code></p>
+</li>
+<li>
+<p>ICSP Programmer ↔ PIC<br>
+<code>Digital – Serial (ICSP, 2 pins)</code></p>
+</li>
 </ul>
-<p><strong>Design Summary Sentence:</strong>  </p>
-<blockquote>
-<p><em>The gas sensor provides an analog voltage to RA0 on the PIC18F57Q43, which is converted to a digital value and transmitted via RD1 to the 2×4 connector, while other environmental sensors communicate digitally over I²C to the connector.</em></p>
-</blockquote>
 
 
 
