@@ -43,6 +43,7 @@ Rationale:
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.
 ## Gas Sensor Selection
 ### Candidate 1 – MQ-135 (Analog Output)
+
 <img width="250" height="250" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" />
 
 ## Environmental Sensor Selection
