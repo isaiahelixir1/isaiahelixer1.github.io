@@ -931,15 +931,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#visual-flow-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visual Flow Diagram
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1292,15 +1283,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#visual-flow-diagram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visual Flow Diagram
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1600,38 +1582,6 @@
 <li>Transmission controlled by a <strong>non-blocking timer</strong>  </li>
 <li>Data packed as <strong>scaled integers</strong> for reliable UART transmission  </li>
 </ul>
-<h2 id="visual-flow-diagram">Visual Flow Diagram</h2>
-<p>```text
-            ┌─────────────────────┐
-            │  Incoming UART Msg  │
-            └─────────┬──────────┘
-                      │
-           ┌──────────┴───────────┐
-           │  Is message from me? │
-           └──────────┬───────────┘
-         Yes          No
-         │             │
-  ┌──────┴──────┐      │
-  │  Discard    │      │
-  └─────────────┘      ▼
-               ┌─────────────────────┐
-               │ Is message addressed │
-               │ to this subsystem?  │
-               └─────────┬──────────┘
-          Yes           No
-          │             │
- ┌────────┴───────┐     │
- │ Process message│     ▼
- │ &amp; send ACK     │ ┌───────────────┐
- └────────────────┘ │ Forward msg   │
-                    │ unchanged     │
-                    └───────┬───────┘
-                            │
-                     ┌──────┴───────┐
-                     │ Periodic Tx  │
-                     │ Sensor Data  │
-                     │ (Temp/Hum/Press) │
-                     └──────────────┘</p>
 
 
 
