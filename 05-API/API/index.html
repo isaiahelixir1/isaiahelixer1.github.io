@@ -1325,14 +1325,12 @@
 - Sending formatted UART messages to other subsystems<br>
 - Receiving, processing, and forwarding UART messages in the daisy chain  </p>
 <p><strong>Note:</strong> This subsystem <strong>does not generate unsolicited signals</strong>; it only transmits sensor data or acknowledgements for messages addressed to it.</p>
-<hr>
 <h2 id="system-architecture">System Architecture</h2>
 <p>7 subsystems connected in a UART daisy chain. Each subsystem:<br>
 - Receives messages<br>
 - Processes messages addressed to it<br>
 - Forwards all other messages <strong>immediately and unchanged</strong><br>
 - Discards duplicate messages to prevent retransmission loops  </p>
-<hr>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
 <p>The BME680 is accessed via I2C.</p>
 <h3 id="temperature-registers">Temperature Registers</h3>
@@ -1479,7 +1477,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="message-types-used">Message Types Used</h2>
 <table>
 <thead>
@@ -1534,7 +1531,6 @@
 | 1–2  | message_type  | uint16_t | 11    | 11    |
 | 3–4  | humidity      | uint16_t | 0     | 10000 |</p>
 <p><em>Humidity is scaled by 100 (% × 100)</em></p>
-<hr>
 <h2 id="sensor-configuration">Sensor Configuration</h2>
 <ul>
 <li><strong>Operating Mode:</strong> Forced Mode (trigger measurements on demand)  </li>
@@ -1545,14 +1541,12 @@
 <li><code>measuring</code> → measurement in progress  </li>
 <li><code>gas_measuring</code> → gas measurement in progress  </li>
 </ul>
-<hr>
 <h2 id="i2c-communication-details">I2C Communication Details</h2>
 <ul>
 <li>Slave address: 0x76 or 0x77 (depends on SDO pin)  </li>
 <li>Supports Start, Stop, repeated start, auto-increment reads  </li>
 <li>Soft reset: 0xB6 to 0xE0  </li>
 </ul>
-<hr>
 <h2 id="message-processing-logic">Message Processing Logic</h2>
 <h3 id="incoming-message-handling">Incoming Message Handling</h3>
 <ol>
@@ -1599,7 +1593,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="sender-behavior">Sender Behavior</h2>
 <ul>
 <li>Periodically transmit sensor readings: temperature, pressure, humidity  </li>
@@ -1607,7 +1600,6 @@
 <li>Transmission controlled by a <strong>non-blocking timer</strong>  </li>
 <li>Data packed as <strong>scaled integers</strong> for reliable UART transmission  </li>
 </ul>
-<hr>
 <h2 id="visual-flow-diagram">Visual Flow Diagram</h2>
 <p>```text
             ┌─────────────────────┐
