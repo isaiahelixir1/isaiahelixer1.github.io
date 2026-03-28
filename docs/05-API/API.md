@@ -11,16 +11,12 @@ The subsystem is responsible for:
 
 **Note:** This subsystem **does not generate unsolicited signals**; it only transmits sensor data or acknowledgements for messages addressed to it.
 
----
-
 ## System Architecture
 7 subsystems connected in a UART daisy chain. Each subsystem:  
 - Receives messages  
 - Processes messages addressed to it  
 - Forwards all other messages **immediately and unchanged**  
 - Discards duplicate messages to prevent retransmission loops  
-
----
 
 ## Sensor Interface (I2C)
 The BME680 is accessed via I2C.
@@ -66,8 +62,6 @@ The BME680 is accessed via I2C.
 | gas_adc   | 0x2B<7:6> / 0x2A |
 | gas_range | 0x2B<3:0>       |
 
----
-
 ## Message Types Used
 | Message Type | Description |
 |--------------|-------------|
@@ -103,8 +97,6 @@ The BME680 is accessed via I2C.
 
 *Humidity is scaled by 100 (% × 100)*
 
----
-
 ## Sensor Configuration
 - **Operating Mode:** Forced Mode (trigger measurements on demand)  
 - **Oversampling:** Improves measurement resolution (×1 to ×16 for T/P/H)  
@@ -114,14 +106,10 @@ The BME680 is accessed via I2C.
   - `measuring` → measurement in progress  
   - `gas_measuring` → gas measurement in progress  
 
----
-
 ## I2C Communication Details
 - Slave address: 0x76 or 0x77 (depends on SDO pin)  
 - Supports Start, Stop, repeated start, auto-increment reads  
 - Soft reset: 0xB6 to 0xE0  
-
----
 
 ## Message Processing Logic
 
@@ -144,15 +132,11 @@ The BME680 is accessed via I2C.
 | 3    | received_msg   | uint8_t  | Original message ID       |
 | 4    | status         | uint8_t  | 1 → success, 0 → error   |
 
----
-
 ## Sender Behavior
 - Periodically transmit sensor readings: temperature, pressure, humidity  
 - Messages must be formatted, payload ≤ limits, dynamically updated  
 - Transmission controlled by a **non-blocking timer**  
 - Data packed as **scaled integers** for reliable UART transmission  
-
----
 
 ## Visual Flow Diagram
 
