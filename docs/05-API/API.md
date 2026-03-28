@@ -1,4 +1,9 @@
-# BME680 Sensor Subsystem API
+---
+title: Subsystem API
+tags:
+- API
+- BME680 Sensor
+---
 
 ## Overview
 This subsystem interfaces with a BME680 environmental sensor using I2C and communicates with a 7-node daisy-chain UART network.
@@ -9,8 +14,6 @@ The subsystem is responsible for:
 - Sending formatted UART messages to other subsystems
 - Receiving, processing, and forwarding UART messages in the daisy chain
 
----
-
 ## System Architecture
 
 - 7 subsystems connected in a UART daisy chain
@@ -18,8 +21,6 @@ The subsystem is responsible for:
   - Receives messages
   - Processes messages addressed to it
   - Forwards all other messages
-
----
 
 ## Sensor Interface (I2C)
 
@@ -66,8 +67,6 @@ The BME680 is accessed via I2C.
 | gas_adc  | 0x2B<7:6> / 0x2A |
 | gas_range| 0x2B<3:0>       |
 
----
-
 ## Message Types Used
 
 | Message Type | Description |
@@ -78,8 +77,6 @@ The BME680 is accessed via I2C.
 | 13          | System Status Report |
 | 14          | System Error Code Report |
 | 16          | Heartbeat |
-
----
 
 ## Message Definitions
 
@@ -92,8 +89,6 @@ The BME680 is accessed via I2C.
 
 Temperature is scaled by 100 (°C × 100)
 
----
-
 ### Message Type 10 — Pressure Data Report
 
 | Byte | Variable Name | Type     | Min    | Max     |
@@ -101,8 +96,6 @@ Temperature is scaled by 100 (°C × 100)
 | 1–2  | message_type | uint16_t | 10     | 10      |
 | 3–6  | pressure     | uint32_t | 30000  | 110000  |
 | 7–10 | altitude     | int32_t  | -50000 | 100000  |
-
----
 
 ### Message Type 11 — Humidity Data Report
 
@@ -112,8 +105,6 @@ Temperature is scaled by 100 (°C × 100)
 | 3–4  | humidity     | uint16_t | 0   | 10000 |
 
 Humidity is scaled by 100 (% × 100)
-
----
 
 ## Message Processing Logic
 
@@ -136,15 +127,11 @@ Upon receiving a message:
    - Else:
      - Forward message unchanged
 
----
-
 ### Forwarding Behavior (Critical Requirement)
 
 - All non-local messages are retransmitted
 - Forwarding occurs immediately after reception
 - Forwarding is prioritized over sending new messages
-
----
 
 ### Error Handling
 
@@ -153,8 +140,6 @@ The subsystem ignores:
 - Messages exceeding buffer size
 - Invalid message types
 - Data outside expected ranges
-
----
 
 ## Acknowledgement Message
 
@@ -168,8 +153,6 @@ For every valid message received:
 
 - status = 1 → success  
 - status = 0 → error  
-
----
 
 ## Sender Behavior
 
@@ -187,8 +170,6 @@ The subsystem periodically transmits:
 - Data is dynamically updated
 - Transmission rate is controlled via timer (non-blocking)
 
----
-
 ## Data Representation
 
 To ensure reliable UART communication:
@@ -197,22 +178,9 @@ To ensure reliable UART communication:
 - All values stay within defined data type ranges
 - Data is packed efficiently into byte arrays
 
----
-
 ## System Integration Notes
 
 - Message payload occupies bytes 4–61 of full UART packet
 - Prefix, suffix, sender, and receiver handled by system protocol
 - Subsystem uses I2C for sensor communication only
 - UART used exclusively for inter-subsystem communication
-
----
-
-## Summary
-
-This API ensures:
-
-- Compatibility with 7-node UART daisy chain
-- Reliable message forwarding and processing
-- Accurate environmental data reporting
-- Robust handling of communication errors
