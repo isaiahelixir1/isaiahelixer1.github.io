@@ -1495,23 +1495,98 @@
 </tbody>
 </table>
 <h3 id="message-definitions">Message Definitions</h3>
-<p><strong>Message Type 8 — Temperature Sensor Data Report</strong>
-| Byte | Variable Name | Type    | Min   | Max   |
-|------|---------------|--------|-------|-------|
-| 1–2  | message_type  | uint16_t | 8     | 8     |
-| 3–4  | temperature   | int16_t  | -4000 | 8500  |</p>
+<p><strong>Message Type 8 — Temperature Sensor Data Report</strong></p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>temperature</td>
+<td>int16_t</td>
+<td>-4000</td>
+<td>8500</td>
+</tr>
+</tbody>
+</table>
 <p><em>Temperature is scaled by 100 (°C × 100)</em></p>
-<p><strong>Message Type 10 — Pressure Data Report</strong>
-| Byte | Variable Name | Type     | Min    | Max     |
-|------|---------------|---------|--------|---------|
-| 1–2  | message_type  | uint16_t | 10    | 10      |
-| 3–6  | pressure      | uint32_t | 30000 | 110000 |
-| 7–10 | altitude      | int32_t  | -50000 | 100000 |</p>
-<p><strong>Message Type 11 — Humidity Data Report</strong>
-| Byte | Variable Name | Type    | Min   | Max   |
-|------|---------------|--------|-------|-------|
-| 1–2  | message_type  | uint16_t | 11    | 11    |
-| 3–4  | humidity      | uint16_t | 0     | 10000 |</p>
+<p><strong>Message Type 10 — Pressure Data Report</strong></p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3–6</td>
+<td>pressure</td>
+<td>uint32_t</td>
+<td>30000</td>
+<td>110000</td>
+</tr>
+<tr>
+<td>7–10</td>
+<td>altitude</td>
+<td>int32_t</td>
+<td>-50000</td>
+<td>100000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 11 — Humidity Data Report</strong></p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>humidity</td>
+<td>uint16_t</td>
+<td>0</td>
+<td>10000</td>
+</tr>
+</tbody>
+</table>
 <p><em>Humidity is scaled by 100 (% × 100)</em></p>
 <h2 id="sensor-configuration">Sensor Configuration</h2>
 <ul>
@@ -1519,9 +1594,9 @@
 <li><strong>Oversampling:</strong> Improves measurement resolution (×1 to ×16 for T/P/H)  </li>
 <li><strong>IIR Filter:</strong> Reduces temperature and pressure noise (coefficients 0–127)  </li>
 <li><strong>Measurement Status Flags:</strong>  </li>
-<li><code>new_data</code> → new measurement available  </li>
-<li><code>measuring</code> → measurement in progress  </li>
-<li><code>gas_measuring</code> → gas measurement in progress  </li>
+<li>new_data → new measurement available  </li>
+<li>measuring → measurement in progress  </li>
+<li>gas_measuring → gas measurement in progress  </li>
 </ul>
 <h2 id="i2c-communication-details">I2C Communication Details</h2>
 <ul>
