@@ -24,7 +24,7 @@
 
     
       
-        <title>BME680 Sensor Subsystem API - Isaiah LaCombe Data Sheet</title>
+        <title>Subsystem API - Isaiah LaCombe Data Sheet</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bme680-sensor-subsystem-api" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BME680 Sensor Subsystem API
+              Subsystem API
             
           </span>
         </div>
@@ -730,14 +730,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    BME680 Sensor Subsystem API
+    Subsystem API
   </span>
   
 
@@ -748,7 +746,7 @@
         
   
   <span class="md-ellipsis">
-    BME680 Sensor Subsystem API
+    Subsystem API
   </span>
   
 
@@ -759,8 +757,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -977,15 +973,6 @@
   <a href="#system-integration-notes" class="md-nav__link">
     <span class="md-ellipsis">
       System Integration Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
     </span>
   </a>
   
@@ -1172,8 +1159,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1394,15 +1379,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Summary
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1418,7 +1394,8 @@
                   
 
 
-<h1 id="bme680-sensor-subsystem-api">BME680 Sensor Subsystem API</h1>
+  <h1>Subsystem API</h1>
+
 <h2 id="overview">Overview</h2>
 <p>This subsystem interfaces with a BME680 environmental sensor using I2C and communicates with a 7-node daisy-chain UART network.</p>
 <p>The subsystem is responsible for:
@@ -1426,7 +1403,6 @@
 - Processing sensor data using calibration registers
 - Sending formatted UART messages to other subsystems
 - Receiving, processing, and forwarding UART messages in the daisy chain</p>
-<hr>
 <h2 id="system-architecture">System Architecture</h2>
 <ul>
 <li>7 subsystems connected in a UART daisy chain</li>
@@ -1435,7 +1411,6 @@
 <li>Processes messages addressed to it</li>
 <li>Forwards all other messages</li>
 </ul>
-<hr>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
 <p>The BME680 is accessed via I2C.</p>
 <h3 id="temperature-registers">Temperature Registers</h3>
@@ -1582,7 +1557,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="message-types-used">Message Types Used</h2>
 <table>
 <thead>
@@ -1618,7 +1592,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="message-definitions">Message Definitions</h2>
 <h3 id="message-type-8-temperature-sensor-data-report">Message Type 8 — Temperature Sensor Data Report</h3>
 <table>
@@ -1649,7 +1622,6 @@
 </tbody>
 </table>
 <p>Temperature is scaled by 100 (°C × 100)</p>
-<hr>
 <h3 id="message-type-10-pressure-data-report">Message Type 10 — Pressure Data Report</h3>
 <table>
 <thead>
@@ -1685,7 +1657,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h3 id="message-type-11-humidity-data-report">Message Type 11 — Humidity Data Report</h3>
 <table>
 <thead>
@@ -1715,7 +1686,6 @@
 </tbody>
 </table>
 <p>Humidity is scaled by 100 (% × 100)</p>
-<hr>
 <h2 id="message-processing-logic">Message Processing Logic</h2>
 <h3 id="incoming-message-handling">Incoming Message Handling</h3>
 <p>Upon receiving a message:</p>
@@ -1745,21 +1715,18 @@
 </ul>
 </li>
 </ol>
-<hr>
 <h3 id="forwarding-behavior-critical-requirement">Forwarding Behavior (Critical Requirement)</h3>
 <ul>
 <li>All non-local messages are retransmitted</li>
 <li>Forwarding occurs immediately after reception</li>
 <li>Forwarding is prioritized over sending new messages</li>
 </ul>
-<hr>
 <h3 id="error-handling">Error Handling</h3>
 <p>The subsystem ignores:
 - Malformed messages
 - Messages exceeding buffer size
 - Invalid message types
 - Data outside expected ranges</p>
-<hr>
 <h2 id="acknowledgement-message">Acknowledgement Message</h2>
 <p>For every valid message received:</p>
 <table>
@@ -1792,7 +1759,6 @@
 <li>status = 1 → success  </li>
 <li>status = 0 → error  </li>
 </ul>
-<hr>
 <h2 id="sender-behavior">Sender Behavior</h2>
 <p>The subsystem periodically transmits:</p>
 <ul>
@@ -1808,7 +1774,6 @@
 <li>Data is dynamically updated</li>
 <li>Transmission rate is controlled via timer (non-blocking)</li>
 </ul>
-<hr>
 <h2 id="data-representation">Data Representation</h2>
 <p>To ensure reliable UART communication:</p>
 <ul>
@@ -1816,7 +1781,6 @@
 <li>All values stay within defined data type ranges</li>
 <li>Data is packed efficiently into byte arrays</li>
 </ul>
-<hr>
 <h2 id="system-integration-notes">System Integration Notes</h2>
 <ul>
 <li>Message payload occupies bytes 4–61 of full UART packet</li>
@@ -1824,21 +1788,15 @@
 <li>Subsystem uses I2C for sensor communication only</li>
 <li>UART used exclusively for inter-subsystem communication</li>
 </ul>
-<hr>
-<h2 id="summary">Summary</h2>
-<p>This API ensures:</p>
-<ul>
-<li>Compatibility with 7-node UART daisy chain</li>
-<li>Reliable message forwarding and processing</li>
-<li>Accurate environmental data reporting</li>
-<li>Robust handling of communication errors</li>
-</ul>
 
 
 
 
 
 
+
+  
+  
 
 
 
