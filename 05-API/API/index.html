@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#subsystem-api" class="md-skip">
           Skip to content
         </a>
       
@@ -730,6 +730,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -757,6 +759,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -841,40 +845,13 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#message-definitions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Definitions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Message Definitions">
+    <nav class="md-nav" aria-label="Message Types Used">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#message-type-8-temperature-sensor-data-report" class="md-nav__link">
+  <a href="#message-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Message Type 8 — Temperature Sensor Data Report
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message-type-10-pressure-data-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Type 10 — Pressure Data Report
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message-type-11-humidity-data-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Type 11 — Humidity Data Report
+      Message Definitions
     </span>
   </a>
   
@@ -892,98 +869,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sensor Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#operating-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operating Mode
-    </span>
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#oversampling-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Oversampling Settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Oversampling Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#temperature-osrs_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      Temperature (osrs_t)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pressure-osrs_p" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pressure (osrs_p)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#humidity-osrs_h" class="md-nav__link">
-    <span class="md-ellipsis">
-      Humidity (osrs_h)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iir-filter" class="md-nav__link">
-    <span class="md-ellipsis">
-      IIR Filter
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measurement-status-flags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Measurement Status Flags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#i2c-communication-details" class="md-nav__link">
     <span class="md-ellipsis">
       I2C Communication Details
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset-behavior" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reset Behavior
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1007,18 +900,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#forwarding-behavior-critical-requirement" class="md-nav__link">
+  <a href="#forwarding-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      Forwarding Behavior (Critical Requirement)
+      Forwarding Behavior
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#acknowledgement-message" class="md-nav__link">
     <span class="md-ellipsis">
-      Error Handling
+      Acknowledgement Message
     </span>
   </a>
   
@@ -1026,15 +919,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#acknowledgement-message" class="md-nav__link">
-    <span class="md-ellipsis">
-      Acknowledgement Message
-    </span>
-  </a>
   
 </li>
       
@@ -1045,36 +929,12 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sender Behavior">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transmission-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transmission Rules
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-representation" class="md-nav__link">
+  <a href="#visual-flow-diagram" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Representation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-integration-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      System Integration Notes
+      Visual Flow Diagram
     </span>
   </a>
   
@@ -1261,6 +1121,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1344,40 +1206,13 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#message-definitions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Definitions
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Message Definitions">
+    <nav class="md-nav" aria-label="Message Types Used">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#message-type-8-temperature-sensor-data-report" class="md-nav__link">
+  <a href="#message-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Message Type 8 — Temperature Sensor Data Report
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message-type-10-pressure-data-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Type 10 — Pressure Data Report
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#message-type-11-humidity-data-report" class="md-nav__link">
-    <span class="md-ellipsis">
-      Message Type 11 — Humidity Data Report
+      Message Definitions
     </span>
   </a>
   
@@ -1395,98 +1230,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sensor Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#operating-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      Operating Mode
-    </span>
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#oversampling-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Oversampling Settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Oversampling Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#temperature-osrs_t" class="md-nav__link">
-    <span class="md-ellipsis">
-      Temperature (osrs_t)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pressure-osrs_p" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pressure (osrs_p)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#humidity-osrs_h" class="md-nav__link">
-    <span class="md-ellipsis">
-      Humidity (osrs_h)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#iir-filter" class="md-nav__link">
-    <span class="md-ellipsis">
-      IIR Filter
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#measurement-status-flags" class="md-nav__link">
-    <span class="md-ellipsis">
-      Measurement Status Flags
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#i2c-communication-details" class="md-nav__link">
     <span class="md-ellipsis">
       I2C Communication Details
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset-behavior" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reset Behavior
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1510,18 +1261,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#forwarding-behavior-critical-requirement" class="md-nav__link">
+  <a href="#forwarding-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      Forwarding Behavior (Critical Requirement)
+      Forwarding Behavior
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#acknowledgement-message" class="md-nav__link">
     <span class="md-ellipsis">
-      Error Handling
+      Acknowledgement Message
     </span>
   </a>
   
@@ -1529,15 +1280,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#acknowledgement-message" class="md-nav__link">
-    <span class="md-ellipsis">
-      Acknowledgement Message
-    </span>
-  </a>
   
 </li>
       
@@ -1548,36 +1290,12 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sender Behavior">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#transmission-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transmission Rules
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-representation" class="md-nav__link">
+  <a href="#visual-flow-diagram" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Representation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-integration-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      System Integration Notes
+      Visual Flow Diagram
     </span>
   </a>
   
@@ -1598,23 +1316,23 @@
                   
 
 
-  <h1>Subsystem API</h1>
-
+<h1 id="subsystem-api">Subsystem API</h1>
 <h2 id="overview">Overview</h2>
 <p>This subsystem interfaces with a BME680 environmental sensor using I2C and communicates with a 7-node daisy-chain UART network.</p>
-<p>The subsystem is responsible for:
-- Reading environmental data (temperature, humidity, pressure, gas resistance)
-- Processing sensor data using calibration registers
-- Sending formatted UART messages to other subsystems
-- Receiving, processing, and forwarding UART messages in the daisy chain</p>
+<p>The subsystem is responsible for:<br>
+- Reading environmental data (temperature, humidity, pressure, gas resistance)<br>
+- Processing sensor data using calibration registers<br>
+- Sending formatted UART messages to other subsystems<br>
+- Receiving, processing, and forwarding UART messages in the daisy chain  </p>
+<p><strong>Note:</strong> This subsystem <strong>does not generate unsolicited signals</strong>; it only transmits sensor data or acknowledgements for messages addressed to it.</p>
+<hr>
 <h2 id="system-architecture">System Architecture</h2>
-<ul>
-<li>7 subsystems connected in a UART daisy chain</li>
-<li>Each subsystem:</li>
-<li>Receives messages</li>
-<li>Processes messages addressed to it</li>
-<li>Forwards all other messages</li>
-</ul>
+<p>7 subsystems connected in a UART daisy chain. Each subsystem:<br>
+- Receives messages<br>
+- Processes messages addressed to it<br>
+- Forwards all other messages <strong>immediately and unchanged</strong><br>
+- Discards duplicate messages to prevent retransmission loops  </p>
+<hr>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
 <p>The BME680 is accessed via I2C.</p>
 <h3 id="temperature-registers">Temperature Registers</h3>
@@ -1761,6 +1479,7 @@
 </tr>
 </tbody>
 </table>
+<hr>
 <h2 id="message-types-used">Message Types Used</h2>
 <table>
 <thead>
@@ -1796,408 +1515,137 @@
 </tr>
 </tbody>
 </table>
-<h2 id="message-definitions">Message Definitions</h2>
-<h3 id="message-type-8-temperature-sensor-data-report">Message Type 8 — Temperature Sensor Data Report</h3>
-<table>
-<thead>
-<tr>
-<th>Byte</th>
-<th>Variable Name</th>
-<th>Type</th>
-<th>Min</th>
-<th>Max</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1–2</td>
-<td>message_type</td>
-<td>uint16_t</td>
-<td>8</td>
-<td>8</td>
-</tr>
-<tr>
-<td>3–4</td>
-<td>temperature</td>
-<td>int16_t</td>
-<td>-4000</td>
-<td>8500</td>
-</tr>
-</tbody>
-</table>
-<p>Temperature is scaled by 100 (°C × 100)</p>
-<h3 id="message-type-10-pressure-data-report">Message Type 10 — Pressure Data Report</h3>
-<table>
-<thead>
-<tr>
-<th>Byte</th>
-<th>Variable Name</th>
-<th>Type</th>
-<th>Min</th>
-<th>Max</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1–2</td>
-<td>message_type</td>
-<td>uint16_t</td>
-<td>10</td>
-<td>10</td>
-</tr>
-<tr>
-<td>3–6</td>
-<td>pressure</td>
-<td>uint32_t</td>
-<td>30000</td>
-<td>110000</td>
-</tr>
-<tr>
-<td>7–10</td>
-<td>altitude</td>
-<td>int32_t</td>
-<td>-50000</td>
-<td>100000</td>
-</tr>
-</tbody>
-</table>
-<h3 id="message-type-11-humidity-data-report">Message Type 11 — Humidity Data Report</h3>
-<table>
-<thead>
-<tr>
-<th>Byte</th>
-<th>Variable Name</th>
-<th>Type</th>
-<th>Min</th>
-<th>Max</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1–2</td>
-<td>message_type</td>
-<td>uint16_t</td>
-<td>11</td>
-<td>11</td>
-</tr>
-<tr>
-<td>3–4</td>
-<td>humidity</td>
-<td>uint16_t</td>
-<td>0</td>
-<td>10000</td>
-</tr>
-</tbody>
-</table>
-<p>Humidity is scaled by 100 (% × 100)</p>
+<h3 id="message-definitions">Message Definitions</h3>
+<p><strong>Message Type 8 — Temperature Sensor Data Report</strong>
+| Byte | Variable Name | Type    | Min   | Max   |
+|------|---------------|--------|-------|-------|
+| 1–2  | message_type  | uint16_t | 8     | 8     |
+| 3–4  | temperature   | int16_t  | -4000 | 8500  |</p>
+<p><em>Temperature is scaled by 100 (°C × 100)</em></p>
+<p><strong>Message Type 10 — Pressure Data Report</strong>
+| Byte | Variable Name | Type     | Min    | Max     |
+|------|---------------|---------|--------|---------|
+| 1–2  | message_type  | uint16_t | 10    | 10      |
+| 3–6  | pressure      | uint32_t | 30000 | 110000 |
+| 7–10 | altitude      | int32_t  | -50000 | 100000 |</p>
+<p><strong>Message Type 11 — Humidity Data Report</strong>
+| Byte | Variable Name | Type    | Min   | Max   |
+|------|---------------|--------|-------|-------|
+| 1–2  | message_type  | uint16_t | 11    | 11    |
+| 3–4  | humidity      | uint16_t | 0     | 10000 |</p>
+<p><em>Humidity is scaled by 100 (% × 100)</em></p>
+<hr>
 <h2 id="sensor-configuration">Sensor Configuration</h2>
-<p>The BME680 sensor is configured via I2C control registers to ensure accurate and stable measurements.</p>
-<h3 id="operating-mode">Operating Mode</h3>
+<ul>
+<li><strong>Operating Mode:</strong> Forced Mode (trigger measurements on demand)  </li>
+<li><strong>Oversampling:</strong> Improves measurement resolution (×1 to ×16 for T/P/H)  </li>
+<li><strong>IIR Filter:</strong> Reduces temperature and pressure noise (coefficients 0–127)  </li>
+<li><strong>Measurement Status Flags:</strong>  </li>
+<li><code>new_data</code> → new measurement available  </li>
+<li><code>measuring</code> → measurement in progress  </li>
+<li><code>gas_measuring</code> → gas measurement in progress  </li>
+</ul>
+<hr>
+<h2 id="i2c-communication-details">I2C Communication Details</h2>
+<ul>
+<li>Slave address: 0x76 or 0x77 (depends on SDO pin)  </li>
+<li>Supports Start, Stop, repeated start, auto-increment reads  </li>
+<li>Soft reset: 0xB6 to 0xE0  </li>
+</ul>
+<hr>
+<h2 id="message-processing-logic">Message Processing Logic</h2>
+<h3 id="incoming-message-handling">Incoming Message Handling</h3>
+<ol>
+<li>Check message validity: proper frame, correct length, valid type  </li>
+<li>Check sender: discard if from this subsystem  </li>
+<li>Check destination:  </li>
+<li>If addressed to this subsystem → process &amp; send ACK  </li>
+<li>Else → forward unchanged  </li>
+<li><strong>Duplicate messages:</strong> discard to prevent loops  </li>
+</ol>
+<h3 id="forwarding-behavior">Forwarding Behavior</h3>
+<ul>
+<li>Immediate forwarding for all non-local messages  </li>
+<li>Prioritized over new transmissions  </li>
+</ul>
+<h3 id="acknowledgement-message">Acknowledgement Message</h3>
 <table>
 <thead>
 <tr>
-<th>Mode Bits</th>
-<th>Mode</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>00</td>
-<td>Sleep Mode</td>
-</tr>
-<tr>
-<td>01</td>
-<td>Forced Mode</td>
-</tr>
-</tbody>
-</table>
-<p>The subsystem uses <strong>Forced Mode</strong> to trigger measurements on demand.</p>
-<h3 id="oversampling-settings">Oversampling Settings</h3>
-<p>Oversampling improves measurement resolution:</p>
-<h4 id="temperature-osrs_t">Temperature (osrs_t)</h4>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Oversampling</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>001</td>
-<td>×1</td>
-</tr>
-<tr>
-<td>010</td>
-<td>×2</td>
-</tr>
-<tr>
-<td>011</td>
-<td>×4</td>
-</tr>
-<tr>
-<td>100</td>
-<td>×8</td>
-</tr>
-<tr>
-<td>101+</td>
-<td>×16</td>
-</tr>
-</tbody>
-</table>
-<h4 id="pressure-osrs_p">Pressure (osrs_p)</h4>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Oversampling</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>001</td>
-<td>×1</td>
-</tr>
-<tr>
-<td>010</td>
-<td>×2</td>
-</tr>
-<tr>
-<td>011</td>
-<td>×4</td>
-</tr>
-<tr>
-<td>100</td>
-<td>×8</td>
-</tr>
-<tr>
-<td>101+</td>
-<td>×16</td>
-</tr>
-</tbody>
-</table>
-<h4 id="humidity-osrs_h">Humidity (osrs_h)</h4>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Oversampling</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>001</td>
-<td>×1</td>
-</tr>
-<tr>
-<td>010</td>
-<td>×2</td>
-</tr>
-<tr>
-<td>011</td>
-<td>×4</td>
-</tr>
-<tr>
-<td>100</td>
-<td>×8</td>
-</tr>
-<tr>
-<td>101+</td>
-<td>×16</td>
-</tr>
-</tbody>
-</table>
-<h3 id="iir-filter">IIR Filter</h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Coefficient</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>000</td>
-<td>0</td>
-</tr>
-<tr>
-<td>001</td>
-<td>1</td>
-</tr>
-<tr>
-<td>010</td>
-<td>3</td>
-</tr>
-<tr>
-<td>011</td>
-<td>7</td>
-</tr>
-<tr>
-<td>100</td>
-<td>15</td>
-</tr>
-<tr>
-<td>101</td>
-<td>31</td>
-</tr>
-<tr>
-<td>110</td>
-<td>63</td>
-</tr>
-<tr>
-<td>111</td>
-<td>127</td>
-</tr>
-</tbody>
-</table>
-<p>The filter is applied to temperature and pressure data to reduce noise.</p>
-<h3 id="measurement-status-flags">Measurement Status Flags</h3>
-<table>
-<thead>
-<tr>
-<th>Flag</th>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>new_data</td>
-<td>Indicates new measurement available</td>
-</tr>
-<tr>
-<td>measuring</td>
-<td>Sensor is currently performing measurement</td>
-</tr>
-<tr>
-<td>gas_measuring</td>
-<td>Gas measurement in progress</td>
-</tr>
-</tbody>
-</table>
-<h3 id="i2c-communication-details">I2C Communication Details</h3>
-<ul>
-<li>Slave address: <code>0x76</code> or <code>0x77</code> (depending on SDO pin)</li>
-<li>Communication uses:</li>
-<li>Start condition</li>
-<li>Register address write</li>
-<li>Repeated start for read</li>
-<li>Auto-increment register reads</li>
-</ul>
-<h3 id="reset-behavior">Reset Behavior</h3>
-<ul>
-<li>Writing <code>0xB6</code> to register <code>0xE0</code> triggers a soft reset</li>
-</ul>
-<h2 id="message-processing-logic">Message Processing Logic</h2>
-<h3 id="incoming-message-handling">Incoming Message Handling</h3>
-<p>Upon receiving a message:</p>
-<ol>
-<li><strong>Check message validity</strong></li>
-<li>Proper frame (prefix/suffix handled externally)</li>
-<li>Correct length</li>
-<li>
-<p>Valid message type</p>
-</li>
-<li>
-<p><strong>Check sender</strong></p>
-</li>
-<li>
-<p>If message originated from this subsystem → discard</p>
-</li>
-<li>
-<p><strong>Check destination</strong></p>
-</li>
-<li>If message is for this subsystem:<ul>
-<li>Process message</li>
-<li>Send acknowledgement</li>
-</ul>
-</li>
-<li>Else:<ul>
-<li>Forward message unchanged</li>
-</ul>
-</li>
-</ol>
-<h3 id="forwarding-behavior-critical-requirement">Forwarding Behavior (Critical Requirement)</h3>
-<ul>
-<li>All non-local messages are retransmitted</li>
-<li>Forwarding occurs immediately after reception</li>
-<li>Forwarding is prioritized over sending new messages</li>
-</ul>
-<h3 id="error-handling">Error Handling</h3>
-<p>The subsystem ignores:
-- Malformed messages
-- Messages exceeding buffer size
-- Invalid message types
-- Data outside expected ranges</p>
-<h2 id="acknowledgement-message">Acknowledgement Message</h2>
-<p>For every valid message received:</p>
-<table>
-<thead>
-<tr>
-<th>Byte</th>
-<th>Variable Name</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
 <td>1–2</td>
 <td>message_type</td>
 <td>uint16_t</td>
+<td>Type of received message</td>
 </tr>
 <tr>
 <td>3</td>
 <td>received_msg</td>
 <td>uint8_t</td>
+<td>Original message ID</td>
 </tr>
 <tr>
 <td>4</td>
 <td>status</td>
 <td>uint8_t</td>
+<td>1 → success, 0 → error</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>status = 1 → success  </li>
-<li>status = 0 → error  </li>
-</ul>
+<hr>
 <h2 id="sender-behavior">Sender Behavior</h2>
-<p>The subsystem periodically transmits:</p>
 <ul>
-<li>Temperature data</li>
-<li>Pressure data</li>
-<li>Humidity data</li>
+<li>Periodically transmit sensor readings: temperature, pressure, humidity  </li>
+<li>Messages must be formatted, payload ≤ limits, dynamically updated  </li>
+<li>Transmission controlled by a <strong>non-blocking timer</strong>  </li>
+<li>Data packed as <strong>scaled integers</strong> for reliable UART transmission  </li>
 </ul>
-<h3 id="transmission-rules">Transmission Rules</h3>
-<ul>
-<li>Messages are properly formatted</li>
-<li>Payload size does not exceed limits</li>
-<li>No reserved bytes appear in payload</li>
-<li>Data is dynamically updated</li>
-<li>Transmission rate is controlled via timer (non-blocking)</li>
-</ul>
-<h2 id="data-representation">Data Representation</h2>
-<p>To ensure reliable UART communication:</p>
-<ul>
-<li>Floating-point values are converted to scaled integers</li>
-<li>All values stay within defined data type ranges</li>
-<li>Data is packed efficiently into byte arrays</li>
-</ul>
-<h2 id="system-integration-notes">System Integration Notes</h2>
-<ul>
-<li>Message payload occupies bytes 4–61 of full UART packet</li>
-<li>Prefix, suffix, sender, and receiver handled by system protocol</li>
-<li>Subsystem uses I2C for sensor communication only</li>
-<li>UART used exclusively for inter-subsystem communication</li>
-</ul>
+<hr>
+<h2 id="visual-flow-diagram">Visual Flow Diagram</h2>
+<p>```text
+            ┌─────────────────────┐
+            │  Incoming UART Msg  │
+            └─────────┬──────────┘
+                      │
+           ┌──────────┴───────────┐
+           │  Is message from me? │
+           └──────────┬───────────┘
+         Yes          No
+         │             │
+  ┌──────┴──────┐      │
+  │  Discard    │      │
+  └─────────────┘      ▼
+               ┌─────────────────────┐
+               │ Is message addressed │
+               │ to this subsystem?  │
+               └─────────┬──────────┘
+          Yes           No
+          │             │
+ ┌────────┴───────┐     │
+ │ Process message│     ▼
+ │ &amp; send ACK     │ ┌───────────────┐
+ └────────────────┘ │ Forward msg   │
+                    │ unchanged     │
+                    └───────┬───────┘
+                            │
+                     ┌──────┴───────┐
+                     │ Periodic Tx  │
+                     │ Sensor Data  │
+                     │ (Temp/Hum/Press) │
+                     └──────────────┘</p>
 
 
 
 
 
 
-
-  
-  
 
 
 
