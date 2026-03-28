@@ -886,6 +886,108 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sensor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operating-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oversampling-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oversampling Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oversampling Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temperature-osrs_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature (osrs_t)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pressure-osrs_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pressure (osrs_p)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humidity-osrs_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      Humidity (osrs_h)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iir-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      IIR Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement-status-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measurement Status Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-communication-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C Communication Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Behavior
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#message-processing-logic" class="md-nav__link">
     <span class="md-ellipsis">
       Message Processing Logic
@@ -1276,6 +1378,108 @@
   <a href="#message-type-11-humidity-data-report" class="md-nav__link">
     <span class="md-ellipsis">
       Message Type 11 — Humidity Data Report
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operating-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operating Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oversampling-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oversampling Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oversampling Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temperature-osrs_t" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature (osrs_t)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pressure-osrs_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pressure (osrs_p)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humidity-osrs_h" class="md-nav__link">
+    <span class="md-ellipsis">
+      Humidity (osrs_h)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iir-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      IIR Filter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measurement-status-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      Measurement Status Flags
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i2c-communication-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C Communication Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Behavior
     </span>
   </a>
   
@@ -1686,6 +1890,203 @@
 </tbody>
 </table>
 <p>Humidity is scaled by 100 (% × 100)</p>
+<h2 id="sensor-configuration">Sensor Configuration</h2>
+<p>The BME680 sensor is configured via I2C control registers to ensure accurate and stable measurements.</p>
+<h3 id="operating-mode">Operating Mode</h3>
+<table>
+<thead>
+<tr>
+<th>Mode Bits</th>
+<th>Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00</td>
+<td>Sleep Mode</td>
+</tr>
+<tr>
+<td>01</td>
+<td>Forced Mode</td>
+</tr>
+</tbody>
+</table>
+<p>The subsystem uses <strong>Forced Mode</strong> to trigger measurements on demand.</p>
+<h3 id="oversampling-settings">Oversampling Settings</h3>
+<p>Oversampling improves measurement resolution:</p>
+<h4 id="temperature-osrs_t">Temperature (osrs_t)</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Oversampling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>×1</td>
+</tr>
+<tr>
+<td>010</td>
+<td>×2</td>
+</tr>
+<tr>
+<td>011</td>
+<td>×4</td>
+</tr>
+<tr>
+<td>100</td>
+<td>×8</td>
+</tr>
+<tr>
+<td>101+</td>
+<td>×16</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pressure-osrs_p">Pressure (osrs_p)</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Oversampling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>×1</td>
+</tr>
+<tr>
+<td>010</td>
+<td>×2</td>
+</tr>
+<tr>
+<td>011</td>
+<td>×4</td>
+</tr>
+<tr>
+<td>100</td>
+<td>×8</td>
+</tr>
+<tr>
+<td>101+</td>
+<td>×16</td>
+</tr>
+</tbody>
+</table>
+<h4 id="humidity-osrs_h">Humidity (osrs_h)</h4>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Oversampling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>001</td>
+<td>×1</td>
+</tr>
+<tr>
+<td>010</td>
+<td>×2</td>
+</tr>
+<tr>
+<td>011</td>
+<td>×4</td>
+</tr>
+<tr>
+<td>100</td>
+<td>×8</td>
+</tr>
+<tr>
+<td>101+</td>
+<td>×16</td>
+</tr>
+</tbody>
+</table>
+<h3 id="iir-filter">IIR Filter</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Coefficient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>010</td>
+<td>3</td>
+</tr>
+<tr>
+<td>011</td>
+<td>7</td>
+</tr>
+<tr>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr>
+<td>101</td>
+<td>31</td>
+</tr>
+<tr>
+<td>110</td>
+<td>63</td>
+</tr>
+<tr>
+<td>111</td>
+<td>127</td>
+</tr>
+</tbody>
+</table>
+<p>The filter is applied to temperature and pressure data to reduce noise.</p>
+<h3 id="measurement-status-flags">Measurement Status Flags</h3>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_data</td>
+<td>Indicates new measurement available</td>
+</tr>
+<tr>
+<td>measuring</td>
+<td>Sensor is currently performing measurement</td>
+</tr>
+<tr>
+<td>gas_measuring</td>
+<td>Gas measurement in progress</td>
+</tr>
+</tbody>
+</table>
+<h3 id="i2c-communication-details">I2C Communication Details</h3>
+<ul>
+<li>Slave address: <code>0x76</code> or <code>0x77</code> (depending on SDO pin)</li>
+<li>Communication uses:</li>
+<li>Start condition</li>
+<li>Register address write</li>
+<li>Repeated start for read</li>
+<li>Auto-increment register reads</li>
+</ul>
+<h3 id="reset-behavior">Reset Behavior</h3>
+<ul>
+<li>Writing <code>0xB6</code> to register <code>0xE0</code> triggers a soft reset</li>
+</ul>
 <h2 id="message-processing-logic">Message Processing Logic</h2>
 <h3 id="incoming-message-handling">Incoming Message Handling</h3>
 <p>Upon receiving a message:</p>
