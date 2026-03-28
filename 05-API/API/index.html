@@ -24,7 +24,7 @@
 
     
       
-        <title>API - Isaiah LaCombe Data Sheet</title>
+        <title>BME680 Sensor Subsystem API - Isaiah LaCombe Data Sheet</title>
       
     
     
@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#bme680-sensor-subsystem-api" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              API
+              BME680 Sensor Subsystem API
             
           </span>
         </div>
@@ -725,16 +730,270 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    BME680 Sensor Subsystem API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    API
+    BME680 Sensor Subsystem API
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-interface-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Interface (I2C)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Interface (I2C)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temperature-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pressure-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pressure Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humidity-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Humidity Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gas-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gas Registers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-types-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Types Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Definitions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-type-8-temperature-sensor-data-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Type 8 — Temperature Sensor Data Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-10-pressure-data-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Type 10 — Pressure Data Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-11-humidity-data-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Type 11 — Humidity Data Report
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-processing-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Processing Logic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Processing Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incoming-message-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incoming Message Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forwarding-behavior-critical-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forwarding Behavior (Critical Requirement)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgement-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgement Message
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sender-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sender Behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sender Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transmission-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transmission Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Integration Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -913,6 +1172,238 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sensor-interface-i2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Interface (I2C)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sensor Interface (I2C)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#temperature-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pressure-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pressure Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#humidity-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Humidity Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gas-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gas Registers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-types-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Types Used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Definitions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-type-8-temperature-sensor-data-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Type 8 — Temperature Sensor Data Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-10-pressure-data-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Type 10 — Pressure Data Report
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-11-humidity-data-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Type 11 — Humidity Data Report
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-processing-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Processing Logic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Processing Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incoming-message-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Incoming Message Handling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forwarding-behavior-critical-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forwarding Behavior (Critical Requirement)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acknowledgement-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acknowledgement Message
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sender-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sender Behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sender Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transmission-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transmission Rules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-integration-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Integration Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -927,9 +1418,421 @@
                   
 
 
-  <h1>API</h1>
-
-
+<h1 id="bme680-sensor-subsystem-api">BME680 Sensor Subsystem API</h1>
+<h2 id="overview">Overview</h2>
+<p>This subsystem interfaces with a BME680 environmental sensor using I2C and communicates with a 7-node daisy-chain UART network.</p>
+<p>The subsystem is responsible for:
+- Reading environmental data (temperature, humidity, pressure, gas resistance)
+- Processing sensor data using calibration registers
+- Sending formatted UART messages to other subsystems
+- Receiving, processing, and forwarding UART messages in the daisy chain</p>
+<hr>
+<h2 id="system-architecture">System Architecture</h2>
+<ul>
+<li>7 subsystems connected in a UART daisy chain</li>
+<li>Each subsystem:</li>
+<li>Receives messages</li>
+<li>Processes messages addressed to it</li>
+<li>Forwards all other messages</li>
+</ul>
+<hr>
+<h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
+<p>The BME680 is accessed via I2C.</p>
+<h3 id="temperature-registers">Temperature Registers</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Register Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>par_t1</td>
+<td>0xE9 / 0xEA</td>
+</tr>
+<tr>
+<td>par_t2</td>
+<td>0x8A / 0x8B</td>
+</tr>
+<tr>
+<td>par_t3</td>
+<td>0x8C</td>
+</tr>
+<tr>
+<td>temp_adc</td>
+<td>0x24&lt;7:4&gt; / 0x23 / 0x22</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pressure-registers">Pressure Registers</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Register Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>par_p1</td>
+<td>0x8E / 0x8F</td>
+</tr>
+<tr>
+<td>par_p2</td>
+<td>0x90 / 0x91</td>
+</tr>
+<tr>
+<td>par_p3</td>
+<td>0x92</td>
+</tr>
+<tr>
+<td>par_p4</td>
+<td>0x94 / 0x95</td>
+</tr>
+<tr>
+<td>par_p5</td>
+<td>0x96 / 0x97</td>
+</tr>
+<tr>
+<td>par_p6</td>
+<td>0x99</td>
+</tr>
+<tr>
+<td>par_p7</td>
+<td>0x98</td>
+</tr>
+<tr>
+<td>par_p8</td>
+<td>0x9C / 0x9D</td>
+</tr>
+<tr>
+<td>par_p9</td>
+<td>0x9E / 0x9F</td>
+</tr>
+<tr>
+<td>par_p10</td>
+<td>0xA0</td>
+</tr>
+<tr>
+<td>press_adc</td>
+<td>0x21&lt;7:4&gt; / 0x20 / 0x1F</td>
+</tr>
+</tbody>
+</table>
+<h3 id="humidity-registers">Humidity Registers</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Register Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>par_h1</td>
+<td>0xE2&lt;3:0&gt; / 0xE3</td>
+</tr>
+<tr>
+<td>par_h2</td>
+<td>0xE2&lt;7:4&gt; / 0xE1</td>
+</tr>
+<tr>
+<td>par_h3</td>
+<td>0xE4</td>
+</tr>
+<tr>
+<td>par_h4</td>
+<td>0xE5</td>
+</tr>
+<tr>
+<td>par_h5</td>
+<td>0xE6</td>
+</tr>
+<tr>
+<td>par_h6</td>
+<td>0xE7</td>
+</tr>
+<tr>
+<td>par_h7</td>
+<td>0xE8</td>
+</tr>
+<tr>
+<td>hum_adc</td>
+<td>0x26 / 0x25</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gas-registers">Gas Registers</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Register Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gas_adc</td>
+<td>0x2B&lt;7:6&gt; / 0x2A</td>
+</tr>
+<tr>
+<td>gas_range</td>
+<td>0x2B&lt;3:0&gt;</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="message-types-used">Message Types Used</h2>
+<table>
+<thead>
+<tr>
+<th>Message Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>Temperature Sensor Data Report</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Barometric Pressure Data Report</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Humidity Sensor Data Report</td>
+</tr>
+<tr>
+<td>13</td>
+<td>System Status Report</td>
+</tr>
+<tr>
+<td>14</td>
+<td>System Error Code Report</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Heartbeat</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="message-definitions">Message Definitions</h2>
+<h3 id="message-type-8-temperature-sensor-data-report">Message Type 8 — Temperature Sensor Data Report</h3>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>temperature</td>
+<td>int16_t</td>
+<td>-4000</td>
+<td>8500</td>
+</tr>
+</tbody>
+</table>
+<p>Temperature is scaled by 100 (°C × 100)</p>
+<hr>
+<h3 id="message-type-10-pressure-data-report">Message Type 10 — Pressure Data Report</h3>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+<td>10</td>
+<td>10</td>
+</tr>
+<tr>
+<td>3–6</td>
+<td>pressure</td>
+<td>uint32_t</td>
+<td>30000</td>
+<td>110000</td>
+</tr>
+<tr>
+<td>7–10</td>
+<td>altitude</td>
+<td>int32_t</td>
+<td>-50000</td>
+<td>100000</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="message-type-11-humidity-data-report">Message Type 11 — Humidity Data Report</h3>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Min</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>3–4</td>
+<td>humidity</td>
+<td>uint16_t</td>
+<td>0</td>
+<td>10000</td>
+</tr>
+</tbody>
+</table>
+<p>Humidity is scaled by 100 (% × 100)</p>
+<hr>
+<h2 id="message-processing-logic">Message Processing Logic</h2>
+<h3 id="incoming-message-handling">Incoming Message Handling</h3>
+<p>Upon receiving a message:</p>
+<ol>
+<li><strong>Check message validity</strong></li>
+<li>Proper frame (prefix/suffix handled externally)</li>
+<li>Correct length</li>
+<li>
+<p>Valid message type</p>
+</li>
+<li>
+<p><strong>Check sender</strong></p>
+</li>
+<li>
+<p>If message originated from this subsystem → discard</p>
+</li>
+<li>
+<p><strong>Check destination</strong></p>
+</li>
+<li>If message is for this subsystem:<ul>
+<li>Process message</li>
+<li>Send acknowledgement</li>
+</ul>
+</li>
+<li>Else:<ul>
+<li>Forward message unchanged</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="forwarding-behavior-critical-requirement">Forwarding Behavior (Critical Requirement)</h3>
+<ul>
+<li>All non-local messages are retransmitted</li>
+<li>Forwarding occurs immediately after reception</li>
+<li>Forwarding is prioritized over sending new messages</li>
+</ul>
+<hr>
+<h3 id="error-handling">Error Handling</h3>
+<p>The subsystem ignores:
+- Malformed messages
+- Messages exceeding buffer size
+- Invalid message types
+- Data outside expected ranges</p>
+<hr>
+<h2 id="acknowledgement-message">Acknowledgement Message</h2>
+<p>For every valid message received:</p>
+<table>
+<thead>
+<tr>
+<th>Byte</th>
+<th>Variable Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2</td>
+<td>message_type</td>
+<td>uint16_t</td>
+</tr>
+<tr>
+<td>3</td>
+<td>received_msg</td>
+<td>uint8_t</td>
+</tr>
+<tr>
+<td>4</td>
+<td>status</td>
+<td>uint8_t</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>status = 1 → success  </li>
+<li>status = 0 → error  </li>
+</ul>
+<hr>
+<h2 id="sender-behavior">Sender Behavior</h2>
+<p>The subsystem periodically transmits:</p>
+<ul>
+<li>Temperature data</li>
+<li>Pressure data</li>
+<li>Humidity data</li>
+</ul>
+<h3 id="transmission-rules">Transmission Rules</h3>
+<ul>
+<li>Messages are properly formatted</li>
+<li>Payload size does not exceed limits</li>
+<li>No reserved bytes appear in payload</li>
+<li>Data is dynamically updated</li>
+<li>Transmission rate is controlled via timer (non-blocking)</li>
+</ul>
+<hr>
+<h2 id="data-representation">Data Representation</h2>
+<p>To ensure reliable UART communication:</p>
+<ul>
+<li>Floating-point values are converted to scaled integers</li>
+<li>All values stay within defined data type ranges</li>
+<li>Data is packed efficiently into byte arrays</li>
+</ul>
+<hr>
+<h2 id="system-integration-notes">System Integration Notes</h2>
+<ul>
+<li>Message payload occupies bytes 4–61 of full UART packet</li>
+<li>Prefix, suffix, sender, and receiver handled by system protocol</li>
+<li>Subsystem uses I2C for sensor communication only</li>
+<li>UART used exclusively for inter-subsystem communication</li>
+</ul>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>This API ensures:</p>
+<ul>
+<li>Compatibility with 7-node UART daisy chain</li>
+<li>Reliable message forwarding and processing</li>
+<li>Accurate environmental data reporting</li>
+<li>Robust handling of communication errors</li>
+</ul>
 
 
 
