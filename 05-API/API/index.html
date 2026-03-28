@@ -1306,12 +1306,11 @@
 - Processing sensor data using calibration registers<br>
 - Sending formatted UART messages to other subsystems<br>
 - Receiving, processing, and forwarding UART messages in the daisy chain  </p>
-<p><strong>Note:</strong> This subsystem <strong>does not generate unsolicited signals</strong>; it only transmits sensor data or acknowledgements for messages addressed to it.</p>
 <h2 id="system-architecture">System Architecture</h2>
 <p>7 subsystems connected in a UART daisy chain. Each subsystem:<br>
 - Receives messages<br>
 - Processes messages addressed to it<br>
-- Forwards all other messages <strong>immediately and unchanged</strong><br>
+- Forwards all other messages immediately and unchanged<br>
 - Discards duplicate messages to prevent retransmission loops  </p>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
 <p>The BME680 is accessed via I2C.</p>
@@ -1590,9 +1589,9 @@
 <p><em>Humidity is scaled by 100 (% × 100)</em></p>
 <h2 id="sensor-configuration">Sensor Configuration</h2>
 <ul>
-<li><strong>Operating Mode:</strong> Forced Mode (trigger measurements on demand)  </li>
-<li><strong>Oversampling:</strong> Improves measurement resolution (×1 to ×16 for T/P/H)  </li>
-<li><strong>IIR Filter:</strong> Reduces temperature and pressure noise (coefficients 0–127)  </li>
+<li>Operating Mode: Forced Mode (trigger measurements on demand)  </li>
+<li>Oversampling: Improves measurement resolution (×1 to ×16 for T/P/H)  </li>
+<li>IIR Filter: Reduces temperature and pressure noise (coefficients 0–127)  </li>
 <li><strong>Measurement Status Flags:</strong>  </li>
 <li>new_data → new measurement available  </li>
 <li>measuring → measurement in progress  </li>
@@ -1612,7 +1611,7 @@
 <li>Check destination:  </li>
 <li>If addressed to this subsystem → process &amp; send ACK  </li>
 <li>Else → forward unchanged  </li>
-<li><strong>Duplicate messages:</strong> discard to prevent loops  </li>
+<li>Duplicate messages: discard to prevent loops  </li>
 </ol>
 <h3 id="forwarding-behavior">Forwarding Behavior</h3>
 <ul>
@@ -1654,8 +1653,8 @@
 <ul>
 <li>Periodically transmit sensor readings: temperature, pressure, humidity  </li>
 <li>Messages must be formatted, payload ≤ limits, dynamically updated  </li>
-<li>Transmission controlled by a <strong>non-blocking timer</strong>  </li>
-<li>Data packed as <strong>scaled integers</strong> for reliable UART transmission  </li>
+<li>Transmission controlled by a non-blocking timer  </li>
+<li>Data packed as scaled integers for reliable UART transmission  </li>
 </ul>
 
 
