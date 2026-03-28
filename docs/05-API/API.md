@@ -103,9 +103,9 @@ The BME680 is accessed via I2C.
 - Oversampling: Improves measurement resolution (×1 to ×16 for T/P/H)  
 - IIR Filter: Reduces temperature and pressure noise (coefficients 0–127)  
 - **Measurement Status Flags:**  
-  - new_data → new measurement available  
-  - measuring → measurement in progress  
-  - gas_measuring → gas measurement in progress  
+  - new_data = new measurement available  
+  - measuring = measurement in progress  
+  - gas_measuring = gas measurement in progress  
 
 ## I2C Communication Details
 - Slave address: 0x76 or 0x77 (depends on SDO pin)  
