@@ -106,6 +106,86 @@ Temperature is scaled by 100 (°C × 100)
 
 Humidity is scaled by 100 (% × 100)
 
+## Sensor Configuration
+
+The BME680 sensor is configured via I2C control registers to ensure accurate and stable measurements.
+
+### Operating Mode
+
+| Mode Bits | Mode        |
+|----------|------------|
+| 00       | Sleep Mode |
+| 01       | Forced Mode |
+
+The subsystem uses **Forced Mode** to trigger measurements on demand.
+
+### Oversampling Settings
+
+Oversampling improves measurement resolution:
+
+#### Temperature (osrs_t)
+| Setting | Oversampling |
+|--------|-------------|
+| 001    | ×1 |
+| 010    | ×2 |
+| 011    | ×4 |
+| 100    | ×8 |
+| 101+   | ×16 |
+
+#### Pressure (osrs_p)
+| Setting | Oversampling |
+|--------|-------------|
+| 001    | ×1 |
+| 010    | ×2 |
+| 011    | ×4 |
+| 100    | ×8 |
+| 101+   | ×16 |
+
+#### Humidity (osrs_h)
+| Setting | Oversampling |
+|--------|-------------|
+| 001    | ×1 |
+| 010    | ×2 |
+| 011    | ×4 |
+| 100    | ×8 |
+| 101+   | ×16 |
+
+### IIR Filter
+
+| Setting | Coefficient |
+|--------|------------|
+| 000    | 0 |
+| 001    | 1 |
+| 010    | 3 |
+| 011    | 7 |
+| 100    | 15 |
+| 101    | 31 |
+| 110    | 63 |
+| 111    | 127 |
+
+The filter is applied to temperature and pressure data to reduce noise.
+
+### Measurement Status Flags
+
+| Flag | Description |
+|------|------------|
+| new_data | Indicates new measurement available |
+| measuring | Sensor is currently performing measurement |
+| gas_measuring | Gas measurement in progress |
+
+### I2C Communication Details
+
+- Slave address: `0x76` or `0x77` (depending on SDO pin)
+- Communication uses:
+  - Start condition
+  - Register address write
+  - Repeated start for read
+  - Auto-increment register reads
+
+### Reset Behavior
+
+- Writing `0xB6` to register `0xE0` triggers a soft reset
+
 ## Message Processing Logic
 
 ### Incoming Message Handling
