@@ -75,6 +75,7 @@ The BME680 is accessed via I2C.
 ### Message Definitions
 
 **Message Type 8 — Temperature Sensor Data Report**
+
 | Byte | Variable Name | Type    | Min   | Max   |
 |------|---------------|--------|-------|-------|
 | 1–2  | message_type  | uint16_t | 8     | 8     |
@@ -83,6 +84,7 @@ The BME680 is accessed via I2C.
 *Temperature is scaled by 100 (°C × 100)*
 
 **Message Type 10 — Pressure Data Report**
+
 | Byte | Variable Name | Type     | Min    | Max     |
 |------|---------------|---------|--------|---------|
 | 1–2  | message_type  | uint16_t | 10    | 10      |
@@ -90,6 +92,7 @@ The BME680 is accessed via I2C.
 | 7–10 | altitude      | int32_t  | -50000 | 100000 |
 
 **Message Type 11 — Humidity Data Report**
+
 | Byte | Variable Name | Type    | Min   | Max   |
 |------|---------------|--------|-------|-------|
 | 1–2  | message_type  | uint16_t | 11    | 11    |
@@ -102,9 +105,9 @@ The BME680 is accessed via I2C.
 - **Oversampling:** Improves measurement resolution (×1 to ×16 for T/P/H)  
 - **IIR Filter:** Reduces temperature and pressure noise (coefficients 0–127)  
 - **Measurement Status Flags:**  
-  - `new_data` → new measurement available  
-  - `measuring` → measurement in progress  
-  - `gas_measuring` → gas measurement in progress  
+  - new_data → new measurement available  
+  - measuring → measurement in progress  
+  - gas_measuring → gas measurement in progress  
 
 ## I2C Communication Details
 - Slave address: 0x76 or 0x77 (depends on SDO pin)  
