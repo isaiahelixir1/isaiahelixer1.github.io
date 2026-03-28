@@ -9,13 +9,11 @@ The subsystem is responsible for:
 - Sending formatted UART messages to other subsystems  
 - Receiving, processing, and forwarding UART messages in the daisy chain  
 
-**Note:** This subsystem **does not generate unsolicited signals**; it only transmits sensor data or acknowledgements for messages addressed to it.
-
 ## System Architecture
 7 subsystems connected in a UART daisy chain. Each subsystem:  
 - Receives messages  
 - Processes messages addressed to it  
-- Forwards all other messages **immediately and unchanged**  
+- Forwards all other messages immediately and unchanged  
 - Discards duplicate messages to prevent retransmission loops  
 
 ## Sensor Interface (I2C)
@@ -101,9 +99,9 @@ The BME680 is accessed via I2C.
 *Humidity is scaled by 100 (% × 100)*
 
 ## Sensor Configuration
-- **Operating Mode:** Forced Mode (trigger measurements on demand)  
-- **Oversampling:** Improves measurement resolution (×1 to ×16 for T/P/H)  
-- **IIR Filter:** Reduces temperature and pressure noise (coefficients 0–127)  
+- Operating Mode: Forced Mode (trigger measurements on demand)  
+- Oversampling: Improves measurement resolution (×1 to ×16 for T/P/H)  
+- IIR Filter: Reduces temperature and pressure noise (coefficients 0–127)  
 - **Measurement Status Flags:**  
   - new_data → new measurement available  
   - measuring → measurement in progress  
@@ -122,7 +120,7 @@ The BME680 is accessed via I2C.
 3. Check destination:  
    - If addressed to this subsystem → process & send ACK  
    - Else → forward unchanged  
-4. **Duplicate messages:** discard to prevent loops  
+4. Duplicate messages: discard to prevent loops  
 
 ### Forwarding Behavior
 - Immediate forwarding for all non-local messages  
@@ -138,5 +136,5 @@ The BME680 is accessed via I2C.
 ## Sender Behavior
 - Periodically transmit sensor readings: temperature, pressure, humidity  
 - Messages must be formatted, payload ≤ limits, dynamically updated  
-- Transmission controlled by a **non-blocking timer**  
-- Data packed as **scaled integers** for reliable UART transmission  
+- Transmission controlled by a non-blocking timer  
+- Data packed as scaled integers for reliable UART transmission  
