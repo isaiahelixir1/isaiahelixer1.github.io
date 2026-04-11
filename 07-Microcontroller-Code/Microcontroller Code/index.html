@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#include-mcc_generated_filessystemsystemh" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -883,6 +888,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -979,6 +986,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -993,7 +1002,99 @@
                   
 
 
-  <h1>Microcontroller Code</h1>
+<h1 id="include-mcc_generated_filessystemsystemh">include "mcc_generated_files/system/system.h"</h1>
+<h1 id="include-mcc_generated_filesi2c_hosti2c1h">include "mcc_generated_files/i2c_host/i2c1.h"</h1>
+<h1 id="include-mcc_generated_filesuartuart1h">include "mcc_generated_files/uart/uart1.h"</h1>
+<h1 id="include">include <stdio.h></stdio.h></h1>
+<h1 id="include_1">include <stdint.h></stdint.h></h1>
+<h1 id="include_2">include <stdbool.h></stdbool.h></h1>
+<h1 id="define-tc74_addr-0x4c">define TC74_ADDR   0x4C</h1>
+<h1 id="define-ring_size-128">define RING_SIZE   128</h1>
+<p>volatile uint8_t ring_buf[RING_SIZE];
+volatile uint8_t ring_head = 0;
+volatile uint8_t ring_tail = 0;</p>
+<p>static void uprint(const char <em>s) {
+    while (</em>s) {
+        while (!UART1_IsTxReady());
+        UART1_Write((uint8_t)*s++);
+    }
+}</p>
+<p>static bool i2c_wait(void) {
+    uint16_t t = 10000;
+    while (I2C1_IsBusy() &amp;&amp; --t)
+        I2C1_Tasks();
+    return (t != 0);
+}</p>
+<p>static void i2c_recover(void) {
+    if (I2C1STAT0bits.BFRE)
+        return;</p>
+<pre><code>I2C1CON0bits.EN = 0;
+__delay_ms(1);
+
+I2C1STAT1 = 0x00;
+I2C1STAT1bits.CLRBF = 1;
+I2C1PIR  = 0x00;
+I2C1ERR  = 0x00;
+I2C1CNT  = 0x00;
+
+I2C1CON0bits.EN = 1;
+__delay_us(10);
+I2C1PIRbits.SCIF = 0;
+I2C1PIRbits.PCIF = 0;
+</code></pre>
+<p>}</p>
+<p>/<em> Write register pointer, then Read data, then recover bus </em>/
+static bool tc74_read(int8_t *temp) {
+    uint8_t reg = 0x00, raw = 0xFF;</p>
+<pre><code>if (!I2C1_Write(TC74_ADDR, &amp;reg, 1))
+    return false;
+if (!i2c_wait() || I2C1_ErrorGet() != I2C_ERROR_NONE)
+    return false;
+
+if (!I2C1_Read(TC74_ADDR, &amp;raw, 1))
+    return false;
+i2c_wait();
+i2c_recover();
+
+*temp = (int8_t)raw;
+return (raw != 0xFF);
+</code></pre>
+<p>}</p>
+<p>int main(void) {
+    char msg[48];</p>
+<pre><code>SYSTEM_Initialize();
+__delay_ms(500);
+
+PIE4bits.U1RXIE = 1;
+INTCON0bits.GIE = 1;
+
+uprint("\r\n=== Isaiah Env Sensor ===\r\n");
+
+uprint("Running.\r\n");
+
+while (1) {
+    int8_t t;
+    if (tc74_read(&amp;t)) {
+        sprintf(msg, "temp=%d\r\n", t);
+        uprint(msg);
+    } else {
+        uprint("fail\r\n");
+        i2c_recover();
+    }                    
+    __delay_ms(1000);
+    if (IO_RB2_GetValue()) {                
+    uprint("Reset activated\r\n");
+    for (uint8_t i = 0; i &lt; 3; i++) {  
+        IO_RB0_SetHigh();
+        __delay_ms(250);
+        IO_RB0_SetLow();
+        __delay_ms(250);
+    }
+    asm("RESET");   
+}
+}
+</code></pre>
+<p>}</p>
 
 
 
@@ -1001,7 +1102,8 @@
 
 
 
-
+  
+  
 
 
 
