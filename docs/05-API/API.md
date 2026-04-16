@@ -1,140 +1,108 @@
-# Subsystem API
+# Environmental Subsystem API
 
 ## Overview
-This subsystem interfaces with a BME680 environmental sensor using I2C and communicates with a 7-node daisy-chain UART network.
+This subsystem is the environmental sensor system in a 7-node UART daisy-chain network.  
+It interfaces with a TC74 environmental temperature sensor using I2C and communicates with the UART daisy chain.
 
-The subsystem is responsible for:  
-- Reading environmental data (temperature, humidity, pressure, gas resistance)  
-- Processing sensor data using calibration registers  
-- Sending formatted UART messages to other subsystems  
-- Receiving, processing, and forwarding UART messages in the daisy chain  
+The subsystem is responsible for:
+- Reading temperature data from the TC74 sensor
+- Sending formatted UART messages (periodic status or on-demand responses)
+- Receiving, processing, and forwarding UART messages in the daisy chain
+- Responding to temperature requests message type `0x08`
+- Sending ACKs for messages addressed to it
+- Discarding invalid/loopback/unapproved messages
 
 ## System Architecture
-7 subsystems connected in a UART daisy chain. Each subsystem:  
-- Receives messages  
-- Processes messages addressed to it  
-- Forwards all other messages immediately and unchanged  
-- Discards duplicate messages to prevent retransmission loops  
+7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:
+- Receives messages via UART1
+- Processes messages addressed to itself `MY_ID = 0x49`
+- Forwards all other messages immediately and unchanged if target is approved or broadcast
+- Discards messages from self loopback protection
+- Discards messages from unapproved senders
+- Prioritizes forwarding over new transmissions
+
+Approved node IDs:
+`0x43` – Christo
+`0x4C` – Liam
+`0x49` – Isaiah (this node)
+`0x52` – Ragul
+`0x58` – BCAST (broadcast)
 
 ## Sensor Interface (I2C)
-The BME680 is accessed via I2C.
+TC74 temperature sensor accessed via I2C1 at address `0x4C`.
 
-### Temperature Registers
-| Variable | Register Address |
-|----------|----------------|
-| par_t1   | 0xE9 / 0xEA    |
-| par_t2   | 0x8A / 0x8B    |
-| par_t3   | 0x8C           |
-| temp_adc | 0x24<7:4> / 0x23 / 0x22 |
+Temperature read:
+- Write register `0x00`
+- Read 1 byte (signed 8-bit value = °C)
+- No calibration registers needed
 
-### Pressure Registers
-| Variable | Register Address |
-|----------|----------------|
-| par_p1   | 0x8E / 0x8F    |
-| par_p2   | 0x90 / 0x91    |
-| par_p3   | 0x92           |
-| par_p4   | 0x94 / 0x95    |
-| par_p5   | 0x96 / 0x97    |
-| par_p6   | 0x99           |
-| par_p7   | 0x98           |
-| par_p8   | 0x9C / 0x9D    |
-| par_p9   | 0x9E / 0x9F    |
-| par_p10  | 0xA0           |
-| press_adc | 0x21<7:4> / 0x20 / 0x1F |
+I2C details:
+- Slave address: `0x4C`
+- Supports simple write-then-read
+- Error recovery routine present (`i2c_recover()`)
 
-### Humidity Registers
-| Variable | Register Address |
-|----------|----------------|
-| par_h1   | 0xE2<3:0> / 0xE3 |
-| par_h2   | 0xE2<7:4> / 0xE1 |
-| par_h3   | 0xE4            |
-| par_h4   | 0xE5            |
-| par_h5   | 0xE6            |
-| par_h6   | 0xE7            |
-| par_h7   | 0xE8            |
-| hum_adc  | 0x26 / 0x25    |
+*(No pressure, humidity, or gas support in current code.)*
 
-### Gas Registers
-| Variable  | Register Address |
-|-----------|----------------|
-| gas_adc   | 0x2B<7:6> / 0x2A |
-| gas_range | 0x2B<3:0>       |
+## Packet Format (Current Implementation)
+All messages use this exact 7 + data_len byte structure:
 
-## Message Types Used
-| Message Type | Description |
-|--------------|-------------|
-| 8            | Temperature Sensor Data Report |
-| 10           | Barometric Pressure Data Report |
-| 11           | Humidity Sensor Data Report |
-| 13           | System Status Report |
-| 14           | System Error Code Report |
-| 16           | Heartbeat |
+| Byte(s)              | Content                  | Type      | Value / Notes                          |
+|----------------------|--------------------------|-----------|----------------------------------------|
+| 0–1                  | Header                   | uint8_t   | `0x41 0x5A` (“AZ”)                    |
+| 2                    | Sender ID                | uint8_t   | `MY_ID` or other approved ID           |
+| 3                    | Target ID                | uint8_t   | `MY_ID`, `BCAST`, or other             |
+| 4                    | Message Type (`mtype`)   | uint8_t   | See table below                        |
+| 5 … (5+data_len-1)   | Data                     | uint8_t[] | Variable length payload                |
+| (5+data_len)         | Footer byte 1            | uint8_t   | `0x59` (“Y”)                           |
+| (6+data_len)         | Footer byte 2            | uint8_t   | `0x42` (“B”)                           |
 
-### Message Definitions
+- Maximum packet size: 128 bytes (`MAX_PKT`)
+- Packet is built with `build_packet()` and sent with `send_pkt()`
 
-**Message Type 8 — Temperature Sensor Data Report**
+## Message Types Used (Current)
 
-| Byte | Variable Name | Type    | Min   | Max   |
-|------|---------------|--------|-------|-------|
-| 1–2  | message_type  | uint16_t | 8     | 8     |
-| 3–4  | temperature   | int16_t  | -4000 | 8500  |
+| mtype (hex) | Description                          | Data Length | Data Content (current)                  |
+|-------------|--------------------------------------|-------------|-----------------------------------------|
+| `0x08`      | Temperature Data / Request           | 1 byte      | Signed temperature (°C)                 |
+| `0x4B`      | Acknowledgement (ACK)                | 1 byte      | Original `mtype` that was received      |
+| `0x10`      | Test / Periodic message (default)    | 1 byte      | Current temperature byte                |
 
-*Temperature is scaled by 100 (°C × 100)*
+*(Additional types from the original BME680 draft are not yet implemented.)*
 
-**Message Type 10 — Pressure Data Report**
+## Incoming Message Handling (`handle_packet`)
+1. Validate prefix (`0x41 0x5A`) and suffix (`0x59 0x42`).
+2. Discard if sender == `MY_ID` (loopback).
+3. Discard if sender not in approved list.
+4. **If target == MY_ID**:
+   - Send ACK (`0x4B`).
+   - If `mtype == 0x08`: read TC74 and reply immediately with `0x08` + temperature byte.
+5. **If target == BCAST or approved node**:
+   - Forward packet unchanged.
+6. Otherwise: drop.
 
-| Byte | Variable Name | Type     | Min    | Max     |
-|------|---------------|---------|--------|---------|
-| 1–2  | message_type  | uint16_t | 10    | 10      |
-| 3–6  | pressure      | uint32_t | 30000 | 110000 |
-| 7–10 | altitude      | int32_t  | -50000 | 100000 |
-
-**Message Type 11 — Humidity Data Report**
-
-| Byte | Variable Name | Type    | Min   | Max   |
-|------|---------------|--------|-------|-------|
-| 1–2  | message_type  | uint16_t | 11    | 11    |
-| 3–4  | humidity      | uint16_t | 0     | 10000 |
-
-*Humidity is scaled by 100 (% × 100)*
-
-## Sensor Configuration
-- Operating Mode: Forced Mode (trigger measurements on demand)  
-- Oversampling: Improves measurement resolution (×1 to ×16 for T/P/H)  
-- IIR Filter: Reduces temperature and pressure noise (coefficients 0–127)  
-- **Measurement Status Flags:**  
-  - new_data = new measurement available  
-  - measuring = measurement in progress  
-  - gas_measuring = gas measurement in progress  
-
-## I2C Communication Details
-- Slave address: 0x76 or 0x77 (depends on SDO pin)  
-- Supports Start, Stop, repeated start, auto-increment reads  
-- Soft reset: 0xB6 to 0xE0  
-
-## Message Processing Logic
-
-### Incoming Message Handling
-1. Check message validity: proper frame, correct length, valid type  
-2. Check sender: discard if from this subsystem  
-3. Check destination:  
-   - If addressed to this subsystem → process & send ACK  
-   - Else → forward unchanged  
-4. Duplicate messages: discard to prevent loops  
-
-### Forwarding Behavior
-- Immediate forwarding for all non-local messages  
-- Prioritized over new transmissions  
-
-### Acknowledgement Message
-| Byte | Variable Name  | Type     | Description          |
-|------|----------------|---------|--------------------|
-| 1–2  | message_type   | uint16_t | Type of received message |
-| 3    | received_msg   | uint8_t  | Original message ID       |
-| 4    | status         | uint8_t  | 1 → success, 0 → error   |
+## Forwarding Behavior
+- Non-local messages are forwarded **immediately** (prioritized).
+- No modification of forwarded packets.
 
 ## Sender Behavior
-- Periodically transmit sensor readings: temperature, pressure, humidity  
-- Messages must be formatted, payload ≤ limits, dynamically updated  
-- Transmission controlled by a non-blocking timer  
-- Data packed as scaled integers for reliable UART transmission  
+- Periodic transmission every ~500 ms (`TX_RATE_MS`).
+- Uses non-blocking cooldown counter.
+- Currently sends type `0x10` to `test_target` (default = `BCAST`) with 1-byte temperature.
+- Change `test_target`, `test_mtype`, or data length in `send_my_own_message()` as needed.
+- Transmission LED (RB0) blinks on every TX.
+
+## Additional Features in Code
+- RX state machine (`WAIT_P1` / `WAIT_P2` / `COLLECT`) for reliable packet assembly.
+- Debug output over UART (sender name, raw hex, ASCII data).
+- RB0 LED blinks on every RX or TX.
+- I2C timeout + recovery.
+- Software reset on RB2 high.
+- Interrupt enabled (`U1RXIE`) but RX is currently polled in main loop.
+- Ring buffer declared but unused.
+
+## Notes / Future Alignment
+- The ring buffer (`ring_buf`) is declared but not currently used.
+- To align with the original BME680 plan:
+  - Replace `tc74_read()` with full BME680 forced-mode read + compensation.
+  - Expand periodic messages to types `0x08`/`0x10`/`0x11` with scaled multi-byte payloads.
+  - Add oversampling/IIR configuration at boot.
