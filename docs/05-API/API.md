@@ -23,8 +23,8 @@ The subsystem is responsible for:
 
 Approved node IDs:
 0x43 – Christo  
-0x4C – Liam  
-0x49 – Isaiah 
+0x4C – Liam    
+0x49 – Isaiah  
 0x52 – Ragul  
 0x58 – BCAST  
 
