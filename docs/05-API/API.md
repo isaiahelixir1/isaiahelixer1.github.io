@@ -21,7 +21,7 @@ The subsystem is responsible for:
 - Discards messages from unapproved senders  
 - Prioritizes forwarding over new transmissions  
 
-Approved node IDs:
+Approved node IDs:  
 0x43 – Christo  
 0x4C – Liam    
 0x49 – Isaiah  
