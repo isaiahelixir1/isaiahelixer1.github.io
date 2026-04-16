@@ -41,8 +41,6 @@ I2C details:
 - Supports simple write-then-read  
 - Error recovery routine present i2c_recover()
 
-(No pressure, humidity, or gas support in current code.)
-
 ## Packet Format (Current Implementation)
 All messages use this exact 7 + data_len byte structure:
 
