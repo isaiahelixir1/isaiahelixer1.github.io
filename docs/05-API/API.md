@@ -13,7 +13,7 @@ The subsystem is responsible for:
 - Discarding invalid/loopback/unapproved messages  
 
 ## System Architecture
-7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:
+7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:  
 - Receives messages via UART1  
 - Processes messages addressed to itself MY_ID = 0x49  
 - Forwards all other messages immediately and unchanged if target is approved or broadcast  
@@ -65,14 +65,14 @@ All messages use this exact 7 + data_len byte structure:
 | 0x4B      | Acknowledgement (ACK)                | 1 byte      | Original mtype that was received      |
 | 0x10      | Test / Periodic message (default)    | 1 byte      | Current temperature byte                |
 
-## Incoming Message Handling (`handle_packet`)
+## Incoming Message Handling
 1. Validate prefix 0x41 0x5A and suffix 0x59 0x42.
 2. Discard if sender == MY_ID (loopback).
 3. Discard if sender not in approved list.
 4. If target == MY_ID:
    - Send ACK (0x4B).
    - If mtype == 0x08: read TC74 and reply immediately with 0x08 + temperature byte.
-5. **If target == BCAST or approved node**:
+5. If target == BCAST or approved node:
    - Forward packet unchanged.
 6. Otherwise: drop.
 
@@ -95,10 +95,3 @@ All messages use this exact 7 + data_len byte structure:
 - Software reset on RB2 high.
 - Interrupt enabled U1RXIE but RX is currently polled in main loop.
 - Ring buffer declared but unused.
-
-## Notes / Future Alignment
-- The ring buffer ring_buf is declared but not currently used.
-- To align with the original BME680 plan:
-  - Replace tc74_read() with full BME680 forced-mode read + compensation.
-  - Expand periodic messages to types 0x08/0x10/0x11 with scaled multi-byte payloads.
-  - Add oversampling/IIR configuration at boot.
