@@ -835,9 +835,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#incoming-message-handling-handle_packet" class="md-nav__link">
+  <a href="#incoming-message-handling" class="md-nav__link">
     <span class="md-ellipsis">
-      Incoming Message Handling (handle_packet)
+      Incoming Message Handling
     </span>
   </a>
   
@@ -865,15 +865,6 @@
   <a href="#additional-features-in-code" class="md-nav__link">
     <span class="md-ellipsis">
       Additional Features in Code
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes-future-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes / Future Alignment
     </span>
   </a>
   
@@ -1161,9 +1152,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#incoming-message-handling-handle_packet" class="md-nav__link">
+  <a href="#incoming-message-handling" class="md-nav__link">
     <span class="md-ellipsis">
-      Incoming Message Handling (handle_packet)
+      Incoming Message Handling
     </span>
   </a>
   
@@ -1196,15 +1187,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#notes-future-alignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      Notes / Future Alignment
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1232,7 +1214,7 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 - Sending ACKs for messages addressed to it<br>
 - Discarding invalid/loopback/unapproved messages  </p>
 <h2 id="system-architecture">System Architecture</h2>
-<p>7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:
+<p>7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:<br>
 - Receives messages via UART1<br>
 - Processes messages addressed to itself MY_ID = 0x49<br>
 - Forwards all other messages immediately and unchanged if target is approved or broadcast<br>
@@ -1346,7 +1328,7 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 </tr>
 </tbody>
 </table>
-<h2 id="incoming-message-handling-handle_packet">Incoming Message Handling (<code>handle_packet</code>)</h2>
+<h2 id="incoming-message-handling">Incoming Message Handling</h2>
 <ol>
 <li>Validate prefix 0x41 0x5A and suffix 0x59 0x42.</li>
 <li>Discard if sender == MY_ID (loopback).</li>
@@ -1354,7 +1336,7 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 <li>If target == MY_ID:</li>
 <li>Send ACK (0x4B).</li>
 <li>If mtype == 0x08: read TC74 and reply immediately with 0x08 + temperature byte.</li>
-<li><strong>If target == BCAST or approved node</strong>:</li>
+<li>If target == BCAST or approved node:</li>
 <li>Forward packet unchanged.</li>
 <li>Otherwise: drop.</li>
 </ol>
@@ -1380,14 +1362,6 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 <li>Software reset on RB2 high.</li>
 <li>Interrupt enabled U1RXIE but RX is currently polled in main loop.</li>
 <li>Ring buffer declared but unused.</li>
-</ul>
-<h2 id="notes-future-alignment">Notes / Future Alignment</h2>
-<ul>
-<li>The ring buffer ring_buf is declared but not currently used.</li>
-<li>To align with the original BME680 plan:</li>
-<li>Replace tc74_read() with full BME680 forced-mode read + compensation.</li>
-<li>Expand periodic messages to types 0x08/0x10/0x11 with scaled multi-byte payloads.</li>
-<li>Add oversampling/IIR configuration at boot.</li>
 </ul>
 
 
