@@ -1225,37 +1225,37 @@
 <p>This subsystem is the environmental sensor system in a 7-node UART daisy-chain network.<br>
 It interfaces with a TC74 environmental temperature sensor using I2C and communicates with the UART daisy chain.</p>
 <p>The subsystem is responsible for:
-- Reading temperature data from the TC74 sensor
-- Sending formatted UART messages (periodic status or on-demand responses)
-- Receiving, processing, and forwarding UART messages in the daisy chain
-- Responding to temperature requests message type <code>0x08</code>
-- Sending ACKs for messages addressed to it
-- Discarding invalid/loopback/unapproved messages</p>
+- Reading temperature data from the TC74 sensor<br>
+- Sending formatted UART messages (periodic status or on-demand responses)<br>
+- Receiving, processing, and forwarding UART messages in the daisy chain<br>
+- Responding to temperature requests message type 0x08<br>
+- Sending ACKs for messages addressed to it<br>
+- Discarding invalid/loopback/unapproved messages  </p>
 <h2 id="system-architecture">System Architecture</h2>
 <p>7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:
-- Receives messages via UART1
-- Processes messages addressed to itself <code>MY_ID = 0x49</code>
-- Forwards all other messages immediately and unchanged if target is approved or broadcast
-- Discards messages from self loopback protection
-- Discards messages from unapproved senders
-- Prioritizes forwarding over new transmissions</p>
+- Receives messages via UART1<br>
+- Processes messages addressed to itself MY_ID = 0x49<br>
+- Forwards all other messages immediately and unchanged if target is approved or broadcast<br>
+- Discards messages from self loopback protection<br>
+- Discards messages from unapproved senders<br>
+- Prioritizes forwarding over new transmissions  </p>
 <p>Approved node IDs:
-<code>0x43</code> – Christo
-<code>0x4C</code> – Liam
-<code>0x49</code> – Isaiah (this node)
-<code>0x52</code> – Ragul
-<code>0x58</code> – BCAST (broadcast)</p>
+<code>0x43</code> – Christo<br>
+<code>0x4C</code> – Liam<br>
+<code>0x49</code> – Isaiah 
+<code>0x52</code> – Ragul<br>
+<code>0x58</code> – BCAST  </p>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
-<p>TC74 temperature sensor accessed via I2C1 at address <code>0x4C</code>.</p>
+<p>TC74 temperature sensor accessed via I2C1 at address 0x4C.  </p>
 <p>Temperature read:
-- Write register <code>0x00</code>
-- Read 1 byte (signed 8-bit value = °C)
-- No calibration registers needed</p>
+- Write register 0x0<br>
+- Read 1 byte (signed 8-bit value = °C)<br>
+- No calibration registers needed  </p>
 <p>I2C details:
-- Slave address: <code>0x4C</code>
-- Supports simple write-then-read
-- Error recovery routine present (<code>i2c_recover()</code>)</p>
-<p><em>(No pressure, humidity, or gas support in current code.)</em></p>
+- Slave address: 0x4C<br>
+- Supports simple write-then-read<br>
+- Error recovery routine present i2c_recover()</p>
+<p>(No pressure, humidity, or gas support in current code.)</p>
 <h2 id="packet-format-current-implementation">Packet Format (Current Implementation)</h2>
 <p>All messages use this exact 7 + data_len byte structure:</p>
 <table>
@@ -1313,8 +1313,8 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 </tbody>
 </table>
 <ul>
-<li>Maximum packet size: 128 bytes (<code>MAX_PKT</code>)</li>
-<li>Packet is built with <code>build_packet()</code> and sent with <code>send_pkt()</code></li>
+<li>Maximum packet size: 128 bytes MAX_PKT  </li>
+<li>Packet is built with build_packet() and sent with send_pkt()  </li>
 </ul>
 <h2 id="message-types-used-current">Message Types Used (Current)</h2>
 <table>
@@ -1328,67 +1328,66 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 </thead>
 <tbody>
 <tr>
-<td><code>0x08</code></td>
+<td>0x08</td>
 <td>Temperature Data / Request</td>
 <td>1 byte</td>
 <td>Signed temperature (°C)</td>
 </tr>
 <tr>
-<td><code>0x4B</code></td>
+<td>0x4B</td>
 <td>Acknowledgement (ACK)</td>
 <td>1 byte</td>
 <td>Original <code>mtype</code> that was received</td>
 </tr>
 <tr>
-<td><code>0x10</code></td>
+<td>0x10</td>
 <td>Test / Periodic message (default)</td>
 <td>1 byte</td>
 <td>Current temperature byte</td>
 </tr>
 </tbody>
 </table>
-<p><em>(Additional types from the original BME680 draft are not yet implemented.)</em></p>
 <h2 id="incoming-message-handling-handle_packet">Incoming Message Handling (<code>handle_packet</code>)</h2>
 <ol>
-<li>Validate prefix (<code>0x41 0x5A</code>) and suffix (<code>0x59 0x42</code>).</li>
-<li>Discard if sender == <code>MY_ID</code> (loopback).</li>
+<li>Validate prefix 0x41 0x5A and suffix 0x59 0x42.</li>
+<li>Discard if sender == MY_ID (loopback).</li>
 <li>Discard if sender not in approved list.</li>
-<li><strong>If target == MY_ID</strong>:</li>
-<li>Send ACK (<code>0x4B</code>).</li>
-<li>If <code>mtype == 0x08</code>: read TC74 and reply immediately with <code>0x08</code> + temperature byte.</li>
+<li>If target == MY_ID:</li>
+<li>Send ACK (0x4B).</li>
+<li>If mtype == 0x08: read TC74 and reply immediately with 0x08 + temperature byte.</li>
 <li><strong>If target == BCAST or approved node</strong>:</li>
 <li>Forward packet unchanged.</li>
 <li>Otherwise: drop.</li>
 </ol>
 <h2 id="forwarding-behavior">Forwarding Behavior</h2>
 <ul>
-<li>Non-local messages are forwarded <strong>immediately</strong> (prioritized).</li>
+<li>Non-local messages are forwarded immediately (prioritized).</li>
 <li>No modification of forwarded packets.</li>
 </ul>
 <h2 id="sender-behavior">Sender Behavior</h2>
 <ul>
-<li>Periodic transmission every ~500 ms (<code>TX_RATE_MS</code>).</li>
+<li>Periodic transmission every ~500 ms TX_RATE_MS.</li>
 <li>Uses non-blocking cooldown counter.</li>
-<li>Currently sends type <code>0x10</code> to <code>test_target</code> (default = <code>BCAST</code>) with 1-byte temperature.</li>
-<li>Change <code>test_target</code>, <code>test_mtype</code>, or data length in <code>send_my_own_message()</code> as needed.</li>
+<li>Currently sends type 0x10 to test_target (default = BCAST) with 1-byte temperature.</li>
+<li>Change test_target, test_mtype, or data length in send_my_own_message() as needed.</li>
 <li>Transmission LED (RB0) blinks on every TX.</li>
 </ul>
 <h2 id="additional-features-in-code">Additional Features in Code</h2>
 <ul>
-<li>RX state machine (<code>WAIT_P1</code> / <code>WAIT_P2</code> / <code>COLLECT</code>) for reliable packet assembly.</li>
+<li>RX state machine WAIT_P1 / WAIT_P2 / COLLECT for reliable packet assembly.</li>
 <li>Debug output over UART (sender name, raw hex, ASCII data).</li>
 <li>RB0 LED blinks on every RX or TX.</li>
 <li>I2C timeout + recovery.</li>
 <li>Software reset on RB2 high.</li>
-<li>Interrupt enabled (<code>U1RXIE</code>) but RX is currently polled in main loop.</li>
+<li>Interrupt enabled U1RXIE but RX is currently polled in main loop.</li>
 <li>Ring buffer declared but unused.</li>
 </ul>
 <h2 id="notes-future-alignment">Notes / Future Alignment</h2>
 <ul>
-<li>The ring buffer (<code>ring_buf</code>) is declared but not currently used.</li>
+<li>The ring buffer ring_buf is declared but not currently used.</li>
 <li>To align with the original BME680 plan:</li>
-<li>Replace <code>tc74_read()</code> with full BME680 forced-mode read + compensation.</li>
-<li>Expand periodic messages to types <code>0x08</code>/<code>0x10</code>/<code>0x11</code> with scaled multi-byte payloads.</li>
+<li>Replace tc74_read() with full BME680 forced-mode read + compensation.</li>
+<li>Expand periodic messages to types 0x08/0x10/0x11 with scaled multi-byte payloads.</li>
 <li>Add oversampling/IIR configuration at boot.</li>
 </ul>
 
