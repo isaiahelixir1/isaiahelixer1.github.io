@@ -22,11 +22,11 @@ The subsystem is responsible for:
 - Prioritizes forwarding over new transmissions  
 
 Approved node IDs:
-`0x43` – Christo  
-`0x4C` – Liam  
-`0x49` – Isaiah 
-`0x52` – Ragul  
-`0x58` – BCAST  
+0x43 – Christo  
+0x4C – Liam  
+0x49 – Isaiah 
+0x52 – Ragul  
+0x58 – BCAST  
 
 ## Sensor Interface (I2C)
 TC74 temperature sensor accessed via I2C1 at address 0x4C.  
@@ -48,13 +48,13 @@ All messages use this exact 7 + data_len byte structure:
 
 | Byte(s)              | Content                  | Type      | Value / Notes                          |
 |----------------------|--------------------------|-----------|----------------------------------------|
-| 0–1                  | Header                   | uint8_t   | `0x41 0x5A` (“AZ”)                    |
-| 2                    | Sender ID                | uint8_t   | `MY_ID` or other approved ID           |
-| 3                    | Target ID                | uint8_t   | `MY_ID`, `BCAST`, or other             |
-| 4                    | Message Type (`mtype`)   | uint8_t   | See table below                        |
+| 0–1                  | Header                   | uint8_t   | 0x41 0x5A (“AZ”)                    |
+| 2                    | Sender ID                | uint8_t   | MY_ID or other approved ID           |
+| 3                    | Target ID                | uint8_t   | MY_ID, BCAST, or other             |
+| 4                    | Message Type mtype   | uint8_t   | See table below                        |
 | 5 … (5+data_len-1)   | Data                     | uint8_t[] | Variable length payload                |
-| (5+data_len)         | Footer byte 1            | uint8_t   | `0x59` (“Y”)                           |
-| (6+data_len)         | Footer byte 2            | uint8_t   | `0x42` (“B”)                           |
+| (5+data_len)         | Footer byte 1            | uint8_t   | 0x59 (“Y”)                           |
+| (6+data_len)         | Footer byte 2            | uint8_t   | 0x42 (“B”)                           |
 
 - Maximum packet size: 128 bytes MAX_PKT  
 - Packet is built with build_packet() and sent with send_pkt()  
@@ -64,7 +64,7 @@ All messages use this exact 7 + data_len byte structure:
 | mtype (hex) | Description                          | Data Length | Data Content (current)                  |
 |-------------|--------------------------------------|-------------|-----------------------------------------|
 | 0x08      | Temperature Data / Request           | 1 byte      | Signed temperature (°C)                 |
-| 0x4B      | Acknowledgement (ACK)                | 1 byte      | Original `mtype` that was received      |
+| 0x4B      | Acknowledgement (ACK)                | 1 byte      | Original mtype that was received      |
 | 0x10      | Test / Periodic message (default)    | 1 byte      | Current temperature byte                |
 
 ## Incoming Message Handling (`handle_packet`)
