@@ -1240,11 +1240,11 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 - Discards messages from unapproved senders<br>
 - Prioritizes forwarding over new transmissions  </p>
 <p>Approved node IDs:
-<code>0x43</code> – Christo<br>
-<code>0x4C</code> – Liam<br>
-<code>0x49</code> – Isaiah 
-<code>0x52</code> – Ragul<br>
-<code>0x58</code> – BCAST  </p>
+0x43 – Christo<br>
+0x4C – Liam<br>
+0x49 – Isaiah 
+0x52 – Ragul<br>
+0x58 – BCAST  </p>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
 <p>TC74 temperature sensor accessed via I2C1 at address 0x4C.  </p>
 <p>Temperature read:
@@ -1272,23 +1272,23 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 <td>0–1</td>
 <td>Header</td>
 <td>uint8_t</td>
-<td><code>0x41 0x5A</code> (“AZ”)</td>
+<td>0x41 0x5A (“AZ”)</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Sender ID</td>
 <td>uint8_t</td>
-<td><code>MY_ID</code> or other approved ID</td>
+<td>MY_ID or other approved ID</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Target ID</td>
 <td>uint8_t</td>
-<td><code>MY_ID</code>, <code>BCAST</code>, or other</td>
+<td>MY_ID, BCAST, or other</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Message Type (<code>mtype</code>)</td>
+<td>Message Type mtype</td>
 <td>uint8_t</td>
 <td>See table below</td>
 </tr>
@@ -1302,13 +1302,13 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 <td>(5+data_len)</td>
 <td>Footer byte 1</td>
 <td>uint8_t</td>
-<td><code>0x59</code> (“Y”)</td>
+<td>0x59 (“Y”)</td>
 </tr>
 <tr>
 <td>(6+data_len)</td>
 <td>Footer byte 2</td>
 <td>uint8_t</td>
-<td><code>0x42</code> (“B”)</td>
+<td>0x42 (“B”)</td>
 </tr>
 </tbody>
 </table>
@@ -1337,7 +1337,7 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 <td>0x4B</td>
 <td>Acknowledgement (ACK)</td>
 <td>1 byte</td>
-<td>Original <code>mtype</code> that was received</td>
+<td>Original mtype that was received</td>
 </tr>
 <tr>
 <td>0x10</td>
