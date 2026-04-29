@@ -4,65 +4,87 @@ title: Module's Selected Major Components
 
 ## Overview
 
-The following sections describe the **final selected major components** for the Environmental Monitoring Subsystem. These selections reflect design updates, instructor feedback, and system integration requirements.
+The following sections describe the **final selected major components** for the Environmental Monitoring Subsystem. These selections reflect updated design decisions, instructor feedback, and system requirements.
 
 This subsystem:
 
-- Operates at 3.3V from a 9V input source  
-- Measures environmental temperature  
+- Operates at 3.3V from a 9V source  
+- Measures temperature  
 - Communicates digitally with a microcontroller (I²C)  
-- Interfaces with teammate subsystems via external connectors  
-- Uses surface-mount components for compact PCB design  
+- Interfaces with teammate boards via connectors  
+- Uses surface-mount components  
+
+---
 
 ## Power Regulator Selection
 
 ### Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
 
+![download](https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7)
+
 Pros | Cons
 ---|---
 Low cost | Low efficiency at high input voltage
-Low dropout voltage | Heat dissipation concerns
+Low dropout voltage | Heat dissipation at 9V input
 Simple design | Limited current (250 mA)
 
+---
+
 ### Candidate 2 – TLV70033 (Linear Regulator)
+
+![download](https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84)
 
 Pros | Cons
 ---|---
 Low quiescent current | Limited current (200 mA)
 Stable 3.3V output | Slightly higher cost
 
+---
+
 ### Candidate 3 – LM2575T-3.3G (Switching Regulator)
+
+<img width="305" height="230" alt="LM2575" src="https://github.com/user-attachments/assets/677d67d7-06b8-4962-b203-0ed13a477735" />
 
 Pros | Cons
 ---|---
 High efficiency | More complex design
-Supports high current (up to 1A+) | Requires external components (inductor, diode)
+Handles higher current | Requires inductor + diode
 Low heat generation | Larger footprint
+
+---
 
 ### ✅ Final Selection: LM2575T-3.3G
 
 **Rationale:**
 
-The LM2575T-3.3G switching regulator was selected due to its **high efficiency and ability to handle higher current loads** compared to linear regulators.
+The LM2575T-3.3G was selected due to its **high efficiency and ability to handle higher current loads** when stepping down from 9V to 3.3V.
 
-Although linear regulators offer simplicity, they would dissipate significant power when stepping down from 9V to 3.3V, resulting in heat and reduced efficiency. The switching regulator minimizes these losses, making it more suitable for a stable and scalable system.
+Linear regulators were considered, but they would dissipate significant power as heat due to the large voltage drop. The switching regulator minimizes these losses, improving system efficiency and reliability.
 
-This choice ensures:
-- Reliable 3.3V regulation  
+This selection ensures:
+- Stable 3.3V output  
 - Reduced thermal stress  
-- Support for future subsystem expansion  
+- Support for future expansion  
+
+---
 
 ## Environmental Sensor Selection
 
-### Candidate 1 – BME680 (Multi-Sensor)
+### Candidate 1 – BME680 (Gas + Temperature + Humidity + Pressure)
+
+<img width="250" height="250" alt="BME680 Sensor" src="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1" />
 
 Pros | Cons
 ---|---
-Multiple measurements (gas, temp, humidity, pressure) | Higher cost
+Multiple sensing capabilities | Higher cost
 I²C interface | More complex firmware
 Compact integration | Overkill for requirements
 
+---
+
 ### Candidate 2 – TC74 (Temperature Sensor)
+
+<img width="197" height="197" alt="TC74 Sensor" src="https://github.com/user-attachments/assets/303597e4-1458-4c94-834d-cd8380258836" />
 
 Pros | Cons
 ---|---
@@ -70,56 +92,42 @@ Simple I²C interface | Only measures temperature
 Low pin count | Limited functionality
 Reliable digital output | —
 
-### Candidate 3 – HDC1080 (Temp + Humidity)
+---
+
+### Candidate 3 – HDC1080 (Temperature + Humidity)
+
+![HDC1080](https://github.com/user-attachments/assets/9a7fe5a5-11b9-47f1-ad20-83e4287ed701)
 
 Pros | Cons
 ---|---
-Low power | More functionality than required
+Low power | More features than required
 Digital interface | Slightly more complex
 
-### ✅ Final Selection: TC74
+---
+
+### ✅ Final Selection – TC74
 
 **Rationale:**
 
-The TC74 was selected because it **directly meets the subsystem requirement of temperature measurement** without unnecessary complexity.
+The TC74 was selected because it directly satisfies the subsystem requirement of **temperature measurement without unnecessary complexity**.
 
-Compared to multi-sensor options like the BME680, the TC74:
-- Reduces firmware complexity  
-- Minimizes power consumption  
-- Uses fewer system resources  
-- Simplifies integration with the microcontroller  
+Compared to multi-sensor devices like the BME680, the TC74:
+- Simplifies firmware development  
+- Reduces power consumption  
+- Minimizes pin usage  
+- Keeps the subsystem focused and efficient  
 
-This aligns with the design goal of keeping the subsystem **focused, efficient, and easy to implement**.
+---
 
 ## Final Component Summary Table (Required)
 
 | Subsystem | Selected Component | Function |
 |----------|------------------|----------|
-| Microcontroller | PIC18F57Q43 | System control, communication, and processing |
-| Voltage Regulation | LM2575T-3.3G | Steps 9V input down to regulated 3.3V |
+| Microcontroller | PIC18F57Q43 | Control, processing, and communication |
+| Voltage Regulation | LM2575T-3.3G | Converts 9V input to regulated 3.3V |
 | Temperature Sensor | TC74 | Digital temperature measurement (I²C) |
 
-## Design Validation Against Requirements
-
-All selected components meet the subsystem design requirements:
-
-- **3.3V Operation:**  
-  All components operate within the regulated 3.3V supply.
-
-- **Efficient Power Conversion:**  
-  The switching regulator minimizes energy loss and heat.
-
-- **Functional Accuracy:**  
-  The TC74 provides reliable digital temperature readings.
-
-- **System Integration:**  
-  I²C communication enables simple and robust interfacing with the microcontroller.
-
-- **Scalability:**  
-  The regulator supports higher current, allowing future expansion.
-
-- **Manufacturability:**  
-  All components are available in surface-mount packages and have complete documentation.
+---
 
 ## MCC Configuration / Pin Usage (PIC18F57Q43)
 
@@ -134,6 +142,21 @@ All selected components meet the subsystem design requirements:
 | Debug Output | RF1 | LED |
 | ICSP | RB6, RB7, MCLR | Programming interface |
 
+---
+
+## Design Validation
+
+All selected components meet system requirements:
+
+- **3.3V Compatibility:** All components operate at the regulated voltage  
+- **Efficient Power Conversion:** Switching regulator reduces losses  
+- **Functional Accuracy:** TC74 provides reliable temperature data  
+- **System Integration:** I²C simplifies communication  
+- **Scalability:** Regulator supports higher current if needed  
+- **Manufacturability:** All components are surface-mount and well-documented  
+
+---
+
 ## Summary
 
-The final component selections prioritize **efficiency, simplicity, and reliability**. The LM2575T-3.3G ensures stable and efficient power delivery, while the TC74 provides a straightforward and effective temperature sensing solution. Together, these components support a clean, modular, and scalable subsystem design.
+The final design prioritizes **efficiency, simplicity, and reliability**. The LM2575T-3.3G provides stable and efficient power conversion, while the TC74 offers a straightforward and effective sensing solution. Together, they support a clean and modular subsystem design.
