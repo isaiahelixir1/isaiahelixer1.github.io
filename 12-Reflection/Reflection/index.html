@@ -1378,47 +1378,44 @@
 
 <h1 id="reflection">Reflection</h1>
 <h2 id="review-of-modules-success">Review of Module's Success</h2>
-<p>Overall, the Environmental Sensor Subsystem successfully met most of the core design requirements defined at the start of the project. The final system operates from a single 9V DC input and reliably regulates power down to 3.3V using the LM2575T-3.3G switching regulator. This meets the requirement for a stable and efficient power system capable of supporting both the microcontroller and sensor load.</p>
-<p>The subsystem successfully implements temperature sensing using the TC74 digital I2C sensor, which meets the requirement for accurate and reliable environmental data collection while minimizing pin usage and simplifying firmware design. The PIC18F57Q43 microcontroller successfully handles sensor communication, system control, and inter-board communication through UART and GPIO expansion lines.</p>
-<p>The system also successfully includes ICSP programming support and a debug interface, which allows for reliable firmware development and troubleshooting during testing.</p>
-<p>The main requirements that were not fully realized include full system integration testing with all teammate boards under final load conditions. While interfaces are implemented and verified individually, complete end-to-end system validation across all subsystems was limited due to time and integration constraints. Additionally, some initial design explorations involving additional environmental sensors were reduced in scope to prioritize stability and simplicity.</p>
-<hr>
+<p>I feel like overall, the Environmental Sensor Subsystem successfully met majority of the design requirements that was set at the start of the project. The final system operates from a single 9V DC input and reliably regulates power down to 3.3V using the LM2575T-3.3G switching regulator. This meets the requirement for a stable and efficient power system capable of supporting both the microcontroller and sensor load.</p>
+<p>The subsystem successfully shows temperature sensing using the TC74 digital I2C sensor, which meets the requirement for accurate and reliable environmental data collection using serial communication and minimizing pin usage. The PIC18F57Q43 microcontroller successfully handles sensor communication, system control, and inter-board communication through UART and GPIO expansion lines.</p>
+<p>The system also successfully includes ICSP programming support and a debug interface which allows for reliable firmware development and troubleshooting during testing.</p>
+<p>The main requirements that were not fully realized include full system integration testing with all teammate boards under final load conditions. While interfaces are implemented and verified individually, complete end-to-end system validation across all subsystems was limited due to time and integration constraints. Aslo, some initial design explorations involving additional environmental sensors were reduced in scope to prioritize stability and simplicity.</p>
 <h2 id="microcontroller-module-startup-tips">Microcontroller / Module Startup Tips</h2>
-<p>Several challenges were encountered during initial system bring-up and debugging. The following list summarizes key lessons and advice that would improve future startup efficiency:</p>
+<p>Several challenges were encountered during initial system bring-up and debugging, here is a list ok key lessons and advice that would improve future startup efficiency:</p>
 <ol>
-<li>Always verify power rails first before connecting any sensors or communication lines, as unstable voltage can lead to misleading debugging results.  </li>
+<li>Always verify power rails first before connecting any sensors or communication lines since unstable voltage can lead to misleading debugging results.  </li>
 <li>Ensure the ICSP programming connections are tested early using a known-good programmer setup before assembling the full circuit.  </li>
-<li>Confirm I2C pull-up resistors are correctly sized and connected, as missing or incorrect pull-ups can make sensors appear non-functional.  </li>
+<li>Confirm I2C pull-up resistors are correctly sized and connected because missing or incorrect pull-ups can make sensors appear non-functional.  </li>
 <li>Validate UART communication independently using a loopback test before connecting to external subsystems.  </li>
-<li>Bring up the microcontroller with a minimal firmware first (LED blink or simple GPIO toggle) before adding sensor or communication complexity.  </li>
-<li>Double-check grounding between all subsystem boards, as communication issues were often traced back to incomplete ground references.  </li>
-<li>Test the switching regulator output under load conditions early, not just at no-load voltage measurements.  </li>
+<li>Bring up the microcontroller with a minimal firmware first such as a LED blink or simple GPIO toggle before adding sensor or communication complexity.  </li>
+<li>Double-check grounding between all subsystem boards since communication issues were often traced back to incomplete ground references.  </li>
+<li>Test the switching regulator output under load conditions early on and not just at no-load voltage measurements.  </li>
 <li>Use test points extensively during debugging to isolate power, communication, and signal issues.  </li>
-<li>Label all connectors clearly in both schematics and physical hardware to avoid wiring mistakes during integration.  </li>
-<li>Incrementally integrate subsystems rather than assembling the full system at once.</li>
+<li>Label all connectors clearly in both schematics and physical hardware to avoid wiring mistakes during building.  </li>
+<li>integrate subsystems slowly rather than assembling the full system at once.</li>
 </ol>
-<hr>
 <h2 id="lessons-learned">Lessons Learned</h2>
 <ol>
-<li>Power system design is one of the most critical aspects of embedded hardware development, and small mistakes can cascade into system-wide failures.  </li>
+<li>Power system design is one of the most critical aspects of embedded hardware development and small mistakes can lead into system-wide failures.  </li>
 <li>Switching regulators provide significantly better thermal performance than linear regulators when stepping down from higher voltages like 9V.  </li>
-<li>Choosing simpler sensors (such as the TC74) can dramatically reduce firmware complexity and integration risk.  </li>
-<li>Proper I2C design requires careful attention to pull-up resistors, addressing, and bus stability.  </li>
-<li>PCB layout decisions directly affect debugging difficulty, especially for power and communication lines.  </li>
+<li>Choosing simpler sensors such as the TC74 can dramatically reduce high firmware needs and building risk.  </li>
+<li>Proper I2C design requires needed attention to pull-up resistors, addressing, and bus stability.  </li>
+<li>PCB layout decisions directly affect debugging difficulty mainly for power and communication lines.  </li>
 <li>Modular design greatly improves debugging and system integration compared to tightly coupled designs.  </li>
-<li>Early testing of subsystems individually prevents compounding issues during final integration.  </li>
+<li>Early testing of subsystems individually prevents building issues during final building.  </li>
 <li>Communication between boards requires strict agreement on voltage levels, timing, and protocol structure.  </li>
-<li>Documentation during development is essential, as many design decisions are difficult to reconstruct later.  </li>
-<li>Time management is as important as technical design, especially when multiple subsystems must integrate at the end of the project.</li>
+<li>Documentation during development is very important and many design decisions are difficult to reconstruct later.  </li>
+<li>Time management is extremly important in technical design and especially when multiple subsystems must integrate at the end of the project.</li>
 </ol>
-<hr>
 <h2 id="recommendations-for-future-students">Recommendations for Future Students</h2>
 <ol>
-<li>Begin by fully validating your power system before connecting any sensitive components, as this will prevent damage and reduce debugging time later.  </li>
-<li>Design and test each subsystem independently before attempting full system integration to isolate issues more effectively.  </li>
-<li>Use simple and well-documented sensors whenever possible, especially when learning embedded system integration for the first time.  </li>
-<li>Maintain consistent labeling and documentation across schematics, PCBs, and wiring diagrams to avoid integration errors.  </li>
-<li>Start firmware development early with minimal working examples so that hardware and software debugging can progress in parallel.</li>
+<li>Begin by fully validating your power system before connecting any sensitive components as this will prevent damage and reduce debugging time later.  </li>
+<li>Design and test each subsystem independently before attempting full system build to isolate issues more easy.  </li>
+<li>Use simple and well-documented sensors whenever possible mainly when learning embedded system integration for the first time.  </li>
+<li>Maintain good labeling and documentation across schematics, PCBs, and wiring diagrams to avoid build errors.  </li>
+<li>Start firmware development early with minimal working examples so that hardware and software debugging can progress smoothly.</li>
 </ol>
 
 
