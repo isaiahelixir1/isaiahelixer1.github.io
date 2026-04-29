@@ -45,4 +45,4 @@ Total Cost: $31.86
 
 ## Resource
 
-The Bill of Material as a PDF download is available [here](https://github.com/user-attachments/files/25808206/314.Sensor.Subsystem.pdf).
+The Bill of Material as a PDF download is available [here](https://github.com/user-attachments/files/27211195/314.Sensor.Subsystem.BOM.pdf).
