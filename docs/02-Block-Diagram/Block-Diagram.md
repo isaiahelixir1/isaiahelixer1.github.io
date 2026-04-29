@@ -15,48 +15,48 @@ This block diagram documents the layout and connections of my individual environ
 
 ## Design Decision Process & Requirements Alignment
 
-The design of this subsystem was developed using a requirement-driven approach. The primary goals were to measure environmental temperature, communicate with external systems, integrate with team subsystems, support debugging, and maintain reliable power operation.
+The primary goals of this subsystem were to measure environmental temperature, communicate with external systems, integrate with team subsystems, support debugging, and maintain reliable power operation.
 
-The **PIC18F57Q43 microcontroller** was selected as the central component because it integrates multiple peripherals (I²C, UART, PWM, and GPIO). This reduced the need for external components and simplified the overall hardware design.
+The PIC18F57Q43 microcontroller was selected as the central component because it integrates multiple peripherals (I²C, UART, PWM, and GPIO). This microcontroller helped reduced the need for external components and was cost effective for the overall hardware design.
 
-The **TC74 temperature sensor** was chosen due to its I²C communication interface, which minimizes pin usage while providing reliable digital data transfer. This supports a cleaner and more efficient schematic and layout.
+The TC74 temperature sensor was chosen due to its simple I²C communication interface, which provided reliable digital data transfer and was also cost effective for this design. The simplicity of this subsystem made for a cleaner and more efficient schematic and layout.
 
 External connectors were divided into input and output groups to clearly define signal direction and improve modularity. UART was selected for external communication because it is simple, reliable, and widely supported for subsystem integration.
 
 To improve testing and usability, a debug button and LED were included. These allow quick verification of system behavior without requiring external debugging tools.
 
-The power system was designed using a 9V input and a **LM2575T-3.3G switching regulator** to efficiently step down to 3.3V. A switching regulator was selected over a linear regulator to reduce heat dissipation and improve efficiency.
+The power system was designed using a 9V input and a LM2575T-3.3G switching regulator to efficiently step down to 3.3V. A switching regulator was selected over a linear regulator to reduce heat dissipation and improve efficiency.
 
-An ICSP interface was also included to allow in-circuit programming and debugging, ensuring the subsystem can be easily updated during development.
+An ICSP interface was also included to allow in-circuit programming and debugging allowing the subsystem to be easily updated during development.
 
 ### Requirements Alignment
 
-- **Environmental Sensing**  
+- Environmental Sensing  
   The TC74 sensor provides digital temperature measurements, fulfilling the subsystem’s sensing requirement.
 
-- **Communication**  
+- Communication  
   I²C (sensor interface) and UART (external interface) enable reliable and efficient data transfer.
 
-- **System Integration**  
+- System Integration  
   Clearly defined connector inputs and outputs allow seamless integration with other team subsystems.
 
-- **Expandability**  
+- Expandability  
   Available GPIO, PWM, and UART interfaces allow future feature expansion without redesign.
 
-- **Debugging Capability**  
+- Debugging Capability  
   The onboard debug LED and button provide immediate feedback during testing.
 
-- **Power Reliability**  
+- Power Reliability  
   The switching regulator ensures stable and efficient 3.3V power delivery.
 
-- **Maintainability**  
+- Maintainability  
   The ICSP interface supports firmware updates and debugging without removing the board.
 
 # Environmental Sensor Subsystem
 
 ## 1. Microcontroller Block
 
-**PIC18F57Q43 — 48-pin SMD**
+PIC18F57Q43 — 48-pin SMD
 
 ### Sub-blocks / Peripherals
 
