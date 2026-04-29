@@ -9,7 +9,49 @@ tags:
 
 This block diagram documents the layout and connections of my individual environmental monitoring subsystem. Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
 
+## Design Decision Process & Requirements Alignment
+
+### Design Decision Process
+
+The design of this subsystem was developed using a requirement-driven approach. The primary goals were to measure environmental temperature, communicate with external systems, integrate with team subsystems, support debugging, and maintain reliable power operation.
+
+The **PIC18F57Q43 microcontroller** was selected as the central component because it integrates multiple peripherals (I²C, UART, PWM, and GPIO). This reduced the need for external components and simplified the overall hardware design.
+
+The **TC74 temperature sensor** was chosen due to its I²C communication interface, which minimizes pin usage while providing reliable digital data transfer. This supports a cleaner and more efficient schematic and layout.
+
+External connectors were divided into input and output groups to clearly define signal direction and improve modularity. UART was selected for external communication because it is simple, reliable, and widely supported for subsystem integration.
+
+To improve testing and usability, a debug button and LED were included. These allow quick verification of system behavior without requiring external debugging tools.
+
+The power system was designed using a 9V input and a **LM2575T-3.3G switching regulator** to efficiently step down to 3.3V. A switching regulator was selected over a linear regulator to reduce heat dissipation and improve efficiency.
+
+An ICSP interface was also included to allow in-circuit programming and debugging, ensuring the subsystem can be easily updated during development.
+
+### Requirements Alignment
+
+- **Environmental Sensing**  
+  The TC74 sensor provides digital temperature measurements, fulfilling the subsystem’s sensing requirement.
+
+- **Communication**  
+  I²C (sensor interface) and UART (external interface) enable reliable and efficient data transfer.
+
+- **System Integration**  
+  Clearly defined connector inputs and outputs allow seamless integration with other team subsystems.
+
+- **Expandability**  
+  Available GPIO, PWM, and UART interfaces allow future feature expansion without redesign.
+
+- **Debugging Capability**  
+  The onboard debug LED and button provide immediate feedback during testing.
+
+- **Power Reliability**  
+  The switching regulator ensures stable and efficient 3.3V power delivery.
+
+- **Maintainability**  
+  The ICSP interface supports firmware updates and debugging without removing the board.
+
 ## Individual Block Diagram — Environmental Sensor Subsystem
+
 <img width="881" height="642" alt="314 Sensor Subsystem Block Diagram" src="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99" />
 
 # Environmental Sensor Subsystem
@@ -101,4 +143,3 @@ Maximum current: 1.5 A regulator capacity
 
 - ICSP Programmer ↔ PIC  
   `Digital – Serial (ICSP, 2 pins)`
-
