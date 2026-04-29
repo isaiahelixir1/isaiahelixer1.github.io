@@ -7,7 +7,7 @@ The following sections describe the selected major components needed for the Env
 This subsystem:
 
 - Operates entirely at 3.3V with a 9V source
-- Measures gas concentration, temperature, humidity, and barometric pressure
+- Measures temperature
 - Communicates sensor data digitally and analog to a microcontroller
 - Sends processed data to teammate boards via a 2×4 ribbon connector
 - all sensors are surface mount components
@@ -44,28 +44,6 @@ The system current requirements are within safe limits for a linear regulator. T
 ## Gas Sensor Selection
 
 ## Environmental Sensor Selection
-
-### Candidate 1 – MQ-135 (Analog Gas Sensor)
-
-<img width="250" height="250" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" />
-
-Pros | Cons
----|---
-Simple analog interface | Requires calibration
-Widely documented | Heater consumes significant current
-Low cost | Lower precision
-Easy to prototype | Analog noise possible
-
-### Candidate 2 – CCS811 (Digital I2C Gas Sensor)
-
-<img width="250" height="250" alt="CCS811 Gas Sensor" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" />
-
-Pros | Cons
----|---
-Digital I2C interface | More expensive
-Lower power consumption | Requires initialization
-Integrated air quality algorithm | Limited to air quality estimation
-Small footprint | —
 
 ### Candidate 3 – BME680 (Gas + Temperature + Humidity + Pressure)
 
@@ -112,37 +90,6 @@ Digital interface | —
 ### Final Selection: SHT31
 Rationale:  
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.
-
-## Barometric Pressure Sensor Selection
-### Candidate 1 – BMP280
-![548496325-29767e5d-8bb1-4197-b3e1-86f202d03071 (1)](https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7)
-
-Pros | Cons
----|---
-Accurate readings | Requires calibration constants
-Digital I2C | —
-Low power | —
-
-### Candidate 2 – BME280 (Pressure + Temp + Humidity)
-![548496521-0c4cdcb8-7e6e-4400-a57e-ff8b6ffa987b (1)](https://github.com/user-attachments/assets/e9ed2578-b234-4399-85b2-7d49d1ad8315)
-
-Pros | Cons
----|---
-Multi-function sensor | Redundant if separate sensors used
-Compact | Higher cost
-
-### Candidate 3 – MPL3115A2
-![548496680-9d8ed861-8663-4720-923e-d3a464860362 (1)](https://github.com/user-attachments/assets/dfaf4959-44bd-422b-b299-6751e32c1af4)
-
-Pros | Cons
----|---
-Integrated altitude calculation | Slightly higher cost
-Digital I2C | —
-
-### Final Selection: BMP280
-Rationale:  
-The BMP280 provides accurate pressure readings with low power consumption and simple I2C integration while avoiding redundancy with separate temperature and humidity sensors.
-## Final Component Summary
 
 Subsystem | Selected Component
 ---|---
