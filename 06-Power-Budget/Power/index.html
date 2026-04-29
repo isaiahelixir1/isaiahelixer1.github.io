@@ -872,7 +872,7 @@
         <li class="md-nav__item">
   <a href="#local-subsystem-total-no-margin" class="md-nav__link">
     <span class="md-ellipsis">
-      Local Subsystem Total (No Margin)
+      Local Subsystem Total - No Margin
     </span>
   </a>
   
@@ -1301,7 +1301,7 @@
         <li class="md-nav__item">
   <a href="#local-subsystem-total-no-margin" class="md-nav__link">
     <span class="md-ellipsis">
-      Local Subsystem Total (No Margin)
+      Local Subsystem Total - No Margin
     </span>
   </a>
   
@@ -1366,7 +1366,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="local-subsystem-total-no-margin">Local Subsystem Total (No Margin)</h3>
+<h3 id="local-subsystem-total-no-margin">Local Subsystem Total - No Margin</h3>
 <p>50 + 2 + 10 + 10 = 72 mA</p>
 <h1 id="section-b-external-system-load-contribution">Section B – External System Load Contribution</h1>
 <p>Because this board supplies and shares a 9V rail through external connectors, additional load must be considered from connected subsystems.</p>
@@ -1394,7 +1394,7 @@
 </table>
 <h3 id="external-load-total">External Load Total</h3>
 <p>170 mA</p>
-<h1 id="section-c-total-system-load-combined">Section C – Total System Load (Combined)</h1>
+<h1 id="section-c-total-system-load">Section C – Total System Load</h1>
 <h3 id="total-current-demand">Total Current Demand:</h3>
 <ul>
 <li>Local subsystem: 72 mA  </li>
@@ -1407,7 +1407,7 @@
 <h3 id="final-required-33v-rail-capacity">Final Required 3.3V Rail Capacity:</h3>
 <p>≥ 350 mA design target</p>
 <h1 id="section-d-voltage-regulator-selection">Section D – Voltage Regulator Selection</h1>
-<h2 id="candidate-1-mcp1700-linear-regulator">Candidate 1 – MCP1700 (Linear Regulator)</h2>
+<h2 id="candidate-1-mcp1700-linear-regulator">Candidate 1 – MCP1700 Linear Regulator</h2>
 <table>
 <thead>
 <tr>
@@ -1430,7 +1430,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="candidate-2-lm2575-33g-switching-regulator">Candidate 2 – LM2575-3.3G (Switching Regulator)</h2>
+<h2 id="candidate-2-lm2575-33g-switching-regulator">Candidate 2 – LM2575-3.3G Switching Regulator</h2>
 <table>
 <thead>
 <tr>
@@ -1468,7 +1468,7 @@
 - Provides scalability for additional connected modules  </p>
 <h1 id="section-e-9v-power-source-analysis">Section E – 9V Power Source Analysis</h1>
 <h2 id="selected-source">Selected Source:</h2>
-<p>9V DC Wall Adapter (System Shared Rail)</p>
+<p>9V DC Wall Adapter System Shared Rail</p>
 <p>Rated Current: 3A</p>
 <h3 id="input-power-estimation">Input Power Estimation</h3>
 <p>P_out = 3.3V × 0.303A<br>
@@ -1484,7 +1484,7 @@ I_in ≈ 0.14 A  </p>
 Required Current: 0.14 A  </p>
 <p>Available Headroom: ~2.86 A  </p>
 <p>The system power supply is therefore significantly oversized, ensuring stable operation even with multiple connected subsystems.</p>
-<h1 id="section-f-power-budget-methodology-required-explanation">Section F – Power Budget Methodology (Required Explanation)</h1>
+<h1 id="section-f-power-budget-methodology">Section F – Power Budget Methodology</h1>
 <p>The power budget was constructed using a system-level worst-case analysis approach, rather than only considering the local subsystem.</p>
 <h3 id="method-used">Method Used:</h3>
 <ol>
@@ -1504,7 +1504,7 @@ Required Current: 0.14 A  </p>
 <li>A linear regulator is not suitable due to:</li>
 <li>system-level current demand  </li>
 <li>inefficiency from 9V input  </li>
-<li>The LM2575 switching regulator provides necessary <strong>system-wide scalability and thermal stability</strong></li>
+<li>The LM2575 switching regulator provides necessary system-wide scalability and thermal stability</li>
 <li>The design is safely within supply limits even when multiple subsystems operate simultaneously</li>
 </ul>
 <h1 id="final-power-system-summary">Final Power System Summary</h1>
@@ -1526,7 +1526,8 @@ Required Current: 0.14 A  </p>
 </tr>
 </tbody>
 </table>
-<p>The final power architecture ensures that both local and system-wide loads are supported, providing a stable and scalable power distribution model for the complete multi-board system. To see the Schematic page click here: <a href="https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/">"Schematic"</a> or to go to the bill of materials click here: <a href="https://isaiahelixir1.github.io/isaiahelixer1.github.io/05-BOM/BOM/">"BOM"</a></p>
+<p>The final power architecture ensures that both local and system-wide loads are supported, providing a stable and scalable power distribution model for the complete multi-board system.<br>
+To see the Schematic page click here: <a href="https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/">"Schematic"</a> or to go to the bill of materials click here: <a href="https://isaiahelixir1.github.io/isaiahelixer1.github.io/05-BOM/BOM/">"BOM"</a></p>
 
 
 
