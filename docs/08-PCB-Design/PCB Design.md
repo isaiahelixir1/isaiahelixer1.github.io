@@ -47,7 +47,7 @@ CAD PCB 3D:
 ## Resources
 
 - [ECAD Project Files (KiCad)](https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip)
-- [Manufacturing Files (Gerbers)](https://github.com/user-attachments/files/27213939/314.Temperature.Sensor.Subsystem.Gerber.and.Drill.zip)
+- [Manufacturing Files (Gerbers and Drill)](https://github.com/user-attachments/files/27213939/314.Temperature.Sensor.Subsystem.Gerber.and.Drill.zip)
 - Too see the Microcontroller Code page click here: [Microcontroller Code](https://isaiahelixir1.github.io/isaiahelixer1.github.io/09-Microcontroller-Code/Microcontroller%20Code/)
 
 ## Notes
