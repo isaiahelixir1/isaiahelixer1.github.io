@@ -758,13 +758,22 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Candidate 3 – ESP32 (QFN)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-selection-pic18f57q43" class="md-nav__link">
     <span class="md-ellipsis">
       Final Selection: PIC18F57Q43
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Selection: PIC18F57Q43">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rationale:
     </span>
   </a>
   
@@ -772,6 +781,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
   
 </li>
       
@@ -1218,13 +1236,22 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Candidate 3 – ESP32 (QFN)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-selection-pic18f57q43" class="md-nav__link">
     <span class="md-ellipsis">
       Final Selection: PIC18F57Q43
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Final Selection: PIC18F57Q43">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rationale" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rationale:
     </span>
   </a>
   
@@ -1232,6 +1259,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
   
 </li>
       
@@ -1254,12 +1290,12 @@
 
 <p>The microcontroller is responsible for:</p>
 <ul>
-<li>Reading analog gas sensor data (ADC)</li>
-<li>Communicating with digital sensors via I2C</li>
+<li>Reading sensor data via digital communication (I²C)</li>
 <li>Providing UART debugging interface</li>
 <li>Driving LEDs and reading button input</li>
 <li>Communicating with teammate boards via ribbon connector</li>
 <li>Supporting ICSP programming</li>
+<li>Providing general-purpose GPIO control for subsystem integration</li>
 </ul>
 <h2 id="candidate-1-pic18f57q43-tqfp-40">Candidate 1 – PIC18F57Q43 (TQFP-40)</h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/ff216aa2-51d3-48a9-b728-ff7e14b96ebc" data-desc-position="bottom"><img alt="download" src="https://github.com/user-attachments/assets/ff216aa2-51d3-48a9-b728-ff7e14b96ebc"></a></p>
@@ -1273,27 +1309,23 @@
 </thead>
 <tbody>
 <tr>
-<td>12-bit ADC (ideal for analog gas sensor)</td>
+<td>Multiple I²C peripherals</td>
 <td>8-bit architecture</td>
-</tr>
-<tr>
-<td>Multiple I2C peripherals</td>
-<td>Less RAM than 32-bit MCUs</td>
 </tr>
 <tr>
 <td>Multiple UART modules</td>
 <td>No built-in wireless</td>
 </tr>
 <tr>
-<td>Large pin count (40 pins)</td>
+<td>Sufficient GPIO for subsystem design</td>
+<td>Less RAM than 32-bit MCUs</td>
+</tr>
+<tr>
+<td>Surface mount TQFP package</td>
 <td>—</td>
 </tr>
 <tr>
-<td>Supported in MPLAB X / Melody</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Surface mount TQFP (easier than QFN)</td>
+<td>Supported in MPLAB X / MCC</td>
 <td>—</td>
 </tr>
 </tbody>
@@ -1310,16 +1342,16 @@
 </thead>
 <tbody>
 <tr>
-<td>Lower cost than Q43 series</td>
-<td>Slightly fewer advanced peripherals</td>
+<td>Lower cost</td>
+<td>Fewer advanced peripherals than Q43</td>
 </tr>
 <tr>
 <td>Multiple ADC channels</td>
-<td>Lower ADC resolution (10-bit)</td>
+<td>Lower overall feature set</td>
 </tr>
 <tr>
 <td>Familiar architecture</td>
-<td>—</td>
+<td>Slightly less flexible for expansion</td>
 </tr>
 <tr>
 <td>Surface mount package</td>
@@ -1344,30 +1376,31 @@
 </tr>
 <tr>
 <td>Built-in WiFi/BLE</td>
-<td>Overkill for subsystem</td>
+<td>Excessive for subsystem requirements</td>
 </tr>
 <tr>
-<td>High RAM</td>
+<td>High processing capability</td>
 <td>Higher power consumption</td>
 </tr>
 <tr>
-<td>Multiple peripherals</td>
-<td>More complex firmware</td>
+<td>Large ecosystem</td>
+<td>More complex firmware stack</td>
 </tr>
 </tbody>
 </table>
-<h3 id="final-selection-pic18f57q43">Final Selection: PIC18F57Q43</h3>
-<p>Rationale:</p>
-<p>The PIC18F57Q43 provides:</p>
-<ul>
-<li>12-bit ADC resolution for accurate gas sensing</li>
-<li>Multiple I2C modules for digital sensors</li>
-<li>UART for debugging</li>
-<li>Sufficient GPIO for LEDs and button</li>
-<li>ICSP support for in-circuit programming</li>
-<li>Surface-mount TQFP package that is practical for PCB assembly</li>
-</ul>
-<p>It meets all subsystem requirements without adding unnecessary complexity or wireless overhead.</p>
+<h2 id="final-selection-pic18f57q43">Final Selection: PIC18F57Q43</h2>
+<h3 id="rationale">Rationale:</h3>
+<p>The PIC18F57Q43 was selected because it provides the best balance of <strong>simplicity, peripheral availability, and system integration capability</strong> for the environmental monitoring subsystem.</p>
+<p>Key advantages include:
+- Multiple I²C modules for reliable digital sensor communication<br>
+- UART support for debugging and external system communication<br>
+- Adequate GPIO for LEDs, buttons, and subsystem control signals<br>
+- ICSP support for in-circuit programming and debugging<br>
+- Suitable surface-mount TQFP package for PCB implementation  </p>
+<p>While the 12-bit ADC capability is available, the final system primarily relies on <strong>digital sensor communication (I²C)</strong>, making peripheral availability and integration more important than analog resolution.</p>
+<p>The ESP32 was rejected due to unnecessary complexity and power overhead, while the PIC18F47Q10 was less suitable due to reduced peripheral flexibility.</p>
+<h2 id="summary">Summary</h2>
+<p>The PIC18F57Q43 provides the optimal balance between functionality and design simplicity, meeting all subsystem requirements while maintaining a clean and scalable architecture. To see the power budget click here: or to see the bill of materials click here: </p>
 
 
 
