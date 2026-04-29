@@ -14,7 +14,7 @@ The system also successfully includes ICSP programming support and a debug inter
 
 The main requirements that were not fully realized include full system integration testing with all teammate boards under final load conditions. While interfaces are implemented and verified individually, complete end-to-end system validation across all subsystems was limited due to time and integration constraints. Aslo, some initial design explorations involving additional environmental sensors were reduced in scope to prioritize stability and simplicity.
 
-## Microcontroller / Module Startup Tips
+## Microcontroller Startup Tips
 
 Several challenges were encountered during initial system bring-up and debugging, here is a list ok key lessons and advice that would improve future startup efficiency:
 
