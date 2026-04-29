@@ -18,6 +18,7 @@ Key design priorities include:
 ## Updated Schematic Diagram
 
 <img width="3508" height="2480" alt="314 Sensor Subsystem" src="https://github.com/user-attachments/assets/427accc6-0d7e-4a1f-b703-4977c8e13015" />
+*Figure 1: Showing the Temperature Subsystem Schematic Design.*
 
 ## Updated Design Notes (Final System Changes)
 
