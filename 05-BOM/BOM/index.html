@@ -1223,7 +1223,7 @@
   <h1>Module Bill of Materials</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This document lists all components required for the module, including capacitors, diodes, resistors, switches, connectors, and ICs. Each entry includes quantity, unit cost, manufacturer details, and links to datasheets and vendor pages. The table format ensures clarity and easy cost calculation.</p>
+<p>This document lists all components required for the module, including capacitors, diodes, resistors, switches, connectors, and ICs. Each entry includes quantity, unit cost, total cost, manufacturer details, and links to datasheets and vendor pages. The table format ensures clarity and easy cost calculation.</p>
 <h2 id="bill-of-materials">Bill of Materials</h2>
 <table>
 <thead>
@@ -1236,7 +1236,6 @@
 <th>Manufacturer #</th>
 <th>Vendor Link</th>
 <th>Datasheet Link</th>
-<th>Schematic Reference Designators</th>
 </tr>
 </thead>
 <tbody>
@@ -1249,7 +1248,6 @@
 <td>GRM31CD80J107MEA8L</td>
 <td><a href="https://www.digikey.com/en/products/detail/murata-electronics/GRM31CD80J107MEA8L/13904781">Link</a></td>
 <td><a href="https://pim.murata.com/en-us/pim/details/?partNum=GRM31CD80J107MEA8%23&amp;displayChangeClass=productDetailPrint">Datasheet</a></td>
-<td>C1</td>
 </tr>
 <tr>
 <td>330 µF Capacitor</td>
@@ -1260,18 +1258,16 @@
 <td>GRM32ER60G337ME05L</td>
 <td><a href="https://www.digikey.com/en/products/detail/murata-electronics/GRM32ER60G337ME05L/6155746">Link</a></td>
 <td><a href="https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM32ER60G337ME05-01.pdf">Datasheet</a></td>
-<td>C2</td>
 </tr>
 <tr>
 <td>0.1 µF Capacitor</td>
 <td>5</td>
-<td>$2.40</td>
+<td>$0.48</td>
 <td>$2.40</td>
 <td>KEMET</td>
 <td>C0805X104M5RACTU</td>
 <td><a href="https://www.digikey.com/en/products/detail/kemet/C0805X104M5RACTU/16672478">Link</a></td>
 <td><a href="https://yageogroup.com/content/datasheet/asset/file/KEM_C1013_X7R_FT-CAP_SMD">Datasheet</a></td>
-<td>C3, C4, C5, C6, C7</td>
 </tr>
 <tr>
 <td>1N5819 Diode</td>
@@ -1282,18 +1278,16 @@
 <td>1N5819WS</td>
 <td><a href="https://www.digikey.com/en/products/detail/evvo/1N5819W/21407730">Link</a></td>
 <td><a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7158/5272_1N5819W.pdf">Datasheet</a></td>
-<td>D1</td>
 </tr>
 <tr>
 <td>1N4007 Diode</td>
-<td>1</td>
+<td>2</td>
 <td>$0.10</td>
-<td>$0.10</td>
+<td>$0.20</td>
 <td>EVVO</td>
 <td>1N4007W</td>
 <td><a href="https://www.digikey.com/en/products/detail/evvo/1N4007W/21407574">Link</a></td>
 <td><a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7158/5272_1N4007W.pdf">Datasheet</a></td>
-<td>D2</td>
 </tr>
 <tr>
 <td>Red LED</td>
@@ -1304,7 +1298,6 @@
 <td>SML-512UWT86</td>
 <td><a href="https://www.digikey.com/en/products/detail/rohm-semiconductor/SML-512UWT86/637127">Link</a></td>
 <td><a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/9/SML-51_Series.pdf">Datasheet</a></td>
-<td>D3</td>
 </tr>
 <tr>
 <td>Debug Blue LED</td>
@@ -1315,18 +1308,26 @@
 <td>SMLEN3BC8TT86</td>
 <td><a href="https://www.digikey.com/en/products/detail/rohm-semiconductor/SMLEN3BC8TT86/15794643">Link</a></td>
 <td><a href="https://fscdn.rohm.com/en/products/databook/datasheet/opto/led/chip_mono/smlen3bc8tt86-e.pdf">Datasheet</a></td>
-<td>D4</td>
 </tr>
 <tr>
-<td>500 mA Fuse</td>
-<td>2</td>
+<td>Blue LED</td>
+<td>1</td>
+<td>$0.53</td>
+<td>$0.53</td>
+<td>Generic</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>100 mA Fuse</td>
+<td>1</td>
 <td>$1.10</td>
-<td>$2.20</td>
+<td>$1.10</td>
 <td>Littelfuse</td>
-<td>0217.500HXP</td>
+<td>0217.100HXP</td>
 <td><a href="https://www.digikey.com/en/products/detail/littelfuse-inc/0217.500HXP/777105">Link</a></td>
 <td><a href="https://www.littelfuse.com/assetdocs/littelfuse-fuse-217-datasheet?assetguid=af55be94-c42e-41b1-ad43-e070e09443fe">Datasheet</a></td>
-<td>F1, F2</td>
 </tr>
 <tr>
 <td>Barrel Jack Connector</td>
@@ -1337,7 +1338,6 @@
 <td>694106301002</td>
 <td><a href="https://www.digikey.com/en/products/detail/w-rth-elektronik/694106301002/5047522">Link</a></td>
 <td><a href="https://www.we-online.com/components/products/datasheet/694106301002.pdf">Datasheet</a></td>
-<td>J1</td>
 </tr>
 <tr>
 <td>Microchip SNAP Debugger</td>
@@ -1348,7 +1348,6 @@
 <td>PG164100</td>
 <td><a href="https://www.digikey.com/en/products/detail/microchip-technology/PG164100/9562532">Link</a></td>
 <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/MPLAB%20Snap%20In-Circuit%20Debugger%20IS%20DS50002787A.pdf">Datasheet</a></td>
-<td>J2</td>
 </tr>
 <tr>
 <td>Conn_01x04_Pin</td>
@@ -1359,18 +1358,16 @@
 <td>PH1-16-UA</td>
 <td><a href="https://www.digikey.com/en/products/detail/adam-tech/PH1-16-UA/9830344">Link</a></td>
 <td><a href="https://app.adam-tech.com/products/download/data_sheet/201605/ph1-xx-ua-data-sheet.pdf">Datasheet</a></td>
-<td>J3</td>
 </tr>
 <tr>
 <td>2 Pin Jumper</td>
-<td>4</td>
+<td>3</td>
 <td>$0.40</td>
-<td>$1.60</td>
+<td>$1.20</td>
 <td>Sullins</td>
 <td>SPC02SVGN-RC</td>
 <td><a href="https://www.digikey.com/en/products/detail/sullins-connector-solutions/SPC02SVGN-RC/2618263">Link</a></td>
 <td><a href="https://drawings-pdf.s3.amazonaws.com/11512.pdf">Datasheet</a></td>
-<td>JP1, JP2, JP3, JP4</td>
 </tr>
 <tr>
 <td>330 µH Inductor</td>
@@ -1381,40 +1378,36 @@
 <td>RLB0913-330K</td>
 <td><a href="https://www.digikey.com/en/products/detail/bourns-inc/RLB0913-330K/6677215">Link</a></td>
 <td><a href="https://www.bourns.com/docs/Product-Datasheets/rlb0913.pdf">Datasheet</a></td>
-<td>L1</td>
 </tr>
 <tr>
 <td>220 Ω Resistor</td>
-<td>1</td>
+<td>2</td>
 <td>$0.10</td>
-<td>$0.10</td>
+<td>$0.20</td>
 <td>Yageo</td>
 <td>RC1206FR-07220RL</td>
 <td><a href="https://www.digikey.com/en/products/detail/yageo/RC1206FR-07220RL/731640">Link</a></td>
 <td><a href="https://yageogroup.com/content/datasheet/asset/file/PYU-RC_GROUP_51_ROHS_L">Datasheet</a></td>
-<td>R1</td>
 </tr>
 <tr>
 <td>4.7 kΩ Resistor</td>
-<td>3</td>
+<td>2</td>
+<td>$0.10</td>
 <td>$0.20</td>
-<td>$0.60</td>
 <td>Yageo</td>
 <td>RC1206FR-134K7L</td>
 <td><a href="https://www.digikey.com/en/products/detail/yageo/RC1206FR-134K7L/14287832">Link</a></td>
 <td><a href="https://yageogroup.com/content/datasheet/asset/file/PYU-RC_GROUP_51_ROHS_L">Datasheet</a></td>
-<td>R2, R3, R4</td>
 </tr>
 <tr>
 <td>10 kΩ Resistor</td>
-<td>4</td>
-<td>$0.40</td>
-<td>$0.40</td>
+<td>3</td>
+<td>$0.10</td>
+<td>$0.30</td>
 <td>Yageo</td>
 <td>RC1206FR-1310KL</td>
 <td><a href="https://www.digikey.com/en/products/detail/yageo/RC1206FR-1310KL/13694273">Link</a></td>
 <td><a href="https://yageogroup.com/content/datasheet/asset/file/PYU-RC_GROUP_51_ROHS_L">Datasheet</a></td>
-<td>R5, R6, R7, R8</td>
 </tr>
 <tr>
 <td>Slide Switch</td>
@@ -1425,7 +1418,6 @@
 <td>SLW-1276864-4A-D</td>
 <td><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices-/SLW-1276864-4A-D/21259972">Link</a></td>
 <td><a href="https://www.sameskydevices.com/product/resource/slw-1276864-4a-d.pdf">Datasheet</a></td>
-<td>SW1, SW3</td>
 </tr>
 <tr>
 <td>Debug/Reset Button</td>
@@ -1436,54 +1428,49 @@
 <td>TS09-63-25-R-160-SMT-TR</td>
 <td><a href="https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices-/TS09-63-25-R-160-SMT-TR/15839094">Link</a></td>
 <td><a href="https://www.sameskydevices.com/product/resource/ts09.pdf">Datasheet</a></td>
-<td>SW2</td>
 </tr>
 <tr>
 <td>Test Points GND</td>
-<td>2</td>
+<td>3</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>TP1, TP4</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Test Points +3.3V</td>
 <td>2</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>TP3, TP5</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
 <td>Test Point 3.3V</td>
 <td>1</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>TP7</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
-<td>Test Points 9V</td>
-<td>2</td>
+<td>Test Point 9V</td>
+<td>1</td>
 <td>$0.00</td>
 <td>$0.00</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>N/A</td>
-<td>TP8, TP9</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
-<td>NCV2575_IL Regulator</td>
+<td>Switching Regulator (LM2575-3.3)</td>
 <td>1</td>
 <td>$1.75</td>
 <td>$1.75</td>
@@ -1491,10 +1478,9 @@
 <td>LM2575-3.3WU-TR</td>
 <td><a href="https://www.digikey.com/en/products/detail/microchip-technology/LM2575-3.3WU-TR/16679441">Link</a></td>
 <td><a href="https://ww1.microchip.com/downloads/en/DeviceDoc/lm2575.pdf">Datasheet</a></td>
-<td>U1</td>
 </tr>
 <tr>
-<td>PIC18F57Q43_IL MCU</td>
+<td>Microcontroller</td>
 <td>1</td>
 <td>$1.94</td>
 <td>$1.94</td>
@@ -1502,7 +1488,6 @@
 <td>PIC18F57Q43-I-PT</td>
 <td><a href="https://www.digikey.com/en/products/detail/microchip-technology/PIC18F57Q43-I-PT/11588230">Link</a></td>
 <td><a href="https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18%28L%29F26-27-45-46-47-55-56-57K42-Data-Sheet-40001919G.pdf">Datasheet</a></td>
-<td>U2</td>
 </tr>
 <tr>
 <td>2x4 Connector Input</td>
@@ -1513,7 +1498,6 @@
 <td>BHR-08-VUA</td>
 <td><a href="https://www.digikey.com/en/products/detail/adam-tech/BHR-08-VUA/9832409">Link</a></td>
 <td><a href="https://app.adam-tech.com/products/download/data_sheet/203218/bhr-xx-vua-data-sheet.pdf">Datasheet</a></td>
-<td>U3</td>
 </tr>
 <tr>
 <td>2x4 Connector Output</td>
@@ -1524,22 +1508,20 @@
 <td>BHR-08-VUA</td>
 <td><a href="https://www.digikey.com/en/products/detail/adam-tech/BHR-08-VUA/9832409">Link</a></td>
 <td><a href="https://app.adam-tech.com/products/download/data_sheet/203218/bhr-xx-vua-data-sheet.pdf">Datasheet</a></td>
-<td>U4</td>
 </tr>
 <tr>
-<td>BME680 Sensor</td>
+<td>Temperature Sensor</td>
 <td>1</td>
-<td>$8.65</td>
-<td>$8.65</td>
-<td>Bosch</td>
-<td>BME680</td>
-<td><a href="https://www.digikey.com/en/products/detail/bosch-sensortec/BME680/7401321">Link</a></td>
-<td><a href="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf">Datasheet</a></td>
-<td>U5</td>
+<td>$0.45</td>
+<td>$0.45</td>
+<td>Microchip</td>
+<td>TC74</td>
+<td><a href="https://www.digikey.com/en/products/detail/microchip-technology/TC74/20002268B">Link</a></td>
+<td>http://ww1.microchip.com/downloads/en/DeviceDoc/20002268B.pdf</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Total Cost:</strong> $37.42</p>
+<p>Total Cost: $31.86</p>
 <h2 id="resource">Resource</h2>
 <p>The Bill of Material as a PDF download is available <a href="https://github.com/user-attachments/files/25808206/314.Sensor.Subsystem.pdf">here</a>.</p>
 
