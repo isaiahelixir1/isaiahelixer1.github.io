@@ -10,7 +10,7 @@ The microcontroller processes temperature data from the sensor and communicates 
 
 Key design priorities include:
 - Stable and efficient 3.3V power regulation
-- Reliable I2C temperature sensing (TC74)
+- Reliable I2C temperature sensing TC74 temp
 - Robust inter-board communication via ribbon connectors
 - Safe power input protection fuse and reverse polarity protection
 - Ease of programming and debugging
@@ -22,7 +22,7 @@ Key design priorities include:
 ## Updated Design Notes (Final System Changes)
 
 ### 1. Power System Update
-- Final regulator selected: LM2575T-3.3G (switching regulator)
+- Final regulator selected: LM2575T-3.3G switching regulator
 - Input: 9V DC wall adapter
 - Output: 3.3V regulated rail
 - Added protection:
@@ -39,7 +39,7 @@ Key design priorities include:
   - Improved reliability
 
 ### 3. Microcontroller Integration
-- MCU: PIC18F57Q43 (48-pin)
+- MCU: PIC18F57Q43 48-pin package
 - Responsibilities:
   - Reads temperature data via I2C
   - Handles UART communication to other boards
