@@ -40,11 +40,11 @@ I am responsible for designing, building, and verifying the environmental sensor
 - Ensuring compatibility with other team modules through standardized connectors  
 - Programming and debugging the PIC18F57Q43 microcontroller  
 
-To review detailed information about the components used in the subsystem—including sensor selection, microcontroller configuration, schematic design, PCB design, and power design—see the following links below.
-["Block Diagram"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/02-Block-Diagram/Block-Diagram/) 
-["Component Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/03-Component-Selection/Component-Selection/)
-["Microcontroller Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/04-Microcontroller-Selection/Microcontroller/)
-["BOM"](https://embedded-systems-design.github.io/EGR314DataSheetTemplate/04-BOM/BOM/)
-["Power Budget"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/06-Power-Budget/Power/)
-["Schematic Design"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/)
-["PCB Design"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/08-PCB-Design/PCB%20Design/)
+To review detailed information about the components used in the subsystem—including sensor selection, microcontroller configuration, schematic design, PCB design, and power design—see the following links below.  
+["Block Diagram"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/02-Block-Diagram/Block-Diagram/)  
+["Component Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/03-Component-Selection/Component-Selection/)  
+["Microcontroller Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/04-Microcontroller-Selection/Microcontroller/)  
+["BOM"](https://embedded-systems-design.github.io/EGR314DataSheetTemplate/04-BOM/BOM/)  
+["Power Budget"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/06-Power-Budget/Power/)  
+["Schematic Design"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/)  
+["PCB Design"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/08-PCB-Design/PCB%20Design/)  
