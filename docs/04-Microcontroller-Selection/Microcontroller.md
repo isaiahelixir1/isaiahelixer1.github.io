@@ -70,4 +70,4 @@ The ESP32 was rejected due to unnecessary complexity and power overhead, while t
 
 ## Summary
 
-The PIC18F57Q43 provides the optimal balance between functionality and design simplicity, meeting all subsystem requirements while maintaining a clean and scalable architecture. To see the power budget click here: or to see the bill of materials click here: 
+The PIC18F57Q43 provides the optimal balance between functionality and design simplicity, meeting all subsystem requirements while maintaining a clean and scalable architecture. To see the power budget click here: ["Power Budget"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/06-Power-Budget/Power/) or to see the bill of materials click here: ["BOM"](https://embedded-systems-design.github.io/EGR314DataSheetTemplate/04-BOM/BOM/)
