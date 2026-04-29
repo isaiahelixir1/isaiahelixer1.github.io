@@ -12,8 +12,8 @@ This document lists all components required for the module, including capacitors
 
 | Part Name/Description | Qty | Unit Cost | Total Cost | Manufacturer | Manufacturer # | Vendor Link | Datasheet Link | 
 |----------------------|-----|-----------|------------|--------------|----------------|------------|----------------|
-100 µF Capacitor | 1 | $0.42 | $0.42 | Murata | GRM31CD80J107MEA8L | [Link](https://www.digikey.com/en/products/detail/murata-electronics/GRM31CD80J107MEA8L/13904781) | [Datasheet](https://pim.murata.com/en-us/pim/details/?partNum=GRM31CD80J107MEA8%23&displayChangeClass=productDetailPrint) | 
-330 µF Capacitor | 1 | $1.67 | $1.67 | Murata | GRM32ER60G337ME05L | [Link](https://www.digikey.com/en/products/detail/murata-electronics/GRM32ER60G337ME05L/6155746) | [Datasheet](https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM32ER60G337ME05-01.pdf) | 
+100 µF Capacitor | 1 | $0.28 | $0.28 | Würth Elektronik | 865080343009 | [Link](https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/865080343009/5728014) | [Datasheet](https://www.we-online.com/components/products/datasheet/865080343009.pdf) | 
+330 µF Capacitor | 1 | $0.57 | $0.57 | Nichicon | UWT1E331MNL1GS | [Link](https://www.digikey.com/en/products/detail/nichicon/UWT1E331MNL1GS/589934) | [Datasheet](https://www.nichicon.co.jp/english/series_items/catalog_pdf/e-uwt.pdf) | 
 0.1 µF Capacitor | 5 | $0.48 | $2.40 | KEMET | C0805X104M5RACTU | [Link](https://www.digikey.com/en/products/detail/kemet/C0805X104M5RACTU/16672478) | [Datasheet](https://yageogroup.com/content/datasheet/asset/file/KEM_C1013_X7R_FT-CAP_SMD) | 
 1N5819 Diode | 1 | $0.20 | $0.20 | EVVO | 1N5819WS | [Link](https://www.digikey.com/en/products/detail/evvo/1N5819W/21407730) | [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7158/5272_1N5819W.pdf) | 
 1N4007 Diode | 2 | $0.10 | $0.20 | EVVO | 1N4007W | [Link](https://www.digikey.com/en/products/detail/evvo/1N4007W/21407574) | [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7158/5272_1N4007W.pdf) | 
@@ -39,9 +39,9 @@ Switching Regulator (LM2575-3.3) | 1 | $1.75 | $1.75 | Microchip | LM2575-3.3WU-
 Microcontroller | 1 | $1.94 | $1.94 | Microchip | PIC18F57Q43-I-PT | [Link](https://www.digikey.com/en/products/detail/microchip-technology/PIC18F57Q43-I-PT/11588230) | [Datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18%28L%29F26-27-45-46-47-55-56-57K42-Data-Sheet-40001919G.pdf) | 
 2x4 Connector Input | 1 | $0.27 | $0.27 | Adam-Tech | BHR-08-VUA | [Link](https://www.digikey.com/en/products/detail/adam-tech/BHR-08-VUA/9832409) | [Datasheet](https://app.adam-tech.com/products/download/data_sheet/203218/bhr-xx-vua-data-sheet.pdf) | 
 2x4 Connector Output | 1 | $0.27 | $0.27 | Adam-Tech | BHR-08-VUA | [Link](https://www.digikey.com/en/products/detail/adam-tech/BHR-08-VUA/9832409) | [Datasheet](https://app.adam-tech.com/products/download/data_sheet/203218/bhr-xx-vua-data-sheet.pdf) | 
-Temperature Sensor | 1 | $1.15 | $1.15 | Microchip | TC74 | [Link](https://www.digikey.com/en/products/detail/microchip-technology/TC74A1-3.3VCTTR/443266) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) | 
+Temperature Sensor | 1 | $1.15 | $1.15 | Microchip | TC74A1-3.3VCTTR | [Link](https://www.digikey.com/en/products/detail/microchip-technology/TC74A1-3.3VCTTR/443266) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) | 
 
-Total Cost: $32.56
+Total Cost: $30.84
 
 ## Resource
 
