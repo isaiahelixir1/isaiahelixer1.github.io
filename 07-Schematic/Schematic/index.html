@@ -1413,7 +1413,7 @@
 <p>The microcontroller processes temperature data from the sensor and communicates with other subsystem boards through a ribbon connector interface. The design includes programming (ICSP), debug interfaces, and expansion I/O to support system integration and testing.</p>
 <p>Key design priorities include:
 - Stable and efficient 3.3V power regulation
-- Reliable I2C temperature sensing (TC74)
+- Reliable I2C temperature sensing TC74 temp
 - Robust inter-board communication via ribbon connectors
 - Safe power input protection fuse and reverse polarity protection
 - Ease of programming and debugging</p>
@@ -1422,7 +1422,7 @@
 <h2 id="updated-design-notes-final-system-changes">Updated Design Notes (Final System Changes)</h2>
 <h3 id="1-power-system-update">1. Power System Update</h3>
 <ul>
-<li>Final regulator selected: LM2575T-3.3G (switching regulator)</li>
+<li>Final regulator selected: LM2575T-3.3G switching regulator</li>
 <li>Input: 9V DC wall adapter</li>
 <li>Output: 3.3V regulated rail</li>
 <li>Added protection:</li>
@@ -1441,7 +1441,7 @@
 </ul>
 <h3 id="3-microcontroller-integration">3. Microcontroller Integration</h3>
 <ul>
-<li>MCU: PIC18F57Q43 (48-pin)</li>
+<li>MCU: PIC18F57Q43 48-pin package</li>
 <li>Responsibilities:</li>
 <li>Reads temperature data via I2C</li>
 <li>Handles UART communication to other boards</li>
