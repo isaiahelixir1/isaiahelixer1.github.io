@@ -20,7 +20,7 @@ The following components represent the final design load only.
 | UART Interface (internal + driver load) | 3.3V | 10 mA | Communication overhead |
 | External Connector Logic Load | 3.3V | 10 mA | Pull-downs, receiver input, interface circuitry |
 
-### Local Subsystem Total (No Margin)
+### Local Subsystem Total - No Margin
 
 50 + 2 + 10 + 10 = 72 mA
 
@@ -39,7 +39,7 @@ Because this board supplies and shares a 9V rail through external connectors, ad
 
 170 mA
 
-# Section C – Total System Load (Combined)
+# Section C – Total System Load
 
 ### Total Current Demand:
 
@@ -60,7 +60,7 @@ Because this board supplies and shares a 9V rail through external connectors, ad
 
 # Section D – Voltage Regulator Selection
 
-## Candidate 1 – MCP1700 (Linear Regulator)
+## Candidate 1 – MCP1700 Linear Regulator
 
 | Pros | Cons |
 |------|------|
@@ -68,7 +68,7 @@ Because this board supplies and shares a 9V rail through external connectors, ad
 | Low cost | Poor efficiency from 9V input |
 | Small footprint | No scalability for shared system load |
 
-## Candidate 2 – LM2575-3.3G (Switching Regulator)
+## Candidate 2 – LM2575-3.3G Switching Regulator
 
 | Pros | Cons |
 |------|------|
@@ -94,7 +94,7 @@ The LM2575-3.3G was selected because it:
 # Section E – 9V Power Source Analysis
 
 ## Selected Source:
-9V DC Wall Adapter (System Shared Rail)
+9V DC Wall Adapter System Shared Rail
 
 Rated Current: 3A
 
@@ -122,7 +122,7 @@ Available Headroom: ~2.86 A
 
 The system power supply is therefore significantly oversized, ensuring stable operation even with multiple connected subsystems.
 
-# Section F – Power Budget Methodology (Required Explanation)
+# Section F – Power Budget Methodology 
 
 The power budget was constructed using a system-level worst-case analysis approach, rather than only considering the local subsystem.
 
@@ -144,7 +144,7 @@ The power budget was constructed using a system-level worst-case analysis approa
 - A linear regulator is not suitable due to:
   - system-level current demand  
   - inefficiency from 9V input  
-- The LM2575 switching regulator provides necessary **system-wide scalability and thermal stability**
+- The LM2575 switching regulator provides necessary system-wide scalability and thermal stability
 - The design is safely within supply limits even when multiple subsystems operate simultaneously
 
 # Final Power System Summary
@@ -153,4 +153,5 @@ The power budget was constructed using a system-level worst-case analysis approa
 |------|--------|------------------------|------------|
 | System 3.3V Rail | 3.3V | 350 mA (design target) | LM2575-3.3G |
 
-The final power architecture ensures that both local and system-wide loads are supported, providing a stable and scalable power distribution model for the complete multi-board system. To see the Schematic page click here: ["Schematic"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/) or to go to the bill of materials click here: ["BOM"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/05-BOM/BOM/)
+The final power architecture ensures that both local and system-wide loads are supported, providing a stable and scalable power distribution model for the complete multi-board system.  
+To see the Schematic page click here: ["Schematic"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/) or to go to the bill of materials click here: ["BOM"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/05-BOM/BOM/)
