@@ -154,4 +154,5 @@ The power budget was constructed using a system-level worst-case analysis approa
 | System 3.3V Rail | 3.3V | 350 mA (design target) | LM2575-3.3G |
 
 The final power architecture ensures that both local and system-wide loads are supported, providing a stable and scalable power distribution model for the complete multi-board system.  
+
 To see the Schematic page click here: ["Schematic"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/) or to go to the bill of materials click here: ["BOM"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/05-BOM/BOM/)
