@@ -9,9 +9,11 @@ tags:
 
 This block diagram documents the layout and connections of my individual environmental monitoring subsystem. Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
 
-## Design Decision Process & Requirements Alignment
+## Individual Block Diagram — Environmental Sensor Subsystem
 
-### Design Decision Process
+<img width="881" height="642" alt="314 Sensor Subsystem Block Diagram" src="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99" />
+
+## Design Decision Process & Requirements Alignment
 
 The design of this subsystem was developed using a requirement-driven approach. The primary goals were to measure environmental temperature, communicate with external systems, integrate with team subsystems, support debugging, and maintain reliable power operation.
 
@@ -49,10 +51,6 @@ An ICSP interface was also included to allow in-circuit programming and debuggin
 
 - **Maintainability**  
   The ICSP interface supports firmware updates and debugging without removing the board.
-
-## Individual Block Diagram — Environmental Sensor Subsystem
-
-<img width="881" height="642" alt="314 Sensor Subsystem Block Diagram" src="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99" />
 
 # Environmental Sensor Subsystem
 
