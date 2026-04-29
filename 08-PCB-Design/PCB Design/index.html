@@ -24,7 +24,7 @@
 
     
       
-        <title>PCB Design - Isaiah LaCombe Data Sheet</title>
+        <title>Temperature Subsystem PCB Design - Isaiah LaCombe Data Sheet</title>
       
     
     
@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PCB Design
+              Temperature Subsystem PCB Design
             
           </span>
         </div>
@@ -898,15 +903,112 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Temperature Subsystem PCB Design
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    PCB Design
+    Temperature Subsystem PCB Design
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updated-pcb-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated PCB Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updated PCB Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-pcb-before-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw PCB (Before Assembly)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-pcb-after-soldering-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final PCB (After Soldering &amp; Testing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecad-design-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECAD Design Views
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1178,6 +1280,83 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updated-pcb-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated PCB Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updated PCB Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-pcb-before-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw PCB (Before Assembly)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-pcb-after-soldering-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final PCB (After Soldering &amp; Testing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecad-design-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      ECAD Design Views
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1191,7 +1370,52 @@
                   
 
 
-  <h1>PCB Design</h1>
+  <h1>Temperature Subsystem PCB Design</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This PCB Design represents the final product of the Environmental Sensor Subsystem Board. The system converts a 9V DC wall adapter input into a regulated 3.3V supply using an LM2575T-3.3G switching regulator with input protection fuse and diode. The regulated rail powers a PIC18F57Q43 microcontroller and a TC74 digital temperature sensor.</p>
+<p>The microcontroller processes temperature data from the sensor and communicates with other subsystem boards through a ribbon connector interface. The design includes programming (ICSP), debug interfaces, and expansion I/O to support system integration and testing.</p>
+<p>Key design priorities include:
+- Stable and efficient 3.3V power regulation<br>
+- Reliable I2C temperature sensing (TC74 sensor)<br>
+- Robust inter-board communication via ribbon connectors<br>
+- Input protection (fuse and reverse polarity protection)<br>
+- Ease of programming and debugging  </p>
+<h2 id="updated-pcb-design">Updated PCB Design</h2>
+<h3 id="raw-pcb-before-assembly">Raw PCB (Before Assembly)</h3>
+<p>Raw PCB Front:<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/adb2db44-f593-480b-bc92-814822522562" data-desc-position="bottom"><img width="1016" height="1191" alt="Raw PCB Front" src="https://github.com/user-attachments/assets/adb2db44-f593-480b-bc92-814822522562"></a></p>
+<p>Raw PCB Back:<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/26821738-0b3f-4a78-aabf-ed0341fb1169" data-desc-position="bottom"><img width="1015" height="1187" alt="Raw PCB Back" src="https://github.com/user-attachments/assets/26821738-0b3f-4a78-aabf-ed0341fb1169"></a></p>
+<h3 id="final-pcb-after-soldering-testing">Final PCB (After Soldering &amp; Testing)</h3>
+<p>Front:<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/pcb_final_front.jpg" data-desc-position="bottom"><img alt="Final PCB Front" src="images/pcb_final_front.jpg"></a></p>
+<p>Back:<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/pcb_final_back.jpg" data-desc-position="bottom"><img alt="Final PCB Back" src="images/pcb_final_back.jpg"></a></p>
+<h3 id="ecad-design-views">ECAD Design Views</h3>
+<p>CAD PCB Front:<br>
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/fdce6b7a-13f8-4c00-9d13-cd1764e72bd4" data-desc-position="bottom"><img width="1071" height="1256" alt="CAD PCB Front" src="https://github.com/user-attachments/assets/fdce6b7a-13f8-4c00-9d13-cd1764e72bd4"></a></p>
+<p>CAD PCB Back: 
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/73387086-86c3-41bd-a2ac-dd38ce98db2c" data-desc-position="bottom"><img width="1070" height="1257" alt="CAD PCB Back" src="https://github.com/user-attachments/assets/73387086-86c3-41bd-a2ac-dd38ce98db2c"></a></p>
+<p>CAD PCB 3D: 
+<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/bd99cdee-a543-41fa-8610-7ab3ebfdda65" data-desc-position="bottom"><img width="1015" height="1063" alt="CAD PCB 3D" src="https://github.com/user-attachments/assets/bd99cdee-a543-41fa-8610-7ab3ebfdda65"></a></p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>
+<p>📁 <strong>ECAD Project Files (KiCad/Altium):</strong><br>
+<code>/ecad/ecad_project_final.zip</code></p>
+</li>
+<li>
+<p>📁 <strong>Manufacturing Files (Gerbers):</strong><br>
+<code>/manufacturing/gerbers_final.zip</code></p>
+</li>
+<li>
+<p>📄 <strong>PCB Design PDF (optional if required):</strong><br>
+<code>/docs/pcb_design.pdf</code></p>
+</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<p>This board was fabricated, assembled, and tested to confirm correct voltage regulation, sensor communication over I2C, and stable system integration with the microcontroller subsystem.</p>
 
 
 
@@ -1199,7 +1423,8 @@
 
 
 
-
+  
+  
 
 
 
