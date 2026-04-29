@@ -758,24 +758,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#candidate-1-mq-135-analog-gas-sensor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 1 – MQ-135 (Analog Gas Sensor)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-2-ccs811-digital-i2c-gas-sensor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 2 – CCS811 (Digital I2C Gas Sensor)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#candidate-3-bme680-gas-temperature-humidity-pressure" class="md-nav__link">
     <span class="md-ellipsis">
       Candidate 3 – BME680 (Gas + Temperature + Humidity + Pressure)
@@ -828,66 +810,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#barometric-pressure-sensor-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Barometric Pressure Sensor Selection
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Barometric Pressure Sensor Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#candidate-1-bmp280" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 1 – BMP280
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-2-bme280-pressure-temp-humidity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 2 – BME280 (Pressure + Temp + Humidity)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-3-mpl3115a2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 3 – MPL3115A2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#final-selection-bmp280" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Selection: BMP280
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-component-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Component Summary
-    </span>
-  </a>
   
 </li>
       
@@ -1426,24 +1348,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#candidate-1-mq-135-analog-gas-sensor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 1 – MQ-135 (Analog Gas Sensor)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-2-ccs811-digital-i2c-gas-sensor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 2 – CCS811 (Digital I2C Gas Sensor)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#candidate-3-bme680-gas-temperature-humidity-pressure" class="md-nav__link">
     <span class="md-ellipsis">
       Candidate 3 – BME680 (Gas + Temperature + Humidity + Pressure)
@@ -1499,66 +1403,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#barometric-pressure-sensor-selection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Barometric Pressure Sensor Selection
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Barometric Pressure Sensor Selection">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#candidate-1-bmp280" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 1 – BMP280
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-2-bme280-pressure-temp-humidity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 2 – BME280 (Pressure + Temp + Humidity)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#candidate-3-mpl3115a2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Candidate 3 – MPL3115A2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#final-selection-bmp280" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Selection: BMP280
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#final-component-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      Final Component Summary
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1580,7 +1424,7 @@
 <p>This subsystem:</p>
 <ul>
 <li>Operates entirely at 3.3V with a 9V source</li>
-<li>Measures gas concentration, temperature, humidity, and barometric pressure</li>
+<li>Measures temperature</li>
 <li>Communicates sensor data digitally and analog to a microcontroller</li>
 <li>Sends processed data to teammate boards via a 2×4 ribbon connector</li>
 <li>all sensors are surface mount components</li>
@@ -1659,62 +1503,6 @@
 The system current requirements are within safe limits for a linear regulator. The MCP1700 provides sufficient current at low cost with minimal PCB complexity.</p>
 <h2 id="gas-sensor-selection">Gas Sensor Selection</h2>
 <h2 id="environmental-sensor-selection">Environmental Sensor Selection</h2>
-<h3 id="candidate-1-mq-135-analog-gas-sensor">Candidate 1 – MQ-135 (Analog Gas Sensor)</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41" data-desc-position="bottom"><img width="250" height="250" alt="d467641d-68fa-4d95-82e4-fd8358655220" src="https://github.com/user-attachments/assets/c126c38f-8324-4c79-9141-f1d679b21d41"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Simple analog interface</td>
-<td>Requires calibration</td>
-</tr>
-<tr>
-<td>Widely documented</td>
-<td>Heater consumes significant current</td>
-</tr>
-<tr>
-<td>Low cost</td>
-<td>Lower precision</td>
-</tr>
-<tr>
-<td>Easy to prototype</td>
-<td>Analog noise possible</td>
-</tr>
-</tbody>
-</table>
-<h3 id="candidate-2-ccs811-digital-i2c-gas-sensor">Candidate 2 – CCS811 (Digital I2C Gas Sensor)</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd" data-desc-position="bottom"><img width="250" height="250" alt="CCS811 Gas Sensor" src="https://github.com/user-attachments/assets/4c444bfd-9500-4c48-8888-8d98443d08bd"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Digital I2C interface</td>
-<td>More expensive</td>
-</tr>
-<tr>
-<td>Lower power consumption</td>
-<td>Requires initialization</td>
-</tr>
-<tr>
-<td>Integrated air quality algorithm</td>
-<td>Limited to air quality estimation</td>
-</tr>
-<tr>
-<td>Small footprint</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
 <h3 id="candidate-3-bme680-gas-temperature-humidity-pressure">Candidate 3 – BME680 (Gas + Temperature + Humidity + Pressure)</h3>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1" data-desc-position="bottom"><img width="250" height="250" alt="BME680 Sensor" src="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1"></a></p>
 <table>
@@ -1820,75 +1608,6 @@ Using the BME680 significantly simplifies hardware design by eliminating the nee
 <h3 id="final-selection-sht31">Final Selection: SHT31</h3>
 <p>Rationale:<br>
 The SHT31 offers high accuracy, reliable I2C communication, and strong industry support while meeting surface mount requirements.</p>
-<h2 id="barometric-pressure-sensor-selection">Barometric Pressure Sensor Selection</h2>
-<h3 id="candidate-1-bmp280">Candidate 1 – BMP280</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7" data-desc-position="bottom"><img alt="548496325-29767e5d-8bb1-4197-b3e1-86f202d03071 (1)" src="https://github.com/user-attachments/assets/2042f878-0a57-459f-8089-7edd9c336db7"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Accurate readings</td>
-<td>Requires calibration constants</td>
-</tr>
-<tr>
-<td>Digital I2C</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Low power</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<h3 id="candidate-2-bme280-pressure-temp-humidity">Candidate 2 – BME280 (Pressure + Temp + Humidity)</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/e9ed2578-b234-4399-85b2-7d49d1ad8315" data-desc-position="bottom"><img alt="548496521-0c4cdcb8-7e6e-4400-a57e-ff8b6ffa987b (1)" src="https://github.com/user-attachments/assets/e9ed2578-b234-4399-85b2-7d49d1ad8315"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Multi-function sensor</td>
-<td>Redundant if separate sensors used</td>
-</tr>
-<tr>
-<td>Compact</td>
-<td>Higher cost</td>
-</tr>
-</tbody>
-</table>
-<h3 id="candidate-3-mpl3115a2">Candidate 3 – MPL3115A2</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/dfaf4959-44bd-422b-b299-6751e32c1af4" data-desc-position="bottom"><img alt="548496680-9d8ed861-8663-4720-923e-d3a464860362 (1)" src="https://github.com/user-attachments/assets/dfaf4959-44bd-422b-b299-6751e32c1af4"></a></p>
-<table>
-<thead>
-<tr>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Integrated altitude calculation</td>
-<td>Slightly higher cost</td>
-</tr>
-<tr>
-<td>Digital I2C</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<h3 id="final-selection-bmp280">Final Selection: BMP280</h3>
-<p>Rationale:<br>
-The BMP280 provides accurate pressure readings with low power consumption and simple I2C integration while avoiding redundancy with separate temperature and humidity sensors.</p>
-<h2 id="final-component-summary">Final Component Summary</h2>
 <table>
 <thead>
 <tr>
