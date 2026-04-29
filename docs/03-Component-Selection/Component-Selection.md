@@ -69,8 +69,8 @@ Low cost | Slower response
 Simple protocol | Not fully surface mount friendly
 Moderate accuracy | —
 
-### Candidate 2 – SHT31 (I2C)
-![548495597-2a309ab0-5fa2-4ea6-a07a-f533d4417d33 (1)](https://github.com/user-attachments/assets/78523e99-4278-4789-a006-f663a4c49809)
+### Candidate 2 – TC74 (I2C)
+<img width="197" height="197" alt="image" src="https://github.com/user-attachments/assets/303597e4-1458-4c94-834d-cd8380258836" />
 
 Pros | Cons
 ---|---
