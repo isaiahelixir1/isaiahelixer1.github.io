@@ -46,14 +46,10 @@ CAD PCB 3D:
 
 ## Resources
 
-- 📁 **ECAD Project Files (KiCad/Altium):**  
-  `/ecad/ecad_project_final.zip`
+[ECAD Project Files (KiCad)](https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip)
 
-- 📁 **Manufacturing Files (Gerbers):**  
-  `/manufacturing/gerbers_final.zip`
+[Manufacturing Files (Gerbers)](https://github.com/user-attachments/files/27213939/314.Temperature.Sensor.Subsystem.Gerber.and.Drill.zip)
 
-- 📄 **PCB Design PDF (optional if required):**  
-  `/docs/pcb_design.pdf`
 ## Notes
 
 This board was fabricated, assembled, and tested to confirm correct voltage regulation, sensor communication over I2C, and stable system integration with the microcontroller subsystem.
