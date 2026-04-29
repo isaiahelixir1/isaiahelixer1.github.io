@@ -1489,47 +1489,47 @@
 <h2 id="individual-block-diagram-environmental-sensor-subsystem">Individual Block Diagram — Environmental Sensor Subsystem</h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99" data-desc-position="bottom"><img width="881" height="642" alt="314 Sensor Subsystem Block Diagram" src="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99"></a></p>
 <h2 id="design-decision-process-requirements-alignment">Design Decision Process &amp; Requirements Alignment</h2>
-<p>The design of this subsystem was developed using a requirement-driven approach. The primary goals were to measure environmental temperature, communicate with external systems, integrate with team subsystems, support debugging, and maintain reliable power operation.</p>
-<p>The <strong>PIC18F57Q43 microcontroller</strong> was selected as the central component because it integrates multiple peripherals (I²C, UART, PWM, and GPIO). This reduced the need for external components and simplified the overall hardware design.</p>
-<p>The <strong>TC74 temperature sensor</strong> was chosen due to its I²C communication interface, which minimizes pin usage while providing reliable digital data transfer. This supports a cleaner and more efficient schematic and layout.</p>
+<p>The primary goals of this subsystem were to measure environmental temperature, communicate with external systems, integrate with team subsystems, support debugging, and maintain reliable power operation.</p>
+<p>The PIC18F57Q43 microcontroller was selected as the central component because it integrates multiple peripherals (I²C, UART, PWM, and GPIO). This microcontroller helped reduced the need for external components and was cost effective for the overall hardware design.</p>
+<p>The TC74 temperature sensor was chosen due to its simple I²C communication interface, which provided reliable digital data transfer and was also cost effective for this design. The simplicity of this subsystem made for a cleaner and more efficient schematic and layout.</p>
 <p>External connectors were divided into input and output groups to clearly define signal direction and improve modularity. UART was selected for external communication because it is simple, reliable, and widely supported for subsystem integration.</p>
 <p>To improve testing and usability, a debug button and LED were included. These allow quick verification of system behavior without requiring external debugging tools.</p>
-<p>The power system was designed using a 9V input and a <strong>LM2575T-3.3G switching regulator</strong> to efficiently step down to 3.3V. A switching regulator was selected over a linear regulator to reduce heat dissipation and improve efficiency.</p>
-<p>An ICSP interface was also included to allow in-circuit programming and debugging, ensuring the subsystem can be easily updated during development.</p>
+<p>The power system was designed using a 9V input and a LM2575T-3.3G switching regulator to efficiently step down to 3.3V. A switching regulator was selected over a linear regulator to reduce heat dissipation and improve efficiency.</p>
+<p>An ICSP interface was also included to allow in-circuit programming and debugging allowing the subsystem to be easily updated during development.</p>
 <h3 id="requirements-alignment">Requirements Alignment</h3>
 <ul>
 <li>
-<p><strong>Environmental Sensing</strong><br>
+<p>Environmental Sensing<br>
   The TC74 sensor provides digital temperature measurements, fulfilling the subsystem’s sensing requirement.</p>
 </li>
 <li>
-<p><strong>Communication</strong><br>
+<p>Communication<br>
   I²C (sensor interface) and UART (external interface) enable reliable and efficient data transfer.</p>
 </li>
 <li>
-<p><strong>System Integration</strong><br>
+<p>System Integration<br>
   Clearly defined connector inputs and outputs allow seamless integration with other team subsystems.</p>
 </li>
 <li>
-<p><strong>Expandability</strong><br>
+<p>Expandability<br>
   Available GPIO, PWM, and UART interfaces allow future feature expansion without redesign.</p>
 </li>
 <li>
-<p><strong>Debugging Capability</strong><br>
+<p>Debugging Capability<br>
   The onboard debug LED and button provide immediate feedback during testing.</p>
 </li>
 <li>
-<p><strong>Power Reliability</strong><br>
+<p>Power Reliability<br>
   The switching regulator ensures stable and efficient 3.3V power delivery.</p>
 </li>
 <li>
-<p><strong>Maintainability</strong><br>
+<p>Maintainability<br>
   The ICSP interface supports firmware updates and debugging without removing the board.</p>
 </li>
 </ul>
 <h1 id="environmental-sensor-subsystem">Environmental Sensor Subsystem</h1>
 <h2 id="1-microcontroller-block">1. Microcontroller Block</h2>
-<p><strong>PIC18F57Q43 — 48-pin SMD</strong></p>
+<p>PIC18F57Q43 — 48-pin SMD</p>
 <h3 id="sub-blocks-peripherals">Sub-blocks / Peripherals</h3>
 <table>
 <thead>
