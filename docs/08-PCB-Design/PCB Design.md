@@ -6,13 +6,13 @@ title: Temperature Subsystem PCB Design
 
 This PCB Design represents the final product of the Environmental Sensor Subsystem Board. The system converts a 9V DC wall adapter input into a regulated 3.3V supply using an LM2575T-3.3G switching regulator with input protection fuse and diode. The regulated rail powers a PIC18F57Q43 microcontroller and a TC74 digital temperature sensor.
 
-The microcontroller processes temperature data from the sensor and communicates with other subsystem boards through a ribbon connector interface. The design includes programming (ICSP), debug interfaces, and expansion I/O to support system integration and testing.
+The microcontroller processes temperature data from the sensor and communicates with other subsystem boards through a ribbon connector interface. The design includes programming ICSP, debug interfaces, and expansion I/O to support system integration and testing.
 
 Key design priorities include:
 - Stable and efficient 3.3V power regulation  
-- Reliable I2C temperature sensing (TC74 sensor)  
+- Reliable I2C temperature sensing TC74 sensor  
 - Robust inter-board communication via ribbon connectors  
-- Input protection (fuse and reverse polarity protection)  
+- Input protection fuse and reverse polarity protection  
 - Ease of programming and debugging  
 
 ## Updated PCB Design
