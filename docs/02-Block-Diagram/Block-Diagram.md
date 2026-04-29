@@ -7,7 +7,7 @@ tags:
 
 ## Overview
 
-This block diagram documents the layout and connections of my individual environmental monitoring subsystem. Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
+This block diagram documents the layout and connections of my individual environmental monitoring subsystem. Its purpose is to clearly show how power, sensors, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
 
 ## Individual Block Diagram — Environmental Sensor Subsystem
 
