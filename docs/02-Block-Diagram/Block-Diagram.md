@@ -22,7 +22,7 @@ This block diagram documents the layout and connections of my individual environ
 
 | Peripheral | PIC Pin(s) | Function | Notes |
 |-----------|------------|---------|------|
-| I²C (MSSP1) | RC3 (SCL), RC4 (SDA) | BME680 environmental sensor | Bidirectional communication |
+| I²C (MSSP1) | RC3 (SCL), RC4 (SDA) | TC74 Temperature sensor | Bidirectional communication |
 | UART | RF0 (TX), RC7 (RX) | External connector communication | Serial communication to external system |
 | PWM | RC6 | PWM output signal | Sent to connector |
 | GPIO / Digital Input | RC1, RC0 | External digital inputs | From connector |
@@ -35,7 +35,7 @@ This block diagram documents the layout and connections of my individual environ
 
 | Sensor | Measurements | Signal Type | PIC Peripheral | PIC Pin | Notes |
 |------|-------------|-------------|---------------|--------|------|
-| BME680 | Temperature, Humidity, Pressure, Gas (VOC) | Digital – Serial (I²C) | I²C | RC3, RC4 | Single environmental sensor |
+| TC74 | Temperature | Digital – Serial (I²C) | I²C | RC3, RC4 | Single environmental sensor |
 
 ## 3. External Connectors
 
@@ -81,7 +81,7 @@ Maximum current: 1.5 A regulator capacity
 
 ## 7. Connections / Arrow Labels (Diagram-Ready)
 
-- BME680 ↔ PIC  
+- TC74 ↔ PIC  
   `Digital – Serial (I²C, 2 pins)`
 
 - Connector OUT ← PIC  
