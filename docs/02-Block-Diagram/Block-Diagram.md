@@ -56,7 +56,7 @@ An ICSP interface was also included to allow in-circuit programming and debuggin
 
 ## 1. Microcontroller Block
 
-PIC18F57Q43 — 48-pin SMD
+- PIC18F57Q43 — 48-pin SMD
 
 ### Sub-blocks / Peripherals
 
@@ -119,7 +119,7 @@ PIC18F57Q43 — 48-pin SMD
 
 Maximum current: 1.5 A regulator capacity
 
-## 7. Connections / Arrow Labels (Diagram-Ready)
+## 7. Connections / Arrow Labels
 
 - TC74 ↔ PIC  
   `Digital – Serial (I²C, 2 pins)`
