@@ -28,7 +28,7 @@ My module, the environmental sensor subsystem, focuses on collecting temperature
 
 The subsystem is designed to be simple, reliable, and compatible with the team’s shared communication and power architecture.
 
-For full context of the team’s design concept and integrated rover system, see our [team report](https://isaiahelixir1.github.io/EGR314-S-2026-205.github.io/).
+For full context of the team’s design concept and integrated rover system, see our [team report](https://egr314-s-2026-30.github.io/EGR314-S-2026-305.github.io/).
 
 ## My Contribution
 
