@@ -19,31 +19,31 @@ Key design priorities include:
 
 ### Raw PCB (Before Assembly)
 
-Raw PCB Front:  
+
 <img width="1016" height="1191" alt="Raw PCB Front" src="https://github.com/user-attachments/assets/adb2db44-f593-480b-bc92-814822522562" />
-
-Raw PCB Back:  
+*Figure 1: Showing the raw PCb front of the board.*
+ 
 <img width="1015" height="1187" alt="Raw PCB Back" src="https://github.com/user-attachments/assets/26821738-0b3f-4a78-aabf-ed0341fb1169" />
-
+*Figure 2: Showing the raw PCb back of the board.*
 
 ### Final PCB (After Soldering & Testing)
-Front:  
+ 
 ![Final PCB Front](images/pcb_final_front.jpg)
-
-Back:  
+*Figure 3: Showing the soldered front of the board.*
+  
 ![Final PCB Back](images/pcb_final_back.jpg)
+*Figure 4: Showing the soldered back of the board.*
 
 ### ECAD Design Views
 
-CAD PCB Front:  
 <img width="1071" height="1256" alt="CAD PCB Front" src="https://github.com/user-attachments/assets/fdce6b7a-13f8-4c00-9d13-cd1764e72bd4" />
+*Figure 5: Showing the CAD model front of the board.*
 
-CAD PCB Back: 
 <img width="1070" height="1257" alt="CAD PCB Back" src="https://github.com/user-attachments/assets/73387086-86c3-41bd-a2ac-dd38ce98db2c" />
+*Figure 6: Showing the CAD model back of the board.*
 
-CAD PCB 3D: 
 <img width="1015" height="1063" alt="CAD PCB 3D" src="https://github.com/user-attachments/assets/bd99cdee-a543-41fa-8610-7ab3ebfdda65" />
-
+*Figure 7: Showing a 3D CAD model of the board.*
 ## Resources
 
 - [ECAD Project Files (KiCad)](https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip)
