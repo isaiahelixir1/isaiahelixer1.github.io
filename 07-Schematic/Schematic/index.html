@@ -880,6 +880,84 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#updated-schematic-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated Schematic Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updated-design-notes-final-system-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated Design Notes (Final System Changes)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updated Design Notes (Final System Changes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-power-system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Power System Update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sensor-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sensor Update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-microcontroller-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Microcontroller Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-system-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. System Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-design-improvements-from-initial-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Design Improvements From Initial Version
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deliverables
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1169,6 +1247,84 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#updated-schematic-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated Schematic Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updated-design-notes-final-system-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updated Design Notes (Final System Changes)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updated Design Notes (Final System Changes)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-power-system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Power System Update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sensor-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sensor Update
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-microcontroller-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Microcontroller Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-system-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. System Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-design-improvements-from-initial-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Design Improvements From Initial Version
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deliverables
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1187,8 +1343,65 @@
   <h1>Temperature Subsystem Schematic</h1>
 
 <h2 id="overview">Overview</h2>
-<p>This schematic is designed to support the environmental Sensor Subsystem Board. It regulates a DC 9V wall adapter input down to 3.3V using an LM2575T-3.3G switchiung regulator with diode and fuse protection. The 3.3V rail powers a PIC18F57Q43 48 pin microcontroller that monitors a thermal temperature sensor. The system provides stable sensor inputs, onboard filtering, expansion Pins, and a ribbon connectors for inter-board communication.”</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/8f3dc441-8801-44db-8d12-47e1bf6e84f3" data-desc-position="bottom"><img alt="314 Sensor Subsystem" src="https://github.com/user-attachments/assets/8f3dc441-8801-44db-8d12-47e1bf6e84f3"></a></p>
+<p>This schematic represents the final design of the Environmental Sensor Subsystem Board. The system converts a 9V DC wall adapter input into a regulated 3.3V supply using an LM2575T-3.3G switching regulator with input protection (fuse and diode). The regulated rail powers a PIC18F57Q43 microcontroller and a TC74 digital temperature sensor.</p>
+<p>The microcontroller processes temperature data from the sensor and communicates with other subsystem boards through a ribbon connector interface. The design includes programming (ICSP), debug interfaces, and expansion I/O to support system integration and testing.</p>
+<p>Key design priorities include:
+- Stable and efficient 3.3V power regulation
+- Reliable I2C temperature sensing (TC74)
+- Robust inter-board communication via ribbon connectors
+- Safe power input protection (fuse + reverse polarity protection)
+- Ease of programming and debugging</p>
+<h2 id="updated-schematic-diagram">Updated Schematic Diagram</h2>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/user-attachments/assets/427accc6-0d7e-4a1f-b703-4977c8e13015" data-desc-position="bottom"><img width="3508" height="2480" alt="314 Sensor Subsystem" src="https://github.com/user-attachments/assets/427accc6-0d7e-4a1f-b703-4977c8e13015"></a></p>
+<h2 id="updated-design-notes-final-system-changes">Updated Design Notes (Final System Changes)</h2>
+<h3 id="1-power-system-update">1. Power System Update</h3>
+<ul>
+<li>Final regulator selected: LM2575T-3.3G (switching regulator)</li>
+<li>Input: 9V DC wall adapter</li>
+<li>Output: 3.3V regulated rail</li>
+<li>Added protection:</li>
+<li>Input fuse for overcurrent protection</li>
+<li>Schottky diode for reverse polarity protection</li>
+<li>Switching regulator chosen for improved efficiency over linear alternatives under sensor + MCU load conditions</li>
+</ul>
+<h3 id="2-sensor-update">2. Sensor Update</h3>
+<ul>
+<li>Final sensor selection: TC74 digital temperature sensor</li>
+<li>Interface: I2C (2-wire digital communication)</li>
+<li>Replaced earlier multi-sensor or analog sensing approach with a single dedicated temperature sensor for:</li>
+<li>Simpler firmware</li>
+<li>Reduced pin usage</li>
+<li>Improved reliability</li>
+</ul>
+<h3 id="3-microcontroller-integration">3. Microcontroller Integration</h3>
+<ul>
+<li>MCU: PIC18F57Q43 (48-pin)</li>
+<li>Responsibilities:</li>
+<li>Reads temperature data via I2C</li>
+<li>Handles UART communication to other boards</li>
+<li>Controls GPIO-based debug features</li>
+<li>Supports ICSP programming interface</li>
+</ul>
+<h3 id="4-system-communication">4. System Communication</h3>
+<ul>
+<li>External communication via 2×4 ribbon connectors:</li>
+<li>UART TX/RX</li>
+<li>Digital I/O expansion lines</li>
+<li>Inter-board subsystem communication bus</li>
+</ul>
+<h3 id="5-design-improvements-from-initial-version">5. Design Improvements From Initial Version</h3>
+<ul>
+<li>Replaced earlier sensor concept with TC74-only temperature measurement</li>
+<li>Confirmed switching regulator as final power solution</li>
+<li>Reduced system complexity by removing redundant sensor pathways</li>
+<li>Standardized all subsystem communication through ribbon connectors</li>
+</ul>
+<h2 id="deliverables">Deliverables</h2>
+<ul>
+<li>High-resolution PDF schematic: <a href="https://github.com/user-attachments/files/27211462/314.Sensor.Subsystem.pdf">Schematic PDF</a></li>
+<li>ECAD project ZIP file: <a href="https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip">ECAD Project ZIP</a>
+Too see the PCB Page click here: [PCB Design](</li>
+</ul>
 
 
 
