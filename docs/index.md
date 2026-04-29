@@ -18,7 +18,7 @@ for<br>
 
 ## Introduction
 
-This datasheet documents the environmental sensor subsystem developed for our interplanetary rover. The purpose of this subsystem is to collect environmental data—specifically temperature—and transmit it reliably to the rover’s communication network. The document outlines requirements, design decisions, and implementation details that guide the construction and verification of the subsystem as a modular, standalone PCB.
+This datasheet documents the environmental sensor subsystem developed for our interplanetary rover. The purpose of this subsystem is to collect environmental data specifically temperature and transmit it reliably to the rover’s communication network. The document outlines requirements, design decisions, and implementation details that guide the construction and verification of the subsystem as a modular, standalone PCB.
 
 ## Project Summary
 
