@@ -95,3 +95,5 @@ All messages use this exact 7 + data_len byte structure:
 - Software reset on RB2 high.
 - Interrupt enabled U1RXIE but RX is currently polled in main loop.
 - Ring buffer declared but unused.
+
+- Too see the Hardware-V2 page click here: [Hardware V2](https://isaiahelixir1.github.io/isaiahelixer1.github.io/11-Hardware-V2/Hardware-V2/)
