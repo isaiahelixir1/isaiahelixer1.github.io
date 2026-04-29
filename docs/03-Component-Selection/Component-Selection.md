@@ -4,7 +4,7 @@ title: Module's Selected Major Components
 
 ## Overview
 
-The following sections describe the **final selected major components** for the Environmental Monitoring Subsystem. These selections reflect updated design decisions, instructor feedback, and system requirements.
+The following sections describe the final selected major components not including microcontroller selection for the Temperature Monitoring Subsystem. These selections show updated design decisions, instructor feedback, and system requirements.
 
 This subsystem:
 
@@ -13,8 +13,6 @@ This subsystem:
 - Communicates digitally with a microcontroller (I²C)  
 - Interfaces with teammate boards via connectors  
 - Uses surface-mount components  
-
----
 
 ## Power Regulator Selection
 
@@ -28,8 +26,6 @@ Low cost | Low efficiency at high input voltage
 Low dropout voltage | Heat dissipation at 9V input
 Simple design | Limited current (250 mA)
 
----
-
 ### Candidate 2 – TLV70033 (Linear Regulator)
 
 ![download](https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84)
@@ -38,8 +34,6 @@ Pros | Cons
 ---|---
 Low quiescent current | Limited current (200 mA)
 Stable 3.3V output | Slightly higher cost
-
----
 
 ### Candidate 3 – LM2575T-3.3G (Switching Regulator)
 
@@ -51,22 +45,18 @@ High efficiency | More complex design
 Handles higher current | Requires inductor + diode
 Low heat generation | Larger footprint
 
----
+### Final Selection: LM2575T-3.3G
 
-### ✅ Final Selection: LM2575T-3.3G
+Rationale:
 
-**Rationale:**
+The LM2575T-3.3G was selected due to its high efficiency and ability to handle higher current loads when stepping down from 9V to 3.3V.
 
-The LM2575T-3.3G was selected due to its **high efficiency and ability to handle higher current loads** when stepping down from 9V to 3.3V.
-
-Linear regulators were considered, but they would dissipate significant power as heat due to the large voltage drop. The switching regulator minimizes these losses, improving system efficiency and reliability.
+Linear regulators were considered although they would dissipate significant power as heat due to the large voltage drop. The switching regulator minimizes these losses and improves system efficiency and reliability.
 
 This selection ensures:
 - Stable 3.3V output  
 - Reduced thermal stress  
 - Support for future expansion  
-
----
 
 ## Environmental Sensor Selection
 
@@ -80,8 +70,6 @@ Multiple sensing capabilities | Higher cost
 I²C interface | More complex firmware
 Compact integration | Overkill for requirements
 
----
-
 ### Candidate 2 – TC74 (Temperature Sensor)
 
 <img width="197" height="197" alt="TC74 Sensor" src="https://github.com/user-attachments/assets/303597e4-1458-4c94-834d-cd8380258836" />
@@ -92,8 +80,6 @@ Simple I²C interface | Only measures temperature
 Low pin count | Limited functionality
 Reliable digital output | —
 
----
-
 ### Candidate 3 – HDC1080 (Temperature + Humidity)
 
 ![HDC1080](https://github.com/user-attachments/assets/9a7fe5a5-11b9-47f1-ad20-83e4287ed701)
@@ -103,13 +89,11 @@ Pros | Cons
 Low power | More features than required
 Digital interface | Slightly more complex
 
----
+### Final Selection – TC74
 
-### ✅ Final Selection – TC74
+Rationale:
 
-**Rationale:**
-
-The TC74 was selected because it directly satisfies the subsystem requirement of **temperature measurement without unnecessary complexity**.
+The TC74 was selected because it directly satisfies the subsystem requirement of temperature measurement without unnecessary complexity.
 
 Compared to multi-sensor devices like the BME680, the TC74:
 - Simplifies firmware development  
@@ -117,46 +101,24 @@ Compared to multi-sensor devices like the BME680, the TC74:
 - Minimizes pin usage  
 - Keeps the subsystem focused and efficient  
 
----
-
 ## Final Component Summary Table (Required)
 
 | Subsystem | Selected Component | Function |
 |----------|------------------|----------|
-| Microcontroller | PIC18F57Q43 | Control, processing, and communication |
 | Voltage Regulation | LM2575T-3.3G | Converts 9V input to regulated 3.3V |
 | Temperature Sensor | TC74 | Digital temperature measurement (I²C) |
-
----
-
-## MCC Configuration / Pin Usage (PIC18F57Q43)
-
-| Peripheral | Pins Used | Function |
-|-----------|----------|---------|
-| I²C (MSSP1) | RC3 (SCL), RC4 (SDA) | TC74 communication |
-| UART | RF0 (TX), RC7 (RX) | External communication |
-| PWM | RC6 | Output signal |
-| GPIO Input | RC0, RC1 | External inputs |
-| GPIO Output | RB0 | External output |
-| Debug Input | RB2 | Button |
-| Debug Output | RF1 | LED |
-| ICSP | RB6, RB7, MCLR | Programming interface |
-
----
 
 ## Design Validation
 
 All selected components meet system requirements:
 
-- **3.3V Compatibility:** All components operate at the regulated voltage  
-- **Efficient Power Conversion:** Switching regulator reduces losses  
-- **Functional Accuracy:** TC74 provides reliable temperature data  
-- **System Integration:** I²C simplifies communication  
-- **Scalability:** Regulator supports higher current if needed  
-- **Manufacturability:** All components are surface-mount and well-documented  
-
----
+- 3.3V Compatibility: All components operate at the regulated voltage  
+- Efficient Power Conversion: Switching regulator reduces losses  
+- Functional Accuracy: TC74 provides reliable temperature data  
+- System Integration: I²C simplifies communication  
+- Scalability: Regulator supports higher current if needed  
+- Manufacturability: All components are surface-mount and well-documented  
 
 ## Summary
 
-The final design prioritizes **efficiency, simplicity, and reliability**. The LM2575T-3.3G provides stable and efficient power conversion, while the TC74 offers a straightforward and effective sensing solution. Together, they support a clean and modular subsystem design.
+The final design prioritizes efficiency, simplicity, and reliability. The LM2575T-3.3G provides stable and efficient power conversion while the TC74 offers a straightforward and effective sensing solution. Together these main comonents support a clean and modular subsystem design. To see the microcontroller selection page click here.
