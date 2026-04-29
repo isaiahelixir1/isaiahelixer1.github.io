@@ -44,6 +44,7 @@ Key design priorities include:
 
 <img width="1015" height="1063" alt="CAD PCB 3D" src="https://github.com/user-attachments/assets/bd99cdee-a543-41fa-8610-7ab3ebfdda65" />
 *Figure 7: Showing a 3D CAD model of the board.*
+
 ## Resources
 
 - [ECAD Project Files (KiCad)](https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip)
