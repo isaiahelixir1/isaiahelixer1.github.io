@@ -11,7 +11,7 @@ This block diagram documents the layout and connections of my individual environ
 
 ## Individual Block Diagram — Environmental Sensor Subsystem
 
-<img width="881" height="642" alt="314 Sensor Subsystem Block Diagram" src="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99" />
+<img width="881" height="642" alt="314 Sensor Subsystem" src="https://github.com/user-attachments/assets/4dbc19fa-c179-4c23-8398-1c63a2e5f85d" />
 
 ## Design Decision Process & Requirements Alignment
 
