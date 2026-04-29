@@ -25,3 +25,5 @@ The subsystem is designed around a regulated 3.3V power rail, a microcontroller 
 | Subsystem shall operate in lab environment | Functional at room temperature | Operates from 0–40 °C | No |
 | Subsystem current draw shall remain within limits | ≤300 mA normal operation | ≤500 mA peak conditions | No |
 | Subsystem shall support modular integration | Standard connector interface provided | Robust ribbon cable communication support | No |
+
+To see the Block Diagram page click here: ["Block Diagram"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/02-Block-Diagram/Block-Diagram/).
