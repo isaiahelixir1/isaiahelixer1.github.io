@@ -19,7 +19,7 @@ This document lists all components required for the module, including capacitors
 1N4007 Diode | 2 | $0.10 | $0.20 | EVVO | 1N4007W | [Link](https://www.digikey.com/en/products/detail/evvo/1N4007W/21407574) | [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7158/5272_1N4007W.pdf) | 
 Red LED | 1 | $0.53 | $0.53 | ROHM | SML-512UWT86 | [Link](https://www.digikey.com/en/products/detail/rohm-semiconductor/SML-512UWT86/637127) | [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/9/SML-51_Series.pdf) | 
 Debug Blue LED | 1 | $0.56 | $0.56 | ROHM | SMLEN3BC8TT86 | [Link](https://www.digikey.com/en/products/detail/rohm-semiconductor/SMLEN3BC8TT86/15794643) | [Datasheet](https://fscdn.rohm.com/en/products/databook/datasheet/opto/led/chip_mono/smlen3bc8tt86-e.pdf) | 
-Blue LED | 1 | $0.53 | $0.53 | Generic | — | — | — | D5 |
+Blue LED | 1 | $0.53 | $0.53 | Generic | SMLEN3BC8TT86 | [Link](https://www.digikey.com/en/products/detail/rohm-semiconductor/SML-512UWT86/637127) | [Datasheet](https://fscdn.rohm.com/en/products/databook/datasheet/opto/led/chip_mono/smlen3bc8tt86-e.pdf) | 
 100 mA Fuse | 1 | $1.10 | $1.10 | Littelfuse | 0217.100HXP | [Link](https://www.digikey.com/en/products/detail/littelfuse-inc/0217.500HXP/777105) | [Datasheet](https://www.littelfuse.com/assetdocs/littelfuse-fuse-217-datasheet?assetguid=af55be94-c42e-41b1-ad43-e070e09443fe) | 
 Barrel Jack Connector | 1 | $0.94 | $0.94 | Wurth | 694106301002 | [Link](https://www.digikey.com/en/products/detail/w-rth-elektronik/694106301002/5047522) | [Datasheet](https://www.we-online.com/components/products/datasheet/694106301002.pdf) | 
 Microchip SNAP Debugger | 1 | $13.54 | $13.54 | Microchip | PG164100 | [Link](https://www.digikey.com/en/products/detail/microchip-technology/PG164100/9562532) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/MPLAB%20Snap%20In-Circuit%20Debugger%20IS%20DS50002787A.pdf) | 
@@ -39,9 +39,9 @@ Switching Regulator (LM2575-3.3) | 1 | $1.75 | $1.75 | Microchip | LM2575-3.3WU-
 Microcontroller | 1 | $1.94 | $1.94 | Microchip | PIC18F57Q43-I-PT | [Link](https://www.digikey.com/en/products/detail/microchip-technology/PIC18F57Q43-I-PT/11588230) | [Datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18%28L%29F26-27-45-46-47-55-56-57K42-Data-Sheet-40001919G.pdf) | 
 2x4 Connector Input | 1 | $0.27 | $0.27 | Adam-Tech | BHR-08-VUA | [Link](https://www.digikey.com/en/products/detail/adam-tech/BHR-08-VUA/9832409) | [Datasheet](https://app.adam-tech.com/products/download/data_sheet/203218/bhr-xx-vua-data-sheet.pdf) | 
 2x4 Connector Output | 1 | $0.27 | $0.27 | Adam-Tech | BHR-08-VUA | [Link](https://www.digikey.com/en/products/detail/adam-tech/BHR-08-VUA/9832409) | [Datasheet](https://app.adam-tech.com/products/download/data_sheet/203218/bhr-xx-vua-data-sheet.pdf) | 
-Temperature Sensor | 1 | $0.45 | $0.45 | Microchip | TC74 | [Link](https://www.digikey.com/en/products/detail/microchip-technology/TC74/20002268B) | http://ww1.microchip.com/downloads/en/DeviceDoc/20002268B.pdf | 
+Temperature Sensor | 1 | $1.15 | $1.15 | Microchip | TC74 | [Link](https://www.digikey.com/en/products/detail/microchip-technology/TC74A1-3.3VCTTR/443266) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) | 
 
-Total Cost: $31.86
+Total Cost: $32.56
 
 ## Resource
 
