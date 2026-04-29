@@ -61,7 +61,7 @@ Key design priorities include:
 ## Deliverables
 
 - High-resolution PDF schematic: [Schematic PDF](https://github.com/user-attachments/files/27211462/314.Sensor.Subsystem.pdf)
-- ECAD project ZIP file: [ECAD Project ZIP](https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip)
+- ECAD project ZIP file: [ECAD Project ZIP](https://github.com/user-attachments/files/27212208/314.Temperature.Sensor.Subsystem.zip)  
 Too see the PCB Page click here: [PCB Design](
 
 
