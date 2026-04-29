@@ -10,7 +10,7 @@ tags:
 This block diagram documents the layout and connections of my individual environmental monitoring subsystem. Its purpose is to clearly show how power, sensors, actuators, and communication interfaces are organized within the subsystem, and how this subsystem connects to the rest of the team’s boards.  
 
 ## Individual Block Diagram — Environmental Sensor Subsystem
-![314 Sensor Subsystem (1)](https://github.com/user-attachments/assets/bb1c92bf-5110-4fe3-a8f7-fa1ab782dae9)
+<img width="881" height="642" alt="314 Sensor Subsystem Block Diagram" src="https://github.com/user-attachments/assets/2f02e3e8-a6d4-4838-a3f1-6968e856cc99" />
 
 # Environmental Sensor Subsystem
 
