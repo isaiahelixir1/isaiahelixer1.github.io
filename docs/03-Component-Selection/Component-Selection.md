@@ -121,4 +121,4 @@ All selected components meet system requirements:
 
 ## Summary
 
-The final design prioritizes efficiency, simplicity, and reliability. The LM2575T-3.3G provides stable and efficient power conversion while the TC74 offers a straightforward and effective sensing solution. Together these main comonents support a clean and modular subsystem design. To see the microcontroller selection page click here.
+The final design prioritizes efficiency, simplicity, and reliability. The LM2575T-3.3G provides stable and efficient power conversion while the TC74 offers a straightforward and effective sensing solution. Together these main comonents support a clean and modular subsystem design. To see the microcontroller selection page, click here ["Micocontroller Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/04-Microcontroller-Selection/Microcontroller/).
