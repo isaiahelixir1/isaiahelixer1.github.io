@@ -16,7 +16,7 @@ This subsystem:
 
 ## Power Regulator Selection
 
-### Candidate 1 – MCP1700T-3302E/TT (Linear Regulator)
+### Candidate 1 – MCP1700T-3302E/TT Linear Regulator
 
 ![download](https://github.com/user-attachments/assets/e701130d-f395-4e78-90e9-a419f28889c7)
 
@@ -26,7 +26,7 @@ Low cost | Low efficiency at high input voltage
 Low dropout voltage | Heat dissipation at 9V input
 Simple design | Limited current (250 mA)
 
-### Candidate 2 – TLV70033 (Linear Regulator)
+### Candidate 2 – TLV70033 Linear Regulator
 
 ![download](https://github.com/user-attachments/assets/c54c6d3c-61f7-441e-80d4-5d749c8edf84)
 
@@ -35,7 +35,7 @@ Pros | Cons
 Low quiescent current | Limited current (200 mA)
 Stable 3.3V output | Slightly higher cost
 
-### Candidate 3 – LM2575T-3.3G (Switching Regulator)
+### Candidate 3 – LM2575T-3.3G Switching Regulator
 
 <img width="305" height="230" alt="LM2575" src="https://github.com/user-attachments/assets/677d67d7-06b8-4962-b203-0ed13a477735" />
 
@@ -60,7 +60,7 @@ This selection ensures:
 
 ## Environmental Sensor Selection
 
-### Candidate 1 – BME680 (Gas + Temperature + Humidity + Pressure)
+### Candidate 1 – BME680 Gas + Temperature + Humidity + Pressure
 
 <img width="250" height="250" alt="BME680 Sensor" src="https://github.com/user-attachments/assets/e714dd1e-4268-4e03-9f55-03df74a9a4b1" />
 
@@ -80,7 +80,7 @@ Simple I²C interface | Only measures temperature
 Low pin count | Limited functionality
 Reliable digital output | —
 
-### Candidate 3 – HDC1080 (Temperature + Humidity)
+### Candidate 3 – HDC1080 Temperature + Humidity
 
 ![HDC1080](https://github.com/user-attachments/assets/9a7fe5a5-11b9-47f1-ad20-83e4287ed701)
 
@@ -121,4 +121,5 @@ All selected components meet system requirements:
 
 ## Summary
 
-The final design prioritizes efficiency, simplicity, and reliability. The LM2575T-3.3G provides stable and efficient power conversion while the TC74 offers a straightforward and effective sensing solution. Together these main comonents support a clean and modular subsystem design. To see the microcontroller selection page, click here ["Micocontroller Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/04-Microcontroller-Selection/Microcontroller/).
+The final design prioritizes efficiency, simplicity, and reliability. The LM2575T-3.3G provides stable and efficient power conversion while the TC74 offers a straightforward and effective sensing solution. Together these main comonents support a clean and modular subsystem design.  
+To see the microcontroller selection page, click here ["Micocontroller Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/04-Microcontroller-Selection/Microcontroller/).
