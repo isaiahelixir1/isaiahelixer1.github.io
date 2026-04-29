@@ -625,18 +625,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environmental-sensor-subsystem-requirements-table" class="md-nav__link">
+  <a href="#temperature-subsystem-requirements-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Environmental Sensor Subsystem Requirements Table
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-useful-design-notes-and-constraints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Other Useful Design Notes and Constraints
+      Temperature Subsystem Requirements Table
     </span>
   </a>
   
@@ -1254,18 +1245,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#environmental-sensor-subsystem-requirements-table" class="md-nav__link">
+  <a href="#temperature-subsystem-requirements-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Environmental Sensor Subsystem Requirements Table
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#other-useful-design-notes-and-constraints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Other Useful Design Notes and Constraints
+      Temperature Subsystem Requirements Table
     </span>
   </a>
   
@@ -1289,9 +1271,9 @@
   <h1>Module's Requirements</h1>
 
 <h2 id="project-requirements-description">Project Requirements Description</h2>
-<p>The requirements table lists the functional, electrical, and interface constraints for the Environmental Sensor Subsystem of the interplanetary rover. This board is designed as a single, modular PCB responsible for collecting environmental data including gas concentration, temperature, humidity, atmospheric pressure, ambient light, and transmitting that data to the rover’s daisy-chained UART communication network.</p>
-<p>The table below shows minimum and target performance levels to ensure the subsystem meets the team level design goals and course hardware constraints. These requirements will help with component selection, schematic design, firmware development, and system verification before integrating this subsystem with other rover boards.</p>
-<h2 id="environmental-sensor-subsystem-requirements-table">Environmental Sensor Subsystem Requirements Table</h2>
+<p>The requirements table defines the functional, electrical, and interface constraints for the Temperature Subsystem of the interplanetary rover. This board is implemented as a single modular PCB responsible for measuring temperature using a TC74 digital temperature sensor and transmitting that data to the rover’s system communication network.</p>
+<p>The subsystem is designed around a regulated 3.3V power rail, a microcontroller (PIC18F57Q43), and I2C-based temperature sensing. The requirements below guide component selection, schematic design, firmware development, and system validation prior to integration with other rover subsystems.</p>
+<h2 id="temperature-subsystem-requirements-table">Temperature Subsystem Requirements Table</h2>
 <table>
 <thead>
 <tr>
@@ -1305,126 +1287,77 @@
 <tr>
 <td>Subsystem shall be implemented as a standalone PCB</td>
 <td>Single custom PCB with all required components</td>
-<td>Modular PCB suitable for daisy-chain integration</td>
+<td>Modular PCB suitable for system integration</td>
 <td>No</td>
 </tr>
 <tr>
 <td>Board shall accept external 9 V power input</td>
-<td>Barrel jack adapter accepts 9 V input</td>
-<td>Reverse-polarity protected 9 V input</td>
+<td>Barrel jack accepts 9 V DC input</td>
+<td>Reverse-polarity protected input stage</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Board shall include 3.3 V switching regulator</td>
+<td>Board shall include 3.3 V voltage regulation</td>
 <td>Regulated output ≥3.2 V at ≥300 mA</td>
-<td>Stable 3.3 V output at ≥500 mA under full load</td>
+<td>Stable 3.3 V output at ≥500 mA under load</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Bus power jumper shall be provided</td>
-<td>Jumper enables/disables bus power input</td>
-<td>Clearly labeled jumper with safe isolation</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Barrel jack to bus power jumper shall be provided</td>
-<td>Jumper connects/disconnects barrel jack to bus</td>
-<td>Independent power source selection</td>
+<td>Power input protection shall be included</td>
+<td>Fuse and protection diode present</td>
+<td>Fully protected against reverse polarity and overcurrent</td>
 <td>No</td>
 </tr>
 <tr>
 <td>Board shall include a surface-mounted microcontroller</td>
-<td>One MCU with UART and I2C support</td>
-<td>ESP32 (MicroPython) or SMD PIC with UART and I2C</td>
+<td>One MCU with I2C support</td>
+<td>PIC18F57Q43 or equivalent MCU</td>
 <td>No</td>
 </tr>
 <tr>
 <td>In-circuit programming support shall be provided</td>
-<td>USB or ICSP programming interface present</td>
-<td>USB connector or ICSP header for debugging</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Subsystem shall implement UART communication</td>
-<td>Can send or receive UART messages</td>
-<td>Fully compliant daisy-chain UART messaging</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Subsystem shall forward non-addressed UART messages</td>
-<td>Messages pass through without corruption</td>
-<td>Reliable message forwarding under load</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Subsystem shall measure atmospheric pressure</td>
-<td>Pressure sensor provides readable values</td>
-<td>Calibrated pressure readings (0–1100 hPa)</td>
+<td>ICSP header present</td>
+<td>Dedicated programming/debug interface</td>
 <td>No</td>
 </tr>
 <tr>
 <td>Subsystem shall measure temperature</td>
-<td>Temperature readings available</td>
-<td>±2 °C accuracy</td>
+<td>TC74 temperature sensor provides readable output</td>
+<td>±2 °C accuracy over operating range</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Subsystem shall measure relative humidity</td>
-<td>Humidity readings available</td>
-<td>±5% RH accuracy</td>
+<td>Temperature sensor shall use serial communication</td>
+<td>I2C communication required</td>
+<td>Stable and noise-resistant I2C communication</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Subsystem shall measure gas concentration</td>
-<td>Gas sensor outputs readable data</td>
-<td>Stable gas readings across operating range</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Subsystem shall measure ambient light level</td>
-<td>Light sensor provides relative intensity data</td>
-<td>Calibrated or normalized light measurements</td>
-<td>No</td>
-</tr>
-<tr>
-<td>At least one sensor shall use serial communication</td>
-<td>≥1 sensor communicates via I2C or SPI</td>
-<td>All sensors use digital serial interfaces</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Subsystem shall transmit sensor telemetry</td>
-<td>Data available upon request</td>
-<td>Periodic telemetry ≥1 Hz</td>
+<td>Subsystem shall transmit temperature data</td>
+<td>Data accessible via communication interface</td>
+<td>Periodic updates ≥1 Hz</td>
 <td>Yes</td>
+</tr>
+<tr>
+<td>Subsystem shall operate in lab environment</td>
+<td>Functional at room temperature</td>
+<td>Operates from 0–40 °C</td>
+<td>No</td>
 </tr>
 <tr>
 <td>Subsystem current draw shall remain within limits</td>
-<td>≤300 mA during normal operation</td>
-<td>≤500 mA including sensor warm-up and MCU peaks</td>
+<td>≤300 mA normal operation</td>
+<td>≤500 mA peak conditions</td>
 <td>No</td>
 </tr>
 <tr>
-<td>Subsystem shall operate in indoor lab conditions</td>
-<td>Functional at room temperature</td>
-<td>Functional at 0–40 °C, 20–80% RH</td>
+<td>Subsystem shall support modular integration</td>
+<td>Standard connector interface provided</td>
+<td>Robust ribbon cable communication support</td>
 <td>No</td>
-</tr>
-<tr>
-<td>Sensor calibration support</td>
-<td>Raw sensor data accessible</td>
-<td>Software-based calibration offsets applied</td>
-<td>Yes</td>
 </tr>
 </tbody>
 </table>
-<h2 id="other-useful-design-notes-and-constraints">Other Useful Design Notes and Constraints</h2>
-<ul>
-<li>Power Build: The board supports both bus power and a local 9 V barrel jack input, selectable using onboard jumpers as required by course specifications.</li>
-<li>Power Budget: The environmental sensor subsystem is low-power by design, with total current draw expected to remain below 500 mA even during sensor warm-up and microcontroller peak usage.</li>
-<li>Microcontroller: The subsystem supports either an ESP32 running MicroPython or a surface-mount PIC microcontroller, provided UART and I2C requirements are met.</li>
-<li>Sensors: The subsystem integrates gas detection, temperature, humidity, pressure, and Light intensity. </li>
-</ul>
 
 
 
