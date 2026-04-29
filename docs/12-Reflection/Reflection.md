@@ -49,3 +49,5 @@ Several challenges were encountered during initial system bring-up and debugging
 3. Use simple and well-documented sensors whenever possible mainly when learning embedded system integration for the first time.  
 4. Maintain good labeling and documentation across schematics, PCBs, and wiring diagrams to avoid build errors.  
 5. Start firmware development early with minimal working examples so that hardware and software debugging can progress smoothly.
+
+Too see the Resources page click here: [Downloadable Resources](https://isaiahelixir1.github.io/isaiahelixer1.github.io/13-Resources/Resources/)
