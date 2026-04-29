@@ -46,3 +46,4 @@ Total Cost: $30.84
 ## Resource
 
 The Bill of Material as a PDF download is available [here](https://github.com/user-attachments/files/27211195/314.Sensor.Subsystem.BOM.pdf).
+To see the Power Budget page click here: ["Power Budget"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/06-Power-Budget/Power/).
