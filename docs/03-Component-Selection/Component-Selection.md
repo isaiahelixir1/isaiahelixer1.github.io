@@ -30,7 +30,7 @@ Ultra-low quiescent current | Slightly higher cost
 Stable 3.3V output | Limited current (200 mA)
 
 ### Candidate 3 – LM2575T-3.3G (Switching Regulator)
-<img width="405" height="230" alt="Screenshot 2026-04-29 091820" src="https://github.com/user-attachments/assets/677d67d7-06b8-4962-b203-0ed13a477735" />
+<img width="305" height="130" alt="Screenshot 2026-04-29 091820" src="https://github.com/user-attachments/assets/677d67d7-06b8-4962-b203-0ed13a477735" />
 
 Pros | Cons
 ---|---
