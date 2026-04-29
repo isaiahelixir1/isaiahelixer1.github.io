@@ -6,7 +6,7 @@ title: Module's Requirements
 
 The requirements table defines the functional, electrical, and interface constraints for the Temperature Subsystem of the interplanetary rover. This board is implemented as a single modular PCB responsible for measuring temperature using a TC74 digital temperature sensor and transmitting that data to the rover’s system communication network.
 
-The subsystem is designed around a regulated 3.3V power rail, a microcontroller (PIC18F57Q43), and I2C-based temperature sensing. The requirements below guide component selection, schematic design, firmware development, and system validation prior to integration with other rover subsystems.
+The subsystem is designed around a regulated 3.3V power rail, a microcontroller PIC18F57Q43, and I2C-based temperature sensing. The requirements below guide component selection, schematic design, firmware development, and system validation prior to integration with other rover subsystems.
 
 
 ## Temperature Subsystem Requirements Table
