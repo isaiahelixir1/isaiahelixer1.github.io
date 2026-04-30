@@ -9,24 +9,24 @@ title: Microcontroller Code
  * Bus  : UART1  9600 baud  daisy-chain
  * Sensor: TC74Ax  I2C temperature sensor
 
-#include "mcc_generated_files/system/system.h"
-#include "mcc_generated_files/i2c_host/i2c1.h"
-#include "mcc_generated_files/uart/uart1.h"
-#include "team_api.h"
-#include <stdio.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <string.h>
+#include "mcc_generated_files/system/system.h"  
+#include "mcc_generated_files/i2c_host/i2c1.h"  
+#include "mcc_generated_files/uart/uart1.h"  
+#include "team_api.h"  
+#include <stdio.h>  
+#include <stdint.h>  
+#include <stdbool.h>  
+#include <string.h>  
 
-#define RING_SIZE 128
-volatile uint8_t ring_buf[RING_SIZE];
-volatile uint8_t ring_head = 0;
-volatile uint8_t ring_tail = 0;
+#define RING_SIZE 128  
+volatile uint8_t ring_buf[RING_SIZE];  
+volatile uint8_t ring_head = 0;  
+volatile uint8_t ring_tail = 0;  
 
-#define MY_ID           NODE_ISAIAH
-#define TC74_ADDR       0x4C
-#define LED_BLINK_MS    80u
-#define LOOP_DELAY_MS   200u
+#define MY_ID           NODE_ISAIAH  
+#define TC74_ADDR       0x4C  
+#define LED_BLINK_MS    80u  
+#define LOOP_DELAY_MS   200u  
 
 static void led_blink(void) {
 
