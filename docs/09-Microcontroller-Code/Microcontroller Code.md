@@ -2,7 +2,6 @@
 title: Microcontroller Code
 ---
 
-```c
 /*
  * main.c  --  Team 305  |  Isaiah  |  Temperature Sensor Node  (0x49)
  * =====================================================================
@@ -79,29 +78,21 @@ static bool tc74_read(int8_t *out_c) {
     return (raw != 0xFF);
 }
 
-/* ---- (rest of your code unchanged) ---- */
-
 int main(void) {
     SYSTEM_Initialize();
     __delay_ms(500);
     IO_RB0_SetLow();
-
     PIE4bits.U1RXIE = 1;
     INTCON0bits.GIE = 1;
-
     uprint("\r\n=== Team 305  |  Isaiah Temp Sensor (0x49) ===\r\n");
-
     while (1) {
         process_incoming();
-
         int8_t t;
         if (!tc74_read(&t)) {
             uprint("[WARN] I2C fail - recovering\r\n");
             i2c_recover();
         }
-
         __delay_ms(LOOP_DELAY_MS);
-
         if (IO_RB2_GetValue()) {
             asm("RESET");
         }
