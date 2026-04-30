@@ -27,11 +27,11 @@ Key design priorities include:
 *Figure 2: Showing the raw PCb back of the board.*
 
 ### Final PCB (After Soldering & Testing)
- 
-<img width="700" height="700" alt="20260429_172218" src="https://github.com/user-attachments/assets/11b84701-5ce7-49d4-9908-537bc7bba867" />
+
+<img width="700" height="700" alt="20260429_172211" src="https://github.com/user-attachments/assets/8304a5b6-437e-4906-b472-9818d78ce78f" />
 *Figure 3: Showing the soldered front of the board.*
   
-<img width="700" height="700" alt="20260429_172211" src="https://github.com/user-attachments/assets/8304a5b6-437e-4906-b472-9818d78ce78f" />
+<img width="700" height="700" alt="20260429_172218" src="https://github.com/user-attachments/assets/11b84701-5ce7-49d4-9908-537bc7bba867" />
 *Figure 4: Showing the soldered back of the board.*
 
 ### ECAD Design Views
