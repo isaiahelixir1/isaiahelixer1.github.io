@@ -24,7 +24,7 @@
 
     
       
-        <title>Hardware V2 - Isaiah LaCombe Data Sheet</title>
+        <title>Hardware V2.0 - Isaiah LaCombe Data Sheet</title>
       
     
     
@@ -87,6 +87,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hardware-version-20-overview" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -118,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hardware V2
+              Hardware V2.0
             
           </span>
         </div>
@@ -1036,15 +1041,88 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Hardware V2.0
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Hardware V2
+    Hardware V2.0
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#hardware-version-20-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Version 2.0 Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-supply-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Supply Improvements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-and-testability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging and Testability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-and-communication-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C and Communication Improvements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1168,6 +1246,59 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#hardware-version-20-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Version 2.0 Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-supply-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Supply Improvements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-and-testability" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging and Testability
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i2c-and-communication-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      I2C and Communication Improvements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1181,7 +1312,46 @@
                   
 
 
-  <h1>Hardware V2</h1>
+  <h1>Hardware V2.0</h1>
+
+<h2 id="hardware-version-20-overview">Hardware Version 2.0 Overview</h2>
+<p>The current Version 1.0 Temperature Subsystem PCB successfully integrates a PIC18F57Q43 microcontroller,
+TC74 I2C temperature sensor, LM2575T-3.3G regulator and a UART daisy-chain communication system.</p>
+<p>While the design meets all functional requirements, several improvements could increase reliability,<br>
+debug capability, and long-term scalability.</p>
+<h2 id="power-supply-improvements">Power Supply Improvements</h2>
+<p>The current schematic uses an LM2575T-3.3G regulator to convert 9V to 3.3V.</p>
+<p>While functional, it is less efficient and produces more ripple than modern buck converters.</p>
+<p>In Version 2.0, this could be improved by:
+- Replacing with a synchronous buck converter<br>
+- Adding local decoupling capacitors near MCU and TC74<br>
+- Adding test points for 3.3V, GND, and VIN  </p>
+<p>These changes would reduce noise and improve I2C stability.</p>
+<h2 id="debugging-and-testability">Debugging and Testability</h2>
+<p>The current design relies on UART and ICSP for debugging, but has limited hardware visibility.</p>
+<p>A Version 2.0 redesign would include:
+- UART debug header for live logging<br>
+- Test pads for I2C (SDA/SCL), reset, and UART lines<br>
+- Optional USB-to-UART interface footprint  </p>
+<p>This would significantly reduce debugging time during firmware development and integration.</p>
+<h2 id="i2c-and-communication-improvements">I2C and Communication Improvements</h2>
+<p>The TC74 sensor communicates over I2C, but pull-up resistors are not clearly defined<br>
+in the current schematic.</p>
+<p>Improvements for Version 2.0:
+- Add 4.7 kΩ pull-up resistors on SDA and SCL<br>
+- Add optional series resistors (33–100 Ω)<br>
+- Improve signal integrity for longer traces  </p>
+<p>UART daisy-chain communication could also be improved<br>
+with better protection and optional buffering.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Version 2.0 focuses on improving:
+- Power efficiency<br>
+- Debug accessibility<br>
+- Signal integrity<br>
+- Communication robustness  </p>
+<p>These changes would make the subsystem more reliable<br>
+and easier to develop while maintaining compatibility<br>
+with the existing TC74 temperature system.</p>
 
 
 
@@ -1189,7 +1359,8 @@
 
 
 
-
+  
+  
 
 
 
