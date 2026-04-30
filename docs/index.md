@@ -44,7 +44,7 @@ To review detailed information about the components used in the subsystem—incl
 ["Block Diagram"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/02-Block-Diagram/Block-Diagram/)  
 ["Component Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/03-Component-Selection/Component-Selection/)  
 ["Microcontroller Selection"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/04-Microcontroller-Selection/Microcontroller/)  
-["BOM"](https://embedded-systems-design.github.io/EGR314DataSheetTemplate/04-BOM/BOM/)  
+["BOM"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/05-BOM/BOM/)  
 ["Power Budget"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/06-Power-Budget/Power/)  
 ["Schematic Design"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/07-Schematic/Schematic/)  
 ["PCB Design"](https://isaiahelixir1.github.io/isaiahelixer1.github.io/08-PCB-Design/PCB%20Design/)  
