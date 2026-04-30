@@ -1,99 +1,141 @@
 # Environmental Subsystem API
 
 ## Overview
-This subsystem is the environmental sensor system in a 7-node UART daisy-chain network.  
-It interfaces with a TC74 environmental temperature sensor using I2C and communicates with the UART daisy chain.
+This subsystem is the temperature sensor node in a 7-node UART daisy-chain network.  
+It interfaces with a TC74 temperature sensor using I2C and communicates using a fixed-format UART protocol.
 
 The subsystem is responsible for:
 - Reading temperature data from the TC74 sensor  
-- Sending formatted UART messages (periodic status or on-demand responses)  
+- Sending formatted UART messages using a fixed 64-byte packet structure  
 - Receiving, processing, and forwarding UART messages in the daisy chain  
-- Responding to temperature requests message type 0x08  
-- Sending ACKs for messages addressed to it  
-- Discarding invalid/loopback/unapproved messages  
-
+- Responding to temperature requests (MSG_REQUEST / MSG_TEMP)  
+- Sending ACKs for valid received messages  
+- Discarding invalid, loopback, or unapproved messages
+  
 ## System Architecture
-7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:  
-- Receives messages via UART1  
-- Processes messages addressed to itself MY_ID = 0x49  
-- Forwards all other messages immediately and unchanged if target is approved or broadcast  
-- Discards messages from self loopback protection  
-- Discards messages from unapproved senders  
-- Prioritizes forwarding over new transmissions  
+7 subsystems connected in a UART daisy chain at **9600 baud**.
 
-Approved node IDs:  
-0x43 – Christo  
-0x4C – Liam    
-0x49 – Isaiah  
-0x52 – Ragul  
-0x58 – BCAST  
+Each subsystem:
+- Receives messages via UART1  
+- Processes messages addressed to itself (`MY_ID = 0x49`)  
+- Forwards all other valid messages unchanged  
+- Discards loopback messages (sender == self)  
+- Discards messages from unapproved nodes  
+- Prioritizes forwarding over generation of new messages  
+
+### Approved Node IDs
+- `0x43` – Christo  
+- `0x4C` – Liam  
+- `0x49` – Isaiah (this node)  
+- `0x52` – Ragul  
+- `0x41` – Arianna  
+- `0x4D` – Myles  
+- `0x44` – Damian  
+- `0x58` – Broadcast  
 
 ## Sensor Interface (I2C)
-TC74 temperature sensor accessed via I2C1 at address 0x4C.  
+TC74 temperature sensor accessed via I2C1.
 
-Temperature read:
-- Write register 0x0  
-- Read 1 byte (signed 8-bit value = °C)  
-- No calibration registers needed  
+### Address
+- `0x4C`
 
-I2C details:
-- Slave address: 0x4C  
-- Supports simple write-then-read  
-- Error recovery routine present i2c_recover()
+### Read Procedure
+- Write register `0x00`
+- Read 1 byte (signed 8-bit temperature in °C)
+- Convert internally to scaled value:
+  - `temperature × 100`
 
-## Packet Format (Current Implementation)
-All messages use this exact 7 + data_len byte structure:
+### Notes
+- No calibration required  
+- I2C recovery routine included (`i2c_recover()`)  
+- Invalid reads are discarded (0xFF check)  
 
-| Byte(s)              | Content                  | Type      | Value / Notes                          |
-|----------------------|--------------------------|-----------|----------------------------------------|
-| 0–1                  | Header                   | uint8_t   | 0x41 0x5A (“AZ”)                    |
-| 2                    | Sender ID                | uint8_t   | MY_ID or other approved ID           |
-| 3                    | Target ID                | uint8_t   | MY_ID, BCAST, or other             |
-| 4                    | Message Type mtype   | uint8_t   | See table below                        |
-| 5 … (5+data_len-1)   | Data                     | uint8_t[] | Variable length payload                |
-| (5+data_len)         | Footer byte 1            | uint8_t   | 0x59 (“Y”)                           |
-| (6+data_len)         | Footer byte 2            | uint8_t   | 0x42 (“B”)                           |
+## Packet Format (Fixed 64-byte Frame)
 
-- Maximum packet size: 128 bytes MAX_PKT  
-- Packet is built with build_packet() and sent with send_pkt()  
+| Byte(s)              | Content        | Description |
+|----------------------|----------------|-------------|
+| 0–1                  | Prefix         | `0x41 0x5A` ("AZ") |
+| 2                    | Sender ID      | Node source |
+| 3                    | Target ID      | Destination node |
+| 4                    | Message Type   | Defines message behavior |
+| 5–61                 | Payload        | Up to 57 bytes |
+| 62                   | Footer 1       | `0x59` ("Y") |
+| 63                   | Footer 2       | `0x42` ("B") |
 
-## Message Types Used (Current)
+- Fixed packet size: **64 bytes**
+- Built using `build_packet()`
+- Transmitted using `send_pkt()`
 
-| mtype (hex) | Description                          | Data Length | Data Content (current)                  |
-|-------------|--------------------------------------|-------------|-----------------------------------------|
-| 0x08      | Temperature Data / Request           | 1 byte      | Signed temperature (°C)                 |
-| 0x4B      | Acknowledgement (ACK)                | 1 byte      | Original mtype that was received      |
-| 0x10      | Test / Periodic message (default)    | 1 byte      | Current temperature byte                |
+## Message Types (Current Implementation)
+
+| mtype (hex) | Description              | Purpose |
+|-------------|--------------------------|---------|
+| `0x08`      | MSG_TEMP                | Temperature data / direct request |
+| `0x14`      | MSG_REQUEST             | Request specific data type |
+| `0x4B`      | MSG_ACK                 | Acknowledgement |
+
+## Message Behavior
+
+### MSG_TEMP (0x08)
+- Contains temperature data or direct request response  
+- Payload:
+  - Byte 0–1: temperature ×100 (LSB first)
+- Used when:
+  - Responding to request
+  - Direct temperature query
+
+### MSG_REQUEST (0x14)
+- Used to request data from a node  
+- Payload:
+  - Byte 0: requested message type
+
+Example:
+- `payload[0] = 0x08` → request temperature
+
+Behavior:
+- If request is temperature:
+  - TC74 is read
+  - Response is sent using MSG_TEMP
+
+### MSG_ACK (0x4B)
+- Sent automatically after receiving valid messages (except ACK itself)
+- Payload:
+  - Byte 0: original message type being acknowledged
 
 ## Incoming Message Handling
-1. Validate prefix 0x41 0x5A and suffix 0x59 0x42.
-2. Discard if sender == MY_ID (loopback).
-3. Discard if sender not in approved list.
-4. If target == MY_ID:
-   - Send ACK (0x4B).
-   - If mtype == 0x08: read TC74 and reply immediately with 0x08 + temperature byte.
-5. If target == BCAST or approved node:
-   - Forward packet unchanged.
-6. Otherwise: drop.
+
+1. Validate packet prefix (`0x41 0x5A`) and suffix (`0x59 0x42`)
+2. Discard if sender == MY_ID (loopback protection)
+3. Discard if sender is not in approved list
+4. If receiver == MY_ID:
+   - Send ACK (unless message is already ACK)
+   - Handle message type:
+     - MSG_REQUEST (0x14) → if payload[0] == 0x08 → send temperature
+     - MSG_TEMP (0x08) → treat as direct request → send temperature
+     - MSG_ACK (0x4B) → log acknowledgement
+5. If receiver == BROADCAST:
+   - Forward packet unchanged
+6. If receiver is another approved node:
+   - Forward packet unchanged
+7. Otherwise:
+   - Drop packet
 
 ## Forwarding Behavior
-- Non-local messages are forwarded immediately (prioritized).
-- No modification of forwarded packets.
+- Non-local messages are forwarded immediately
+- Packets are never modified during forwarding
+- Forwarding has priority over transmission
 
-## Sender Behavior
-- Periodic transmission every ~500 ms TX_RATE_MS.
-- Uses non-blocking cooldown counter.
-- Currently sends type 0x10 to test_target (default = BCAST) with 1-byte temperature.
-- Change test_target, test_mtype, or data length in send_my_own_message() as needed.
-- Transmission LED (RB0) blinks on every TX.
+## Transmission Behavior
+- No periodic transmissions
+- Only transmits:
+  - In response to requests
+  - When sending ACKs
+- LED (RB0) blinks on every TX and RX event
 
-## Additional Features in Code
-- RX state machine WAIT_P1 / WAIT_P2 / COLLECT for reliable packet assembly.
-- Debug output over UART (sender name, raw hex, ASCII data).
-- RB0 LED blinks on every RX or TX.
-- I2C timeout + recovery.
-- Software reset on RB2 high.
-- Interrupt enabled U1RXIE but RX is currently polled in main loop.
-- Ring buffer declared but unused.
-
-- Too see the Hardware-V2 page click here: [Hardware V2](https://isaiahelixir1.github.io/isaiahelixer1.github.io/11-Hardware-V2/Hardware-V2/)
+## Additional Features
+- RX state machine: WAIT_P1 → WAIT_P2 → COLLECT
+- Fixed 64-byte packet buffering
+- UART debug output (hex + readable logs)
+- I2C timeout + recovery system
+- Software reset via RB2 input
+- Interrupt-enabled UART RX (buffered via ring buffer)
