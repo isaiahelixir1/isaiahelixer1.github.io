@@ -1,3 +1,4 @@
+<img width="1604" height="1697" alt="20260429_172211" src="https://github.com/user-attachments/assets/8304a5b6-437e-4906-b472-9818d78ce78f" />
 ---
 title: Temperature Subsystem PCB Design
 ---
@@ -28,10 +29,10 @@ Key design priorities include:
 
 ### Final PCB (After Soldering & Testing)
  
-![Final PCB Front](images/pcb_final_front.jpg)
+<img width="1869" height="2029" alt="20260429_172218" src="https://github.com/user-attachments/assets/11b84701-5ce7-49d4-9908-537bc7bba867" />
 *Figure 3: Showing the soldered front of the board.*
   
-![Final PCB Back](images/pcb_final_back.jpg)
+<img width="1604" height="1697" alt="20260429_172211" src="https://github.com/user-attachments/assets/8304a5b6-437e-4906-b472-9818d78ce78f" />
 *Figure 4: Showing the soldered back of the board.*
 
 ### ECAD Design Views
