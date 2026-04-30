@@ -1,4 +1,3 @@
-[Temperature Sensor Subsystem.zip](https://github.com/user-attachments/files/27224066/Temperature.Sensor.Subsystem.zip)
 ---
 title: Resources
 ---
