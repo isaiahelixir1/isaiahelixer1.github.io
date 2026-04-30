@@ -1358,7 +1358,7 @@ debug capability, and long-term scalability.</p>
 <h2 id="power-supply-and-protection-improvements">Power Supply and Protection Improvements</h2>
 <p>The current schematic provides a basic 9V to 3.3V conversion stage,<br>
 but Version 2.0 would improve board safety and stability.</p>
-<p>Key improvements:
+<p>Key improvements:<br>
 - Add pull-down resistors to prevent floating GPIO and unused MCU pins<br>
 - Improve reverse polarity protection on the input supply<br>
 - Prevent backfeeding voltage from other connected subsystem boards<br>
@@ -1369,34 +1369,34 @@ and reduce risk of electrical damage during connection errors.</p>
 <h2 id="microcontroller-optimization-and-pin-usage">Microcontroller Optimization and Pin Usage</h2>
 <p>The current design uses a PIC18F57Q43 in a larger 48-pin package,<br>
 but only a small portion of the available pins are actively used.</p>
-<p>In Version 2.0:
+<p>In Version 2.0:<br>
 - Reduce MCU package size to better match actual pin usage<br>
 - Free unused pins for additional system expansion<br>
 - Improve pin planning for cleaner routing and reduced PCB complexity  </p>
 <h2 id="communication-and-interface-expansion">Communication and Interface Expansion</h2>
 <p>Although the system currently uses UART and I2C,<br>
 future improvements should increase communication flexibility.</p>
-<p>Proposed updates:
+<p>Proposed updates:<br>
 - Route additional SPI-capable pins to headers in case I2C fails or expansion is needed<br>
 - Add PWM-capable expansion pins for future actuator or control features<br>
 - Improve routing accessibility for alternate communication protocols  </p>
 <h2 id="debugging-and-testability-improvements">Debugging and Testability Improvements</h2>
 <p>The current board has limited test access points for debugging.</p>
-<p>Version 2.0 improvements include:
+<p>Version 2.0 improvements include:<br>
 - Add more test points for power rails, ground, and communication lines<br>
 - Expand access to UART, I2C, and reset signals<br>
 - Add labeled debug pads for faster troubleshooting<br>
 - Improve measurement accessibility for firmware development  </p>
 <h2 id="sensor-and-environmental-expansion">Sensor and Environmental Expansion</h2>
 <p>The current design is centered around the TC74 temperature sensor.</p>
-<p>In Version 2.0, the system could be expanded to support:
+<p>In Version 2.0, the system could be expanded to support:<br>
 - Wider range environmental sensing capabilities<br>
 - Additional digital or analog sensors<br>
 - More flexible sensor interface options  </p>
 <p>This would allow the subsystem to evolve from a single-purpose temperature node<br>
 into a more general environmental monitoring platform.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Version 2.0 focuses on improving:
+<p>Version 2.0 focuses on improving:<br>
 - Electrical safety and protection<br>
 - Better use of microcontroller resources<br>
 - Expanded communication flexibility (SPI, PWM, I2C resilience)<br>
