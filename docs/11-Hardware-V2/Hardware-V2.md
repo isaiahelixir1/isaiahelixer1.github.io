@@ -15,7 +15,7 @@ debug capability, and long-term scalability.
 The current schematic provides a basic 9V to 3.3V conversion stage,  
 but Version 2.0 would improve board safety and stability.
 
-Key improvements:
+Key improvements:  
 - Add pull-down resistors to prevent floating GPIO and unused MCU pins  
 - Improve reverse polarity protection on the input supply  
 - Prevent backfeeding voltage from other connected subsystem boards  
@@ -30,7 +30,7 @@ and reduce risk of electrical damage during connection errors.
 The current design uses a PIC18F57Q43 in a larger 48-pin package,  
 but only a small portion of the available pins are actively used.
 
-In Version 2.0:
+In Version 2.0:  
 - Reduce MCU package size to better match actual pin usage  
 - Free unused pins for additional system expansion  
 - Improve pin planning for cleaner routing and reduced PCB complexity  
@@ -40,7 +40,7 @@ In Version 2.0:
 Although the system currently uses UART and I2C,  
 future improvements should increase communication flexibility.
 
-Proposed updates:
+Proposed updates:  
 - Route additional SPI-capable pins to headers in case I2C fails or expansion is needed  
 - Add PWM-capable expansion pins for future actuator or control features  
 - Improve routing accessibility for alternate communication protocols  
@@ -49,7 +49,7 @@ Proposed updates:
 
 The current board has limited test access points for debugging.
 
-Version 2.0 improvements include:
+Version 2.0 improvements include:  
 - Add more test points for power rails, ground, and communication lines  
 - Expand access to UART, I2C, and reset signals  
 - Add labeled debug pads for faster troubleshooting  
@@ -59,7 +59,7 @@ Version 2.0 improvements include:
 
 The current design is centered around the TC74 temperature sensor.
 
-In Version 2.0, the system could be expanded to support:
+In Version 2.0, the system could be expanded to support:  
 - Wider range environmental sensing capabilities  
 - Additional digital or analog sensors  
 - More flexible sensor interface options  
@@ -69,7 +69,7 @@ into a more general environmental monitoring platform.
 
 ## Conclusion
 
-Version 2.0 focuses on improving:
+Version 2.0 focuses on improving:  
 - Electrical safety and protection  
 - Better use of microcontroller resources  
 - Expanded communication flexibility (SPI, PWM, I2C resilience)  
