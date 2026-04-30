@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#environmental-subsystem-api" class="md-skip">
+        <a href="#overview" class="md-skip">
           Skip to content
         </a>
       
@@ -453,26 +453,6 @@
     
   
   13 Resources
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../Appendix/" class="md-tabs__link">
-          
-  
-    
-  
-  Appendix
 
         </a>
       </li>
@@ -1014,8 +994,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -1044,8 +1022,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1069,6 +1045,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approved-node-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approved Node IDs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1078,23 +1069,98 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Sensor Interface (I2C)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#packet-format-current-implementation" class="md-nav__link">
+  <a href="#packet-format-fixed-64-byte-frame" class="md-nav__link">
     <span class="md-ellipsis">
-      Packet Format (Current Implementation)
+      Packet Format (Fixed 64-byte Frame)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#message-types-used-current" class="md-nav__link">
+  <a href="#message-types-current-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Message Types Used (Current)
+      Message Types (Current Implementation)
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#msg_temp-0x08" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSG_TEMP (0x08)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msg_request-0x14" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSG_REQUEST (0x14)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msg_ack-0x4b" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSG_ACK (0x4B)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1117,18 +1183,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sender-behavior" class="md-nav__link">
+  <a href="#transmission-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      Sender Behavior
+      Transmission Behavior
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-features-in-code" class="md-nav__link">
+  <a href="#additional-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Features in Code
+      Additional Features
     </span>
   </a>
   
@@ -1288,60 +1354,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-      
-      
-    
-    
-      
-        
-        
-      
-    
-    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-      
-        
-  
-  
-    <a href="../../Appendix/" class="md-nav__link">
-      
-  
-  <span class="md-ellipsis">
-    Appendix
-  </span>
-  
-
-      
-        <span class="md-nav__icon md-icon"></span>
-      
-    </a>
-  
-
-      
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -1358,8 +1370,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1384,6 +1394,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approved-node-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approved Node IDs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1393,23 +1418,98 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Sensor Interface (I2C)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#packet-format-current-implementation" class="md-nav__link">
+  <a href="#packet-format-fixed-64-byte-frame" class="md-nav__link">
     <span class="md-ellipsis">
-      Packet Format (Current Implementation)
+      Packet Format (Fixed 64-byte Frame)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#message-types-used-current" class="md-nav__link">
+  <a href="#message-types-current-implementation" class="md-nav__link">
     <span class="md-ellipsis">
-      Message Types Used (Current)
+      Message Types (Current Implementation)
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      Message Behavior
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Message Behavior">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#msg_temp-0x08" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSG_TEMP (0x08)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msg_request-0x14" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSG_REQUEST (0x14)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msg_ack-0x4b" class="md-nav__link">
+    <span class="md-ellipsis">
+      MSG_ACK (0x4B)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1432,18 +1532,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sender-behavior" class="md-nav__link">
+  <a href="#transmission-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      Sender Behavior
+      Transmission Behavior
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-features-in-code" class="md-nav__link">
+  <a href="#additional-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Additional Features in Code
+      Additional Features
     </span>
   </a>
   
@@ -1464,171 +1564,206 @@
                   
 
 
-<h1 id="environmental-subsystem-api">Environmental Subsystem API</h1>
+  <h1>Environmental Subsystem API</h1>
+
 <h2 id="overview">Overview</h2>
-<p>This subsystem is the environmental sensor system in a 7-node UART daisy-chain network.<br>
-It interfaces with a TC74 environmental temperature sensor using I2C and communicates with the UART daisy chain.</p>
+<p>This subsystem is the temperature sensor node in a 7-node UART daisy-chain network.<br>
+It interfaces with a TC74 temperature sensor using I2C and communicates using a fixed-format UART protocol.</p>
 <p>The subsystem is responsible for:
 - Reading temperature data from the TC74 sensor<br>
-- Sending formatted UART messages (periodic status or on-demand responses)<br>
+- Sending formatted UART messages using a fixed 64-byte packet structure<br>
 - Receiving, processing, and forwarding UART messages in the daisy chain<br>
-- Responding to temperature requests message type 0x08<br>
-- Sending ACKs for messages addressed to it<br>
-- Discarding invalid/loopback/unapproved messages  </p>
+- Responding to temperature requests (MSG_REQUEST / MSG_TEMP)<br>
+- Sending ACKs for valid received messages<br>
+- Discarding invalid, loopback, or unapproved messages</p>
 <h2 id="system-architecture">System Architecture</h2>
-<p>7 subsystems connected in a UART daisy chain 9600 baud rate. Each subsystem:<br>
+<p>7 subsystems connected in a UART daisy chain at 9600 baud.</p>
+<p>Each subsystem:
 - Receives messages via UART1<br>
-- Processes messages addressed to itself MY_ID = 0x49<br>
-- Forwards all other messages immediately and unchanged if target is approved or broadcast<br>
-- Discards messages from self loopback protection<br>
-- Discards messages from unapproved senders<br>
-- Prioritizes forwarding over new transmissions  </p>
-<p>Approved node IDs:<br>
-0x43 – Christo<br>
-0x4C – Liam  <br>
-0x49 – Isaiah<br>
-0x52 – Ragul<br>
-0x58 – BCAST  </p>
+- Processes messages addressed to itself (MY_ID = 0x49)<br>
+- Forwards all other valid messages unchanged<br>
+- Discards loopback messages sender == self<br>
+- Discards messages from unapproved nodes<br>
+- Prioritizes forwarding over generation of new messages  </p>
+<h3 id="approved-node-ids">Approved Node IDs</h3>
+<ul>
+<li>0x43 – Christo  </li>
+<li>0x4C – Liam  </li>
+<li>0x49 – Isaiah (this node)  </li>
+<li>0x52 – Ragul  </li>
+<li>0x41 – Arianna  </li>
+<li>0x4D – Myles  </li>
+<li>0x44 – Damian  </li>
+<li>0x58 – Broadcast  </li>
+</ul>
 <h2 id="sensor-interface-i2c">Sensor Interface (I2C)</h2>
-<p>TC74 temperature sensor accessed via I2C1 at address 0x4C.  </p>
-<p>Temperature read:
-- Write register 0x0<br>
-- Read 1 byte (signed 8-bit value = °C)<br>
-- No calibration registers needed  </p>
-<p>I2C details:
-- Slave address: 0x4C<br>
-- Supports simple write-then-read<br>
-- Error recovery routine present i2c_recover()</p>
-<h2 id="packet-format-current-implementation">Packet Format (Current Implementation)</h2>
-<p>All messages use this exact 7 + data_len byte structure:</p>
+<p>TC74 temperature sensor accessed via I2C1.</p>
+<h3 id="address">Address</h3>
+<ul>
+<li>0x4C</li>
+</ul>
+<h3 id="read-procedure">Read Procedure</h3>
+<ul>
+<li>Write register 0x00</li>
+<li>Read 1 byte (signed 8-bit temperature in °C)</li>
+<li>Convert internally to scaled value:</li>
+<li>temperature × 100</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>No calibration required  </li>
+<li>I2C recovery routine included (i2c_recover())  </li>
+<li>Invalid reads are discarded (0xFF check)  </li>
+</ul>
+<h2 id="packet-format-fixed-64-byte-frame">Packet Format (Fixed 64-byte Frame)</h2>
 <table>
 <thead>
 <tr>
 <th>Byte(s)</th>
 <th>Content</th>
-<th>Type</th>
-<th>Value / Notes</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0–1</td>
-<td>Header</td>
-<td>uint8_t</td>
-<td>0x41 0x5A (“AZ”)</td>
+<td>Prefix</td>
+<td>0x41 0x5A ("AZ")</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Sender ID</td>
-<td>uint8_t</td>
-<td>MY_ID or other approved ID</td>
+<td>Node source</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Target ID</td>
-<td>uint8_t</td>
-<td>MY_ID, BCAST, or other</td>
+<td>Destination node</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Message Type mtype</td>
-<td>uint8_t</td>
-<td>See table below</td>
+<td>Message Type</td>
+<td>Defines message behavior</td>
 </tr>
 <tr>
-<td>5 … (5+data_len-1)</td>
-<td>Data</td>
-<td>uint8_t[]</td>
-<td>Variable length payload</td>
+<td>5–61</td>
+<td>Payload</td>
+<td>Up to 57 bytes</td>
 </tr>
 <tr>
-<td>(5+data_len)</td>
-<td>Footer byte 1</td>
-<td>uint8_t</td>
-<td>0x59 (“Y”)</td>
+<td>62</td>
+<td>Footer 1</td>
+<td>0x59 ("Y")</td>
 </tr>
 <tr>
-<td>(6+data_len)</td>
-<td>Footer byte 2</td>
-<td>uint8_t</td>
-<td>0x42 (“B”)</td>
+<td>63</td>
+<td>Footer 2</td>
+<td>0x42 ("B")</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>Maximum packet size: 128 bytes MAX_PKT  </li>
-<li>Packet is built with build_packet() and sent with send_pkt()  </li>
+<li>Fixed packet size: 64 bytes</li>
+<li>Built using build_packet()</li>
+<li>Transmitted using send_pkt()</li>
 </ul>
-<h2 id="message-types-used-current">Message Types Used (Current)</h2>
+<h2 id="message-types-current-implementation">Message Types (Current Implementation)</h2>
 <table>
 <thead>
 <tr>
 <th>mtype (hex)</th>
 <th>Description</th>
-<th>Data Length</th>
-<th>Data Content (current)</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0x08</td>
-<td>Temperature Data / Request</td>
-<td>1 byte</td>
-<td>Signed temperature (°C)</td>
+<td>MSG_TEMP</td>
+<td>Temperature data / direct request</td>
+</tr>
+<tr>
+<td>0x14</td>
+<td>MSG_REQUEST</td>
+<td>Request specific data type</td>
 </tr>
 <tr>
 <td>0x4B</td>
-<td>Acknowledgement (ACK)</td>
-<td>1 byte</td>
-<td>Original mtype that was received</td>
-</tr>
-<tr>
-<td>0x10</td>
-<td>Test / Periodic message (default)</td>
-<td>1 byte</td>
-<td>Current temperature byte</td>
+<td>MSG_ACK</td>
+<td>Acknowledgement</td>
 </tr>
 </tbody>
 </table>
+<h2 id="message-behavior">Message Behavior</h2>
+<h3 id="msg_temp-0x08">MSG_TEMP (0x08)</h3>
+<ul>
+<li>Contains temperature data or direct request response  </li>
+<li>Payload:</li>
+<li>Byte 0–1: temperature ×100 (LSB first)</li>
+<li>Used when:</li>
+<li>Responding to request</li>
+<li>Direct temperature query</li>
+</ul>
+<h3 id="msg_request-0x14">MSG_REQUEST (0x14)</h3>
+<ul>
+<li>Used to request data from a node  </li>
+<li>Payload:</li>
+<li>Byte 0: requested message type</li>
+</ul>
+<p>Example:
+- payload[0] = 0x08 = request temperature</p>
+<p>Behavior:
+- If request is temperature:
+  - TC74 is read
+  - Response is sent using MSG_TEMP</p>
+<h3 id="msg_ack-0x4b">MSG_ACK (0x4B)</h3>
+<ul>
+<li>Sent automatically after receiving valid messages (except ACK itself)</li>
+<li>Payload:</li>
+<li>Byte 0: original message type being acknowledged</li>
+</ul>
 <h2 id="incoming-message-handling">Incoming Message Handling</h2>
 <ol>
-<li>Validate prefix 0x41 0x5A and suffix 0x59 0x42.</li>
-<li>Discard if sender == MY_ID (loopback).</li>
-<li>Discard if sender not in approved list.</li>
-<li>If target == MY_ID:</li>
-<li>Send ACK (0x4B).</li>
-<li>If mtype == 0x08: read TC74 and reply immediately with 0x08 + temperature byte.</li>
-<li>If target == BCAST or approved node:</li>
-<li>Forward packet unchanged.</li>
-<li>Otherwise: drop.</li>
+<li>Validate packet prefix (0x41 0x5A) and suffix (0x59 0x42)</li>
+<li>Discard if sender == MY_ID (loopback protection)</li>
+<li>Discard if sender is not in approved list</li>
+<li>If receiver == MY_ID:</li>
+<li>Send ACK (unless message is already ACK)</li>
+<li>Handle message type:<ul>
+<li>MSG_REQUEST (0x14) = if payload[0] == 0x08 = send temperature</li>
+<li>MSG_TEMP (0x08) = treat as direct request = send temperature</li>
+<li>MSG_ACK (0x4B) = log acknowledgement</li>
+</ul>
+</li>
+<li>If receiver == BROADCAST:</li>
+<li>Forward packet unchanged</li>
+<li>If receiver is another approved node:</li>
+<li>Forward packet unchanged</li>
+<li>Otherwise:</li>
+<li>Drop packet</li>
 </ol>
 <h2 id="forwarding-behavior">Forwarding Behavior</h2>
 <ul>
-<li>Non-local messages are forwarded immediately (prioritized).</li>
-<li>No modification of forwarded packets.</li>
+<li>Non-local messages are forwarded immediately</li>
+<li>Packets are never modified during forwarding</li>
+<li>Forwarding has priority over transmission</li>
 </ul>
-<h2 id="sender-behavior">Sender Behavior</h2>
+<h2 id="transmission-behavior">Transmission Behavior</h2>
 <ul>
-<li>Periodic transmission every ~500 ms TX_RATE_MS.</li>
-<li>Uses non-blocking cooldown counter.</li>
-<li>Currently sends type 0x10 to test_target (default = BCAST) with 1-byte temperature.</li>
-<li>Change test_target, test_mtype, or data length in send_my_own_message() as needed.</li>
-<li>Transmission LED (RB0) blinks on every TX.</li>
+<li>No periodic transmissions</li>
+<li>Only transmits:</li>
+<li>In response to requests</li>
+<li>When sending ACKs</li>
+<li>LED (RB0) blinks on every TX and RX event</li>
 </ul>
-<h2 id="additional-features-in-code">Additional Features in Code</h2>
+<h2 id="additional-features">Additional Features</h2>
 <ul>
-<li>RX state machine WAIT_P1 / WAIT_P2 / COLLECT for reliable packet assembly.</li>
-<li>Debug output over UART (sender name, raw hex, ASCII data).</li>
-<li>RB0 LED blinks on every RX or TX.</li>
-<li>I2C timeout + recovery.</li>
-<li>Software reset on RB2 high.</li>
-<li>Interrupt enabled U1RXIE but RX is currently polled in main loop.</li>
-<li>
-<p>Ring buffer declared but unused.</p>
-</li>
-<li>
-<p>Too see the Hardware-V2 page click here: <a href="https://isaiahelixir1.github.io/isaiahelixer1.github.io/11-Hardware-V2/Hardware-V2/">Hardware V2</a></p>
-</li>
+<li>RX state machine: WAIT_P1 → WAIT_P2 → COLLECT</li>
+<li>Fixed 64-byte packet buffering</li>
+<li>UART debug output (hex + readable logs)</li>
+<li>I2C timeout + recovery system</li>
+<li>Software reset via RB2 input</li>
+<li>Interrupt-enabled UART RX (buffered via ring buffer)</li>
 </ul>
 
 
@@ -1636,6 +1771,9 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
 
 
 
+
+  
+  
 
 
 
@@ -1682,13 +1820,13 @@ It interfaces with a TC74 environmental temperature sensor using I2C and communi
         
         
           
-          <a href="../../11-Hardware-V2/Hardware-V2/" class="md-footer__link md-footer__link--next" aria-label="Next: Hardware V2">
+          <a href="../../11-Hardware-V2/Hardware-V2/" class="md-footer__link md-footer__link--next" aria-label="Next: Hardware V2.0">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Hardware V2
+                Hardware V2.0
               </div>
             </div>
             <div class="md-footer__button md-icon">
